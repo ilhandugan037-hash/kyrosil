@@ -8,41 +8,10 @@
     <meta name="description" content="View short summaries, game rules, and links for all Kyrosil games including Cargo Craze, Starbucks Barista, and Penalty Challenge.">
     <meta name="keywords" content="Kyrosil Games, Games Info, Cargo Craze, Starbucks, Penalty, Bonanza, KyrosJump">
     
+    <link rel="stylesheet" href="style.css?v=2.2">
+    
     <style>
-        /* style.css - KESİN FINAL SÜRÜM (Çalışan Şablon + Games Info Özel Stiller) */
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
-
-        :root {
-            --bg-dark: #0a0e17;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --neon-blue: #00f2ff;
-            --neon-purple: #bd00ff;
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
-            /* Games Info Vurgu Renkleri */
-            --game-accent: var(--neon-blue);
-            --game-cta: var(--neon-purple);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            background-image: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
-                              radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
-            min-height: 100vh;
-            display: flex; flex-direction: column;
-        }
-
-        /* --- HEADER/FOOTER GLOBAL STYLES (Çalışan Şablondan kopyalandı) --- */
-        header { position: sticky; top: 0; z-index: 1000; }
-        footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
-        .mega-menu-overlay { z-index: 2000; } 
-        main { flex: 1; padding: 20px 0; max-width: 100%; margin: 0 auto; width: 100%; }
-
-        /* --- GAMES INFO ÖZEL STİLLERİ --- */
+        /* Games Info Özel Stiller */
 
         .games-info-container {
             max-width: 1200px;
@@ -52,7 +21,7 @@
         .info-title {
             font-size: 3em;
             font-weight: 900;
-            color: var(--game-accent);
+            color: var(--neon-blue);
             text-align: center;
             margin-bottom: 10px;
             text-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
@@ -89,7 +58,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 15px;
-            border-bottom: 2px solid var(--game-accent);
+            border-bottom: 2px solid var(--neon-blue);
             padding-bottom: 10px;
         }
 
@@ -107,7 +76,7 @@
         }
         .game-card-header .prize-tag {
             font-size: 0.8em;
-            background: var(--game-cta);
+            background: var(--neon-purple);
             color: white;
             padding: 3px 8px;
             border-radius: 4px;
@@ -124,7 +93,7 @@
         
         .game-card-link {
             display: inline-block;
-            background-color: var(--game-cta);
+            background-color: var(--neon-purple);
             color: #fff;
             padding: 10px 20px;
             border-radius: 6px;
@@ -135,8 +104,8 @@
             text-align: center;
         }
         .game-card-link:hover {
-            background-color: var(--game-accent);
-            box-shadow: 0 0 15px var(--game-accent);
+            background-color: var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
             color: #000;
         }
 
@@ -235,37 +204,6 @@
 
     <footer></footer>
 
-    <script>
-        // Header ve Footer'ı çekme fonksiyonu
-        document.addEventListener("DOMContentLoaded", function() {
-            // Header'ı Çek
-            fetch('header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.querySelector('header').innerHTML = data;
-                });
-
-            // Footer'ı Çek
-            fetch('footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.querySelector('footer').innerHTML = data;
-                });
-        });
-        
-        // Mega Menü aç/kapa fonksiyonu
-        function toggleMenu() {
-            const overlay = document.getElementById('megaMenu');
-            if (!overlay) return; 
-
-            overlay.classList.toggle('active');
-            
-            if(overlay.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
