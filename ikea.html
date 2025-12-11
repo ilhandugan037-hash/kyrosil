@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyrosil IKEA Allen | Assembly Masters Game</title>
+
+    <meta name="description" content="Play Kyrosil IKEA Allen (Assembly Masters) to test your skills, assemble furniture, and win IKEA gift certificates (€, TL, kr).">
+    <meta name="keywords" content="Kyrosil Games, IKEA, Allen, Assembly, Gift Card, Prizes, Svenska">
+    
+    <style>
+        /* style.css - KESİN FINAL SÜRÜM */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+
+        :root {
+            --bg-dark: #0a0e17;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f2ff;
+            --neon-purple: #bd00ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            /* IKEA Özel Vurgu Renkleri */
+            --ikea-blue: #0058a3;
+            --ikea-yellow: #ffda1a;
+            --ikea-neon-yellow: #fff37a; /* Temaya uygun neon sarı */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            background-image: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+        }
+
+        /* --- HEADER STYLES (Modüler yapıyı desteklemek için gerekli) --- */
+        header { position: sticky; top: 0; z-index: 1000; }
+        .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
+        .trademark-link { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; color: #666; text-decoration: none; padding: 2px 5px; line-height: 1; white-space: nowrap; }
+        .trademark-link img { height: 12px; filter: brightness(0.85); }
+        .trademark-link strong { color: var(--neon-blue); font-weight: 700; }
+        .navbar-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.8rem 3rem; 
+            max-width: 100%; 
+            margin: 0 auto;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .logo-container { padding: 0; margin: 0; }
+        .logo-link { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-link img { height: 35px; vertical-align: middle; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--text-main); text-shadow: 0 0 10px rgba(0, 242, 255, 0.2); }
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .btn-login { background: var(--neon-blue); color: #000; padding: 0.5rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .menu-trigger { display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
+        .hamburger-icon { display: flex; flex-direction: column; gap: 5px; width: 25px; }
+        .hamburger-icon span { display: block; width: 100%; height: 2px; background: #fff; transition: 0.3s; }
+        .mobile-hidden { display: block; }
+        .mega-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(5, 8, 15, 0.98); backdrop-filter: blur(15px);
+            z-index: 2000; padding: 3rem; transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            display: flex; flex-direction: column; overflow-y: auto;
+        }
+        .mega-menu-overlay.active { transform: translateY(0); }
+        .menu-close { align-self: flex-end; cursor: pointer; color: #fff; font-weight: bold; font-size: 1.2rem; margin-bottom: 2rem; transition: 0.3s; }
+        .menu-content-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .menu-title { color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .overlay-links { list-style: none; }
+        .overlay-links li { margin-bottom: 15px; }
+        .overlay-links a { font-size: 1.5rem; color: #fff; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .games-grid a { color: #cbd5e1; text-decoration: none; font-size: 1rem; padding: 5px 0; transition: 0.3s; display: block; }
+
+        /* --- FOOTER STYLES --- */
+        footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
+        .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; }
+        .footer-col h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
+        .footer-col ul { list-style: none; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; transition: 0.3s; display: block; }
+        .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
+
+        /* --- IKEA ALLEN STİLLERİ (Neon Tema Uygulanmış) --- */
+        main { flex: 1; padding: 20px; max-width: 100%; margin: 0 auto; width: 100%; }
+        .kyrosil-landing-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--glass-bg); /* Koyu Arkaplan */
+            border-radius: 24px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-border);
+        }
+        .lang-switcher {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 15px !important;
+            margin-bottom: 30px !important;
+            flex-wrap: wrap !important;
+        }
+        .lang-switcher button {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: var(--text-muted) !important;
+            border: 1px solid var(--glass-border) !important;
+            padding: 10px 20px !important;
+            cursor: pointer !important;
+            border-radius: 8px !important;
+            transition: all 0.3s ease !important;
+            font-weight: 600 !important;
+            font-size: 1em !important;
+            min-width: 80px !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+        }
+        .lang-switcher button:hover, .lang-switcher button.active {
+            background: var(--ikea-blue) !important; /* IKEA Mavi Aktif */
+            color: var(--ikea-neon-yellow) !important; /* Neon Sarı Metin */
+            border-color: var(--ikea-neon-yellow) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 0 15px rgba(0, 88, 163, 0.7) !important;
+        }
+        .logos { margin-bottom: 30px; }
+        .logos img { max-height: 70px; filter: brightness(0.9); }
+        .hero-section h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            margin: 0 0 15px 0;
+            color: var(--text-main);
+            text-shadow: 0 0 15px rgba(255, 218, 26, 0.4);
+            background: linear-gradient(to right, var(--neon-blue), var(--ikea-neon-yellow), var(--neon-purple));
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-section p.subtitle {
+            font-size: 1.3em;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        .hero-section .play-button {
+            background: var(--ikea-neon-yellow); /* Neon Sarı Buton */
+            color: var(--bg-dark); /* Koyu Metin */
+            padding: 18px 55px;
+            border-radius: 12px;
+            font-size: 1.5em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 218, 26, 0.5);
+        }
+        .hero-section .play-button:hover {
+            transform: translateY(-4px) scale(1.03);
+            background: var(--neon-blue);
+            box-shadow: 0 0 25px var(--neon-blue);
+            color: #000;
+        }
+        .info-section { padding: 40px 0; text-align: center; }
+        .info-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--neon-blue);
+            border-bottom: 3px solid var(--neon-purple);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .cards-container { gap: 30px; }
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--neon-blue);
+        }
+        .card .icon { height: 64px; width: 64px; margin-bottom: 20px; fill: var(--ikea-neon-yellow); } /* SVG İçi Sarı */
+        .card h3 { font-size: 1.5em; margin-bottom: 10px; color: var(--text-main); }
+        .card p { color: var(--text-muted); }
+        .prize-card h3 { color: var(--ikea-blue); }
+        .prize-card .prize-amount {
+            font-size: 2em;
+            font-weight: 700;
+            margin: 15px 0;
+            color: var(--ikea-neon-yellow);
+            text-shadow: 0 0 8px rgba(255, 218, 26, 0.6);
+        }
+        
+        /* MOBİL UYUMLULUK AYARLARI */
+        @media (max-width: 768px) {
+            .kyrosil-landing-container { padding: 10px; }
+            .hero-section h1 { font-size: 2em; }
+            .hero-section p.subtitle { font-size: 1em; }
+            .hero-section .play-button { padding: 12px 30px; font-size: 1.2em; }
+            .info-section h2 { font-size: 1.8em; margin-bottom: 30px; }
+            .card { flex-basis: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main>
+        <div class="kyrosil-landing-container">
+            <section class="hero-section">
+                <div class="lang-switcher">
+                    <button onclick="switchLanguage('en')" class="active">English</button>
+                    <button onclick="switchLanguage('tr')">Türkçe</button>
+                    <button onclick="switchLanguage('sv')">Svenska</button>
+                </div>
+                
+                <div class="logos">
+                    <img src="https://i0.wp.com/kyrosil.eu/wp-content/uploads/2025/04/adsiz-tasarim.png" alt="Kyrosil Logo">
+                    <img src="https://i0.wp.com/kyrosil.eu/wp-content/uploads/2025/04/image-12.png" alt="IKEA Logo">
+                </div>
+                
+                <div id="en" class="content-section active">
+                    <h1>Assembly Masters: The Game</h1>
+                    <p class="subtitle">The ultimate IKEA assembly challenge is here! Test your skills, assemble iconic furniture, and win grand prizes. Do you have what it takes?</p>
+                    <div class="play-button-container">
+                        <a href="https://kyrosil.github.io/kyrosil-ikea-allen/" target="_blank" class="play-button">PLAY NOW!</a>
+                    </div>
+                </div>
+                
+                <div id="tr" class="content-section">
+                    <h1>Montaj Ustası: Oyun</h1>
+                    <p class="subtitle">En büyük IKEA montaj mücadelesi burada! Yeteneklerini test et, ikonik mobilyaları monte et ve büyük ödülleri kazan. Bu işin ustası sen misin?</p>
+                    <div class="play-button-container">
+                        <a href="https://kyrosil.github.io/kyrosil-ikea-allen/" target="_blank" class="play-button">HEMEN OYNA!</a>
+                    </div>
+                </div>
+                
+                <div id="sv" class="content-section">
+                    <h1>Monteringsmästare: Spelet</h1>
+                    <p class="subtitle">Den ultimata IKEA-monteringsutmaningen är här! Testa dina färdigheter, montera ikoniska möbler och vinn stora priser. Har du vad som krävs?</p>
+                    <div class="play-button-container">
+                        <a href="https://kyrosil.github.io/kyrosil-ikea-allen/" target="_blank" class="play-button">SPELA NU!</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <div id="en-info" class="content-section active">
+                    <h2>How to Play?</h2>
+                    <div class="cards-container">
+                        <div class="card">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--ikea-neon-yellow)"><path d="M12,1.75c-3.17,0-5.75,2.58-5.75,5.75S8.83,13.25,12,13.25s5.75-2.58,5.75-5.75S15.17,1.75,12,1.75ZM12,11.75c-2.34,0-4.25-1.91-4.25-4.25S9.66,3.25,12,3.25s4.25,1.91,4.25,4.25S14.34,11.75,12,11.75ZM12,14.75a7.25,7.25,0,0,0-7.25,7.25h14.5A7.25,7.25,0,0,0,12,14.75ZM5.25,20.75a6.25,6.25,0,0,1,11.5,0H5.25Z"></path></svg>
+                            <h3>1. Enter the Competition</h3>
+                            <p>Fill in your details and accept the terms. Remember, you have 3 lives each day to prove your skills.</p>
+                        </div>
+                        <div class="card">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--ikea-neon-yellow)"><path d="M21.93,10.29,19,7.36,19.05,2A1,1,0,0,0,18,1H13a1,1,0,0,0-1,1V3.25l-2-2A1,1,0,0,0,8.6,2.17L4.17,6.58A1,1,0,0,0,4.88,8H5v5a1,1,0,0,0,1,1H7V22a1,1,0,0,0,2,0V14h6v8a1,1,0,0,0,2,0V11a1,1,0,0,0,0-2h3.12a1,1,0,0,0,.71-1.71ZM17,12H11V8.64l4.5-4.5V6a1,1,0,0,0,1,1h.36ZM7,12V8h2v4Zm8-3V7.05l2.29,2.29Z"></path></svg>
+                            <h3>2. Assemble the Furniture</h3>
+                            <p>Drag and drop the parts to the correct places. Be careful! Wrong moves will cost you a life.</p>
+                        </div>
+                        <div class="card">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--ikea-neon-yellow)"><path d="M19.5,10H18V8.5A1.5,1.5,0,0,0,16.5,7h-9A1.5,1.5,0,0,0,6,8.5V10H4.5A1.5,1.5,0,0,0,3,11.5v9A1.5,1.5,0,0,0,4.5,22h15A1.5,1.5,0,0,0,21,20.5v-9A1.5,1.5,0,0,0,19.5,10Zm-15,1.5A.5.5,0,0,1,5,11h.5v9.5a.5.5,0,0,1-1,0ZM12,6a1,1,0,0,0-1-1H9A1,1,0,0,0,8,6V7h4ZM7,8.5a.5.5,0,0,1,.5-.5h8a.5.5,0,0,1,.5.5V10H7Zm13,12a.5.5,0,0,1-.5.5H18.5V11H19a.5.5,0,0,1,.5.5Z"></path><path d="M13,3.5a.5.5,0,0,0,0-1H11a.5.5,0,0,0,0,1Z"></path><path d="M16,5.5a.5.5,0,0,0,0-1H14a.5.5,0,0,0,0,1Z"></path><path d="M8,5.5a.5.5,0,0,0,0-1H6a.5.5,0,0,0,0,1Z"></path></svg>
+                            <h3>3. Win Prizes!</h3>
+                            <p>Complete prize levels (2, 4, &amp; 6) to win amazing IKEA gift certificates and claim your reward!</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="tr-info" class="content-section">
+                    <h2>Nasıl Oynanır?</h2>
+                    <div class="cards-container">
+                        <div class="card">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--ikea-neon-yellow)"><path d="M12,1.75c-3.17,0-5.75,2.58-5.75,5.75S8.83,13.25,12,13.25s5.75-2.58,5.75-5.75S15.17,1.75,12,1.75ZM12,11.75c-2.34,0-4.25-1.91-4.25-4.25S9.66,3.25,12,3.25s4.25,1.91,4.25,4.25S14.34,11.75,12,11.75ZM12,14.75a7.25,7.25,0,0,0-7.25,7.25h14.5A7.25,7.25,0,0,0,12,14.75ZM5.25,20.75a6.25,6.25,0,0,1,11.5,0H5.25Z"></path></svg>
+                            <h3>1. Yarışmaya Katıl</h3>
+                            <p>Bilgilerini doldur ve koşulları kabul et. Unutma, yeteneklerini kanıtlamak için her gün 3 can hakkın var.</p>
+                        </div>
+                        <div class="card">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--ikea-neon-yellow)"><path d="M21.93,10.29,19,7.36,19.05,2A1,1,0,0,0,18,1H13a1,1,0,0,0-1,1V3.25l-2-2A1,1,0,0,0,8.6,2.17L4.17,6.58A1,1,0,0,0,4.88,8H5v5a1,1,0,0,0,1,1H7V22a1,1,0,0,0,2,0V14h6v8a1,1,0,0,0,2,0V11a1,1,0,0,0,0-2h3.12a1,1,0,0,0,.71-1.71ZM17,12H11V8.64l4.5-4.5V6a1,1,0,0,0,1,1h.36ZM7,12V8h2v4Zm8-3V7.05l2.29,2.29Z"></path></svg>
+                            <h3>2. Mobilyayı Monte Et</h3>
+                            <p>Parçaları doğru yerlere sürükleyip bırak. Dikkatli ol! Yanlış hamleler bir canına mal olacak.</p>
+                        </div>
+                        <div class="card">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--ikea-neon-yellow)"><path d="M19.5,10H18V8.5A1.5,1.5,0,0,0,16.5,7h-9A1.5,1.5,0,0,0,6,8.5V10H4.5A1.5,1.5,0,0,0,3,11.5v9A1.5,1.5,0,0,0,4.5,22h15A1.5,1.5,0,0,0,21,20.5v-9A1.5,1.5,0,0,0,19.5,10Zm-15,1.5A.5.5,0,0,1,5,11h.5v9.5a.5.5,0,0,1-1,0ZM12,6a1,1,0,0,0-1-1H9A1,1,0,0,0,8,6V7h4ZM7,8.5a.5.5,0,0,1,.5-.5h8a.5.5,0,0,1,.5.5V10H7Zm13,12a.5.5,0,0,1-.5.5H18.5V11H19a.5.5,0,0,1,.5.5Z"></path><path d="M13,3.5a.5.5,0,0,0,0-1H11a.5.5,0,0,0,0,1Z"></path><path d="M16,5.5a.5.5,0,0,0,0-1H14a.5.5,0,0,0,0,1Z"></path><path d="M8,5.5a.5.5,0,0,0,0-1H6a.5.5,0,0,0,0,1Z"></path></svg>
+                            <h3>3. Ödülleri Kazan!</h3>
+                            <p>Harika IKEA hediye çeklerini kazanmak ve ödülünü almak için ödüllü seviyeleri (2, 4, &amp; 6) tamamla!</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="sv-info" class="content-section">
+                    <h2>Hur spelar man?</h2>
+                    <div class="cards-container">
+                        <div class="card">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--ikea-neon-yellow)"><path d="M12,1.75c-3.17,0-5.75,2.58-5.75,5.75S8.83,13.25,12,13.25s5.75-2.58,5.75-5.75S15.17,1.75,12,1.75ZM12,11.75c-2.34,0-4.25-1.91-4.25-4.25S9.66,3.25,12,3.25s4.25,1.91,4.25,4.25S14.34,11.75,12,11.75ZM12,14.75a7.25,7.25,0,0,0-7.25,7.25h14.5A7.25,7.25,0,0,0,12,14.75ZM5.25,20.75a6.25,6.25,0,0,1,11.5,0H5.25Z"></path></svg>
+                            <h3>1. Delta i tävlingen</h3>
+                            <p>Fyll i dina uppgifter och acceptera villkoren. Kom ihåg, du har 3 liv varje dag för att bevisa dina färdigheter.</p>
+                        </div>
+                        <div class="card">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--ikea-neon-yellow)"><path d="M21.93,10.29,19,7.36,19.05,2A1,1,0,0,0,18,1H13a1,1,0,0,0-1,1V3.25l-2-2A1,1,0,0,0,8.6,2.17L4.17,6.58A1,1,0,0,0,4.88,8H5v5a1,1,0,0,0,1,1H7V22a1,1,0,0,0,2,0V14h6v8a1,1,0,0,0,2,0V11a1,1,0,0,0,0-2h3.12a1,1,0,0,0,.71-1.71ZM17,12H11V8.64l4.5-4.5V6a1,1,0,0,0,1,1h.36ZM7,12V8h2v4Zm8-3V7.05l2.29,2.29Z"></path></svg>
+                            <h3>2. Montera möblerna</h3>
+                            <p>Dra och släpp delarna till rätt platser. Var försiktig! Fel drag kostar dig ett liv.</p>
+                        </div>
+                        <div class="card">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--ikea-neon-yellow)"><path d="M19.5,10H18V8.5A1.5,1.5,0,0,0,16.5,7h-9A1.5,1.5,0,0,0,6,8.5V10H4.5A1.5,1.5,0,0,0,3,11.5v9A1.5,1.5,0,0,0,4.5,22h15A1.5,1.5,0,0,0,21,20.5v-9A1.5,1.5,0,0,0,19.5,10Zm-15,1.5A.5.5,0,0,1,5,11h.5v9.5a.5.5,0,0,1-1,0ZM12,6a1,1,0,0,0-1-1H9A1,1,0,0,0,8,6V7h4ZM7,8.5a.5.5,0,0,1,.5-.5h8a.5.5,0,0,1,.5.5V10H7Zm13,12a.5.5,0,0,1-.5.5H18.5V11H19a.5.5,0,0,1,.5.5Z"></path><path d="M13,3.5a.5.5,0,0,0,0-1H11a.5.5,0,0,0,0,1Z"></path><path d="M16,5.5a.5.5,0,0,0,0-1H14a.5.5,0,0,0,0,1Z"></path><path d="M8,5.5a.5.5,0,0,0,0-1H6a.5.5,0,0,0,0,1Z"></path></svg>
+                            <h3>3. Vinn priser!</h3>
+                            <p>Slutför prisnivåer (2, 4, &amp; 6) för att vinna fantastiska IKEA-presentkort och hämta din belöning!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <div id="en-prizes" class="content-section active">
+                    <h2>The Prizes</h2>
+                    <div class="cards-container">
+                        <div class="card prize-card">
+                            <h3>Level 2</h3>
+                            <p>Complete the KALLAX shelf</p>
+                            <div class="prize-amount">€10</div>
+                        </div>
+                        <div class="card prize-card">
+                            <h3>Level 4</h3>
+                            <p>Master the BILLY bookcase</p>
+                            <div class="prize-amount">€50</div>
+                        </div>
+                        <div class="card prize-card">
+                            <h3>Level 6</h3>
+                            <p>Conquer the POÄNG armchair</p>
+                            <div class="prize-amount">€500</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tr-prizes" class="content-section">
+                    <h2>Ödüller</h2>
+                    <div class="cards-container">
+                        <div class="card prize-card">
+                            <h3>Seviye 2</h3>
+                            <p>KALLAX rafını tamamla</p>
+                            <div class="prize-amount">500 TL</div>
+                        </div>
+                        <div class="card prize-card">
+                            <h3>Seviye 4</h3>
+                            <p>BILLY kitaplıkta ustalaş</p>
+                            <div class="prize-amount">2.500 TL</div>
+                        </div>
+                        <div class="card prize-card">
+                            <h3>Seviye 6</h3>
+                            <p>POÄNG koltuğu fethet</p>
+                            <div class="prize-amount">25.000 TL</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sv-prizes" class="content-section">
+                    <h2>Priserna</h2>
+                    <div class="cards-container">
+                        <div class="card prize-card">
+                            <h3>Nivå 2</h3>
+                            <p>Slutför KALLAX hylla</p>
+                            <div class="prize-amount">120 kr</div>
+                        </div>
+                        <div class="card prize-card">
+                            <h3>Nivå 4</h3>
+                            <p>Bemästra BILLY bokhylla</p>
+                            <div class="prize-amount">600 kr</div>
+                        </div>
+                        <div class="card prize-card">
+                            <h3>Nivå 6</h3>
+                            <p>Erövra POÄNG fåtölj</p>
+                            <div class="prize-amount">6000 kr</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <p style="text-align: center; margin-top: 40px; font-size: 0.9em; color: var(--text-muted);">
+                *Reward vouchers are subject to regional availability and terms & conditions of IKEA. Kyrosil facilitates the reward distribution.
+            </p>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script>
+        // Header ve Footer'ı çekme fonksiyonu
+        document.addEventListener("DOMContentLoaded", function() {
+            // Header'ı Çek
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('header').innerHTML = data;
+                });
+
+            // Footer'ı Çek
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('footer').innerHTML = data;
+                });
+        });
+        
+        // Mega Menü aç/kapa fonksiyonu
+        function toggleMenu() {
+            const overlay = document.getElementById('megaMenu');
+            if (!overlay) return; 
+
+            overlay.classList.toggle('active');
+            
+            if(overlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // DİL GEÇİŞİ FONKSİYONU (Senin gönderdiğin koddan uyarlandı)
+        function switchLanguage(lang) {
+            // Tüm content-section'ları gizle
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Seçilen dilin tüm ilgili içeriğini göster
+            document.getElementById(lang).classList.add('active');
+            document.getElementById(lang + '-info').classList.add('active');
+            document.getElementById(lang + '-prizes').classList.add('active');
+            
+            // Aktif butonu güncelle
+            document.querySelectorAll('.lang-switcher button').forEach(button => {
+                button.classList.remove('active');
+                if (button.getAttribute('onclick') === `switchLanguage('${lang}')`) {
+                    button.classList.add('active');
+                }
+            });
+        }
+
+        // Sayfa yüklendiğinde varsayılan dil olarak 'en' i ayarla
+        document.addEventListener('DOMContentLoaded', () => {
+            switchLanguage('en');
+        });
+    </script>
+</body>
+</html>
