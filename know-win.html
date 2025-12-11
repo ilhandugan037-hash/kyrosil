@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know and Win! | Kyrosil & Burger King</title>
+
+    <meta name="description" content="Kyrosil 'Know and Win' game sponsored by Burger King. Answer 20 history questions correctly to win Whopper menus, Burger King balance, and cash prizes.">
+    <meta name="keywords" content="Kyrosil Games, Know and Win, Burger King, Quiz, History, Cash Prize">
+    
+    <style>
+        /* style.css - KESİN FINAL SÜRÜM */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+
+        :root {
+            --bg-dark: #0a0e17;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f2ff;
+            --neon-purple: #bd00ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            /* Burger King Vurgu Renkleri */
+            --bk-red: #d62d20;
+            --bk-neon-red: #ff5e5e; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            background-image: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+        }
+
+        /* --- HEADER STYLES (Modüler yapıyı desteklemek için gerekli) --- */
+        header { position: sticky; top: 0; z-index: 1000; }
+        .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
+        .trademark-link { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; color: #666; text-decoration: none; padding: 2px 5px; line-height: 1; white-space: nowrap; }
+        .trademark-link img { height: 12px; filter: brightness(0.85); }
+        .trademark-link strong { color: var(--neon-blue); font-weight: 700; }
+        .navbar-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.8rem 3rem; 
+            max-width: 100%; 
+            margin: 0 auto;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .logo-container { padding: 0; margin: 0; }
+        .logo-link { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-link img { height: 35px; vertical-align: middle; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--text-main); text-shadow: 0 0 10px rgba(0, 242, 255, 0.2); }
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .btn-login { background: var(--neon-blue); color: #000; padding: 0.5rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .menu-trigger { display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
+        .hamburger-icon { display: flex; flex-direction: column; gap: 5px; width: 25px; }
+        .hamburger-icon span { display: block; width: 100%; height: 2px; background: #fff; transition: 0.3s; }
+        .mobile-hidden { display: block; }
+        .mega-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(5, 8, 15, 0.98); backdrop-filter: blur(15px);
+            z-index: 2000; padding: 3rem; transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            display: flex; flex-direction: column; overflow-y: auto;
+        }
+        .mega-menu-overlay.active { transform: translateY(0); }
+        .menu-close { align-self: flex-end; cursor: pointer; color: #fff; font-weight: bold; font-size: 1.2rem; margin-bottom: 2rem; transition: 0.3s; }
+        .menu-content-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .menu-title { color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .overlay-links { list-style: none; }
+        .overlay-links li { margin-bottom: 15px; }
+        .overlay-links a { font-size: 1.5rem; color: #fff; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .games-grid a { color: #cbd5e1; text-decoration: none; font-size: 1rem; padding: 5px 0; transition: 0.3s; display: block; }
+
+        /* --- FOOTER STYLES --- */
+        footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
+        .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; }
+        .footer-col h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
+        .footer-col ul { list-style: none; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; transition: 0.3s; display: block; }
+        .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
+
+        /* --- KNOW & WIN STİLLERİ --- */
+        main { flex: 1; padding: 20px; max-width: 100%; margin: 0 auto; width: 100%; }
+        .kyrosil-final-page-v2 {
+            max-width: 700px;
+            margin: 40px auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 30px 40px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .promo-header {
+            display: flex; justify-content: center; align-items: center; gap: 25px; margin-bottom: 30px;
+        }
+        .promo-logo { max-width: 100px; height: auto; filter: brightness(0.9); }
+        
+        /* Dil Seçici Butonlar */
+        .promo-lang-switcher { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); }
+        .promo-lang-btn { 
+            padding: 10px 20px; font-weight: 600; color: var(--text-muted); 
+            background-color: transparent; border: none; border-radius: 8px 8px 0 0; 
+            border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.3s; 
+            font-size: 1em;
+        }
+        .promo-lang-btn.active { 
+            background-color: rgba(255, 255, 255, 0.05); 
+            color: var(--bk-neon-red); 
+            border-bottom-color: var(--bk-neon-red);
+        }
+        .promo-lang-btn:not(.active):hover { background-color: rgba(255, 255, 255, 0.03); color: #fff; }
+
+        /* Başlıklar */
+        .kyrosil-final-page-v2 h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+        }
+        .content-area h2 {
+            font-size: 1.8em;
+            color: var(--bk-neon-red);
+            border-bottom: 2px solid var(--glass-border);
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .content-area p {
+            font-size: 1.1em;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        /* Ödül Listesi */
+        .content-area ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            padding-left: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .content-area ul li {
+            font-size: 1em;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            border-left: 3px solid var(--bk-neon-red);
+            padding-left: 10px;
+        }
+        .content-area ul li b {
+            color: var(--neon-blue);
+            font-weight: 700;
+        }
+
+        /* Buton */
+        .promo-main-button {
+            display: inline-block;
+            background-color: var(--bk-red); 
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 0 20px rgba(214, 45, 32, 0.6);
+            transition: all 0.3s;
+            margin-top: 40px;
+        }
+        .promo-main-button:hover {
+            background-color: var(--neon-purple);
+            box-shadow: 0 0 30px var(--neon-purple);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        /* Dil Gösterimi Mantığı (CSS Based Toggle) */
+        .lang-tr-text, .lang-en-text { display: none; }
+        .kyrosil-final-page-v2.show-tr .lang-tr-text { display: block; }
+        .kyrosil-final-page-v2.show-en .lang-en-text { display: block; }
+        /* Butonlar için inline block */
+        .kyrosil-final-page-v2.show-tr .lang-tr-inline, 
+        .kyrosil-final-page-v2.show-en .lang-en-inline { display: inline; }
+
+
+        /* --- MOBİL UYUMLULUK AYARLARI --- */
+        @media (max-width: 768px) {
+            .kyrosil-final-page-v2 { margin: 20px 10px; padding: 20px 15px; }
+            .kyrosil-final-page-v2 h1 { font-size: 2em; }
+            .promo-logo { max-width: 80px; }
+            .content-area h2 { font-size: 1.5em; }
+            .content-area ul li { font-size: 0.9em; }
+            .promo-main-button { padding: 12px 30px; font-size: 1.1em; }
+        }
+    </style>
+</head>
+<body class="kyrosil-final-page-v2 show-en">
+
+    <header></header>
+
+    <main>
+        <div class="kyrosil-final-page-v2 show-en" id="know-win-container">
+            <div class="promo-header">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/adsiz-tasarim.png" alt="Kyrosil Logo" class="promo-logo">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-1.png" alt="Burger King Logo" class="promo-logo">
+            </div>
+
+            <div class="promo-lang-switcher">
+                <button class="promo-lang-btn" data-lang="tr">Türkçe</button>
+                <button class="promo-lang-btn active" data-lang="en">English</button>
+            </div>
+
+            <h1>
+                <span class="lang-tr-text lang-tr-inline">Kyrosil ile Bil Kazan!</span>
+                <span class="lang-en-text lang-en-inline">Know and Win with Kyrosil!</span>
+            </h1>
+
+            <div class="content-area">
+                <div class="lang-tr-text">
+                    <h2>Oyun Kuralları</h2>
+                    <p>20 soruluk tarih maratonuna hoş geldiniz! Zorluğu giderek artan soruları ve zaman sınırını aşarak kilometre taşlarına ulaşın, muhteşem ödüller kazanın. 4 farklı joker hakkınız stratejinize güç katacak!</p>
+                    <h2>Ödüller</h2>
+                    <ul>
+                        <li><b>5. Soru:</b> Burger King'den Whopper Menü!</li>
+                        <li><b>10. Soru:</b> BK'da geçerli 1000 TL / 20€ Bakiye!</li>
+                        <li><b>15. Soru:</b> BK'da geçerli 5000 TL / 120€ Bakiye!</li>
+                        <li><b>20. Soru:</b> 20.000 TL / 500€ Nakit Ödül!</li>
+                    </ul>
+                </div>
+                <div class="lang-en-text">
+                    <h2>Game Rules</h2>
+                    <p>Welcome to the 20-question history marathon! Answer progressively harder questions correctly, pass milestones, and win amazing prizes. Your 4 different jokers will empower your strategy!</p>
+                    <h2>Prizes</h2>
+                    <ul>
+                        <li><b>Question 5:</b> A Whopper Menu from Burger King!</li>
+                        <li><b>Question 10:</b> 1000 TL / 20€ Balance at BK!</li>
+                        <li><b>Question 15:</b> 5000 TL / 120€ Balance at BK!</li>
+                        <li><b>Question 20:</b> 20,000 TL / 500€ Cash Prize!</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <a href="#" class="promo-main-button" onclick="alert('The Kyrosil Know and Win game is currently offline for maintenance and updates.'); return false;">
+                <span class="lang-tr-text lang-tr-inline">HEMEN OYNA!</span>
+                <span class="lang-en-text lang-en-inline">PLAY NOW!</span>
+            </a>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script>
+        // Header ve Footer'ı çekme fonksiyonu
+        document.addEventListener("DOMContentLoaded", function() {
+            // Header'ı Çek
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('header').innerHTML = data;
+                });
+
+            // Footer'ı Çek
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('footer').innerHTML = data;
+                });
+        });
+
+        // DİL GEÇİŞİ FONKSİYONU
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('know-win-container');
+            const buttons = document.querySelectorAll('.promo-lang-btn');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Sınıfları değiştirerek içeriği göster/gizle
+                    container.classList.remove('show-tr', 'show-en');
+                    container.classList.add(`show-${lang}`);
+
+                    // Aktif butonu ayarla
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Başlangıç dilini ayarla (varsayılan: İngilizce)
+            const activeBtn = container.querySelector('.promo-lang-btn.active');
+            if (activeBtn) {
+                container.classList.add(`show-${activeBtn.getAttribute('data-lang')}`);
+            } else {
+                // Eğer yoksa, varsayılan olarak English'i aktif et
+                container.classList.add('show-en');
+                container.querySelector('.promo-lang-btn[data-lang="en"]').classList.add('active');
+            }
+        });
+        
+        // Mega Menü aç/kapa fonksiyonu
+        function toggleMenu() {
+            const overlay = document.getElementById('megaMenu');
+            if (!overlay) return; 
+
+            overlay.classList.toggle('active');
+            
+            if(overlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
