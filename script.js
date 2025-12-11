@@ -1,27 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
-    
-    // Header'ı Çek
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.querySelector('header').innerHTML = data;
-        });
-
-    // Footer'ı Çek
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.querySelector('footer').innerHTML = data;
-        });
+    // Header ve Footer Yükle
+    fetch('header.html').then(r => r.text()).then(d => document.querySelector('header').innerHTML = d);
+    fetch('footer.html').then(r => r.text()).then(d => document.querySelector('footer').innerHTML = d);
 });
 
-// Mobil Menü Aç/Kapa
+// YENİ MENÜ FONKSİYONU
 function toggleMenu() {
-    const menu = document.querySelector('.nav-scroll-container');
-    const list = document.getElementById('navMenu');
+    const overlay = document.getElementById('megaMenu');
+    overlay.classList.toggle('active');
     
-    // Mobilde nav-scroll-container gizli olduğu için class'ı listeye veriyoruz
-    if (window.innerWidth <= 768) {
-        list.classList.toggle('active');
+    // Menü açılınca arkadaki sayfa kaymasın diye body'i kilitliyoruz
+    if(overlay.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
     }
 }
