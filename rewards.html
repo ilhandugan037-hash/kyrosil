@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyrosil Rewards Bot | AI & Sponsor Integration</title>
+    <title>Kyrosil Reward Market | All Prizes</title>
 
-    <meta name="description" content="KyrosilRewards: The first fully integrated AI bot with sponsor brands like THY, Mavi, and Trendyol. Use commands to save memberships, track rewards, and chat with AI.">
-    <meta name="keywords" content="KyrosilRewards, AI Bot, Sponsor Rewards, THY, Trendyol, Mavi, Carrefour, Kyrosil Games">
+    <meta name="description" content="View the full list of prizes available through Kyrosil games, including cash, flights, gift cards, and more.">
+    <meta name="keywords" content="Kyrosil, Rewards, Prizes, Market, Cash, Gift Cards, THY, Adidas">
     
     <style>
-        /* style.css - KESİN FINAL SÜRÜM (Tüm Global Stiller Geri Yüklendi) */
+        /* style.css - KESİN FINAL SÜRÜM (Cargo Craze Şablonu + Rewards İçerik) */
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
 
         :root {
@@ -20,6 +20,10 @@
             --neon-purple: #bd00ff;
             --text-main: #ffffff;
             --text-muted: #94a3b8;
+            /* Rewards Özel Renkler */
+            --prize-gold: #ffc300;
+            --rewards-red: #ff5e5e; 
+            --rewards-purple: #9b59b6;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
@@ -33,7 +37,7 @@
             display: flex; flex-direction: column;
         }
 
-        /* --- HEADER STYLES --- */
+        /* --- HEADER STYLES (Çalışan Cargo Craze'den kopyalanmıştır.) --- */
         header { position: sticky; top: 0; z-index: 1000; }
         .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
@@ -85,128 +89,98 @@
         .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
 
-        /* --- SAYFA İÇİ ORTAK STİLLER --- */
-        /* KRİTİK DÜZELTME: Header'ın altına inmek için yeterli padding-top eklendi. */
+        /* --- REWARDS ÖZEL STİLLERİ --- */
         main { 
             flex: 1; 
-            padding: 120px 20px 20px 20px; /* 120px: Header ve Utility Bar'ın yüksekliğini temizlemek için */
+            padding: 20px; /* NİHAİ DÜZELTME: Sadece 20px padding korundu. Header altına inme görevi sisteme bırakıldı. */
             max-width: 100%; 
             margin: 0 auto; 
             width: 100%; 
         }
 
-        /* --- REWARDS BOT STİLLERİ --- */
-        .rewards-bot-container {
-            max-width: 800px;
-            margin: 40px auto;
+        .rewards-container {
+            max-width: 900px;
+            margin: 30px auto;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: 15px;
             padding: 40px;
-            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+        }
+
+        .rewards-title {
+            font-size: 3em;
+            font-weight: 900;
+            color: var(--prize-gold);
+            text-shadow: 0 0 15px rgba(255, 195, 0, 0.5); 
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .rewards-subtitle { 
+            font-size: 1.3em; 
+            color: var(--neon-purple); 
+            margin-bottom: 40px; 
+            font-weight: 500;
             text-align: center;
         }
-        .rewards-bot-container h2 {
-            color: var(--neon-purple);
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            font-weight: 700;
-            text-shadow: 0 0 15px rgba(189, 0, 255, 0.4);
-        }
-        .rewards-bot-container .slogan {
-            font-size: 1.3em;
+
+        .prize-section-title {
+            font-size: 2.2em;
             color: var(--neon-blue);
-            margin-bottom: 25px;
-            font-weight: 500;
-        }
-        .rewards-bot-container .bot-info { 
-            font-size: 1.1em; 
-            color: var(--text-muted); 
-            line-height: 1.7; 
-            margin-bottom: 30px; 
-            text-align: left;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            border-left: 5px solid var(--neon-blue);
-            border-radius: 5px;
-        }
-        .bot-info code {
-            background-color: rgba(0, 242, 255, 0.2);
-            padding: 2px 5px;
-            border-radius: 3px;
-            color: var(--text-main);
-            font-weight: 600;
+            border-bottom: 2px solid var(--rewards-red);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
 
-        /* Komut Tablosu */
-        .command-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 30px;
-            font-size: 0.95em;
+        .prize-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
-        .command-table th, .command-table td {
-            padding: 12px;
+
+        .prize-item {
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--glass-border);
-            text-align: left;
+            border-left: 5px solid var(--rewards-purple);
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s;
         }
-        .command-table th {
-            background-color: rgba(0, 242, 255, 0.1);
-            color: var(--neon-blue);
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        .command-table td {
-            color: var(--text-muted);
-        }
-        .command-table td:first-child {
-            color: var(--text-main);
-            font-weight: 600;
+        .prize-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.5);
         }
 
-        /* Buton */
-        .btn-launch-bot {
-            display: inline-block;
-            background-color: var(--neon-blue);
-            color: #000;
-            padding: 16px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
+        .prize-item strong {
+            display: block;
             font-size: 1.2em;
-            box-shadow: 0 0 25px rgba(0, 242, 255, 0.5);
-            transition: all 0.3s;
+            color: var(--prize-gold);
+            margin-bottom: 5px;
         }
-        .btn-launch-bot:hover {
-            background-color: var(--neon-purple);
-            color: #fff;
-            box-shadow: 0 0 30px var(--neon-purple);
-            transform: translateY(-2px);
+        .prize-item span {
+            color: var(--text-muted);
+            font-size: 0.9em;
         }
-        .alt-bilgi a { color: var(--neon-blue); text-decoration: none; }
-        
+
         /* DİL SEKMELERİ */
-        .bot-tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); }
-        .bot-tab-btn { padding: 12px 25px; font-weight: 600; color: var(--text-muted); background-color: transparent; border: none; border-radius: 8px 8px 0 0; border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.3s; }
-        .bot-tab-btn.active { background-color: var(--glass-bg); color: var(--neon-blue); border-bottom-color: var(--neon-blue); }
-        .bot-tab-btn:not(.active):hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
-        .bot-tab-content { display: none; padding-top: 20px; }
-        .bot-tab-content.active { display: block; }
+        .rewards-tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); }
+        .rewards-tab-btn { padding: 12px 25px; font-weight: 600; color: var(--text-muted); background-color: transparent; border: none; border-radius: 8px 8px 0 0; border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.3s; }
+        .rewards-tab-btn.active { background-color: var(--glass-bg); color: var(--rewards-purple); border-bottom-color: var(--rewards-purple); }
+        .rewards-tab-btn:not(.active):hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .rewards-tab-content { display: none; padding-top: 20px; }
+        .rewards-tab-content.active { display: block; }
 
 
         /* --- MOBİL UYUMLULUK AYARLARI --- */
         @media (max-width: 768px) {
-            /* Mobil görünümde daha az padding gerekebilir */
-            main { 
-                padding: 100px 10px 10px 10px; 
-            }
-            .rewards-bot-container { margin: 20px 10px; padding: 20px 15px; }
-            .rewards-bot-container h2 { font-size: 2em; }
-            .rewards-bot-container .slogan { font-size: 1.1em; }
-            .bot-tab-buttons { flex-direction: row; flex-wrap: wrap; gap: 0; } /* Sekmelerin alt alta inmesini engelledim */
-            .bot-tab-btn { flex: 1; min-width: 48%; }
-            .command-table th, .command-table td { font-size: 0.8em; padding: 10px; }
+            main { padding: 20px 10px 10px 10px; }
+            .rewards-container { padding: 20px 15px; margin: 20px 10px; }
+            .rewards-title { font-size: 2.2em; }
+            .rewards-subtitle { font-size: 1em; margin-bottom: 30px; }
+            .prize-section-title { font-size: 1.8em; }
         }
     </style>
 </head>
@@ -215,75 +189,59 @@
     <header></header>
 
     <main>
-        <div class="rewards-bot-container">
+        <div class="rewards-container">
+            <h2 class="rewards-title">Kyrosil Reward Market</h2>
+            <p class="rewards-subtitle">Play all Kyrosil games to collect prizes. View the full list of available rewards below.</p>
             
-            <div class="bot-tab-buttons">
-                <button class="bot-tab-btn active" data-tab="turkish">🇹🇷 Türkçe</button>
-                <button class="bot-tab-btn" data-tab="english">🇬🇧 English</button>
+            <div class="rewards-tab-buttons">
+                <button class="rewards-tab-btn active" data-tab="turkish">🇹🇷 Türkçe</button>
+                <button class="rewards-tab-btn" data-tab="english">🇬🇧 English</button>
             </div>
 
-            <div id="turkish" class="bot-tab-content active">
-                <h2 style="color: var(--neon-purple);">EU Portal'ın En Gelişmiş Botu Şimdi Kyrosil.eu'da!</h2>
-                <p class="slogan">Avrupa'nın Sponsor Markalarla <strong>İlk ve Tek Tam Entegre</strong> Yapay Zeka Botu KyrosilRewards ile Tanışın!</p>
-                
-                <p class="bot-info">
-                    KyrosilRewards ile <strong>tüm sponsor markalarla tam entegrasyonun ve anında işlemin</strong> keyfini çıkarın! <strong>THY, Mavi, CarrefourSA, Swiss, TikTak, Trendyol gibi</strong> favori markalarınız için <strong>üyelik bilgilerinizi kaydedin</strong> (<code>/sponsors</code> komutu). Bu kayıtlarla <strong>gelecekteki özel indirim kodlarını kullanmaya hazır olun!</strong> Gelişmiş yapay zeka ile sohbet edin, dil desteği için <code>/lang [en/tr]</code> kullanın.
-                </p>
-
-                <table class="command-table">
-                    <thead>
-                        <tr>
-                            <th>Komut</th>
-                            <th>Açıklama</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><code>/sponsors</code></td><td>Özel ödüller için sponsor markalardaki üyelik bilgilerinizi kaydeder.</td></tr>
-                        <tr><td><code>/rewards</code></td><td>Anlık aktif ve kazanılabilir ödülleri listeler.</td></tr>
-                        <tr><td><code>/myinfo</code></td><td>Sisteme kayıtlı bilgilerinizi (üyelikler, dil) gösterir.</td></tr>
-                        <tr><td><code>/reset</code></td><td>Tüm kayıtlı bilgilerinizi sıfırlar.</td></tr>
-                        <tr><td><code>/lang [en/tr]</code></td><td>Bot dilini değiştirir (İngilizce/Türkçe).</td></tr>
-                        <tr><td><code>/help</code></td><td>Tüm komutları listeler.</td></tr>
-                    </tbody>
-                </table>
-                <div class="kargo-buton-container-wp">
-                    <a href="https://kyrosil.github.io/kyrosilrewards/" target="_blank" rel="noopener noreferrer" class="btn-launch-bot">BOTU BAŞLAT!</a>
+            <div id="turkish" class="rewards-tab-content active">
+                <h3 class="prize-section-title">Büyük Ödüller (Tüm Oyunlarda Geçerli)</h3>
+                <div class="prize-list-grid">
+                    <div class="prize-item"><strong>5.000€ Nakit Ödül</strong> <span>(Kyrosil Daily, Know and Win)</span></div>
+                    <div class="prize-item"><strong>THY 1.000$ Hediye Kartı</strong> <span>(Kyrosil Daily)</span></div>
+                    <div class="prize-item"><strong>Santorini Tatili (3 Gece)</strong> <span>(Kyrosil Daily)</span></div>
+                    <div class="prize-item"><strong>Atina Tarih Turu</strong> <span>(Kyrosil Daily)</span></div>
+                    <div class="prize-item"><strong>10.000 TL Nakit Ödül</strong> <span>(Starbucks Barista Seviye 10)</span></div>
                 </div>
-                <p class="alt-bilgi" style="color: var(--text-muted);margin-top: 20px;">
-                    (Bot yeni sekmede açılır)<br>Sohbete başlayın ve markaların sunduğu fırsatları keşfedin!
-                </p>
+
+                <h3 class="prize-section-title">Hediye Çekleri & Bakiyeler</h3>
+                <div class="prize-list-grid">
+                    <div class="prize-item"><strong>Trendyol 50€ / 2.000₺ Çeki</strong> <span>(Cargo Craze, Daily)</span></div>
+                    <div class="prize-item"><strong>Adidas 100€ / 5.000₺ Çeki</strong> <span>(Penalty Challenge, Daily)</span></div>
+                    <div class="prize-item"><strong>CarrefourSA 50€ / 2.000₺ Çeki</strong> <span>(Taste Rain, Daily)</span></div>
+                    <div class="prize-item"><strong>Burger King 5.000 TL Bakiye</strong> <span>(Know and Win)</span></div>
+                    <div class="prize-item"><strong>Starbucks 1.000 TL Bakiye</strong> <span>(Barista Seviye 8)</span></div>
+                    <div class="prize-item"><strong>50 USDT / THY Tek Yön Bilet</strong> <span>(Kyrosil Daily)</span></div>
+                </div>
+
+                <p style="text-align: center; color: var(--rewards-purple); margin-top: 40px;">Ödüller sürekli güncellenmekte olup, güncel T&C'ler geçerlidir.</p>
             </div>
 
-            <div id="english" class="bot-tab-content">
-                <h2 style="color: var(--neon-purple);">EU Portal's Most Advanced Bot is Now at Kyrosil.eu!</h2>
-                <p class="slogan">Meet KyrosilRewards: Europe's <strong>First and Only Fully Integrated</strong> AI Bot with Sponsor Brands!</p>
-                
-                <p class="bot-info">
-                    Enjoy <strong>full integration with all sponsor brands and instant processing</strong> with KyrosilRewards! <strong>Save your membership information</strong> for your favorite brands <strong>such as THY, Mavi, CarrefourSA, Swiss, TikTak, Trendyol</strong> (<code>/sponsors</code> command). With these registrations, <strong>be ready to use special future discount codes!</strong> Chat with advanced AI, and use the <code>/lang [en/tr]</code> command for bilingual support.
-                </p>
-
-                <table class="command-table">
-                    <thead>
-                        <tr>
-                            <th>Command</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><code>/sponsors</code></td><td>Saves your membership information for sponsor brands for exclusive rewards.</td></tr>
-                        <tr><td><code>/rewards</code></td><td>Lists currently active and earnable rewards.</td></tr>
-                        <tr><td><code>/myinfo</code></td><td>Displays your registered information (memberships, language).</td></tr>
-                        <tr><td><code>/reset</code></td><td>Resets all your registered information.</td></tr>
-                        <tr><td><code>/lang [en/tr]</code></td><td>Changes the bot language (English/Turkish).</td></tr>
-                        <tr><td><code>/help</code></td><td>Lists all available commands.</td></tr>
-                    </tbody>
-                </table>
-                <div class="kargo-buton-container-wp">
-                    <a href="https://kyrosil.github.io/kyrosilrewards/" target="_blank" rel="noopener noreferrer" class="btn-launch-bot">LAUNCH BOT!</a>
+            <div id="english" class="rewards-tab-content">
+                <h3 class="prize-section-title">Grand Prizes (Valid in All Games)</h3>
+                <div class="prize-list-grid">
+                    <div class="prize-item"><strong>€5,000 Cash Prize</strong> <span>(Kyrosil Daily, Know and Win)</span></div>
+                    <div class="prize-item"><strong>Turkish Airlines $1,000 Gift Card</strong> <span>(Kyrosil Daily)</span></div>
+                    <div class="prize-item"><strong>Santorini Holiday (3 Nights)</strong> <span>(Kyrosil Daily)</span></div>
+                    <div class="prize-item"><strong>Athens History Tour</strong> <span>(Kyrosil Daily)</span></div>
+                    <div class="prize-item"><strong>€250 Cash Prize</strong> <span>(Starbucks Barista Level 10)</span></div>
                 </div>
-                <p class="alt-bilgi" style="color: var(--text-muted);margin-top: 20px;">
-                    (Bot opens in a new tab)<br>Start chatting and discover opportunities offered by brands!
-                </p>
+
+                <h3 class="prize-section-title">Vouchers & Credits</h3>
+                <div class="prize-list-grid">
+                    <div class="prize-item"><strong>Trendyol €50 / ₺2,000 Voucher</strong> <span>(Cargo Craze, Daily)</span></div>
+                    <div class="prize-item"><strong>Adidas €100 / ₺5,000 Voucher</strong> <span>(Penalty Challenge, Daily)</span></div>
+                    <div class="prize-item"><strong>CarrefourSA €50 / ₺2,000 Voucher</strong> <span>(Taste Rain, Daily)</span></div>
+                    <div class="prize-item"><strong>Burger King €120 Credit</strong> <span>(Know and Win)</span></div>
+                    <div class="prize-item"><strong>Starbucks €100 Credit</strong> <span>(Barista Level 8)</span></div>
+                    <div class="prize-item"><strong>50 USDT / THY One-Way Ticket</strong> <span>(Kyrosil Daily)</span></div>
+                </div>
+
+                <p style="text-align: center; color: var(--rewards-purple); margin-top: 40px;">Prizes are updated regularly, and current T&Cs apply.</p>
             </div>
         </div>
     </main>
@@ -307,12 +265,12 @@
                     document.querySelector('footer').innerHTML = data;
                 });
 
-            // Rewards Bot Sekme (Tab) fonksiyonu
-            const tabButtons = document.querySelectorAll('.bot-tab-btn');
-            const tabContents = document.querySelectorAll('.bot-tab-content');
+            // Sekme (Tab) fonksiyonu
+            const tabButtons = document.querySelectorAll('.rewards-tab-btn');
+            const tabContents = document.querySelectorAll('.rewards-tab-content');
 
             // Başlangıçta aktif sekme
-            let initialTab = document.querySelector('.bot-tab-btn.active');
+            let initialTab = document.querySelector('.rewards-tab-btn.active');
             if (initialTab) {
                 document.getElementById(initialTab.getAttribute('data-tab')).classList.add('active');
             }
@@ -333,7 +291,7 @@
             });
         });
         
-        // Mega Menü aç/kapa fonksiyonu (Header'dan bağımsız çalışması için burada tutuldu)
+        // Mega Menü aç/kapa fonksiyonu
         function toggleMenu() {
             const overlay = document.getElementById('megaMenu');
             if (!overlay) return; 
