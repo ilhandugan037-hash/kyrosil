@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyrosil Bonanza | Sweet Wins & Rewards</title>
+    <title>Kyrosil Bonanza Sweet Wins! | Games</title>
 
-    <meta name="description" content="Play Kyrosil Bonanza, the slot-style game to pop candies, multiply winnings, and win grand prizes like THY tickets, Adidas vouchers, and Starbucks credits.">
-    <meta name="keywords" content="Kyrosil Bonanza, Slot Game, THY, Adidas, Starbucks, Rewards, Kyroslira">
+    <meta name="description" content="Play Kyrosil Bonanza to win flight tickets, gift vouchers and cash prizes. Tumble feature, Free Spins and huge multipliers await!">
+    <meta name="keywords" content="Kyrosil Games, Bonanza, Sweet Bonanza, THY, Adidas, Starbucks, Rewards, Slot">
     
     <style>
-        /* style.css - KESİN FINAL SÜRÜM */
+        /* style.css - KESİN FINAL SÜRÜM (Starbucks Şablonundan alınan tüm Global CSS dahil) */
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
 
         :root {
@@ -20,9 +20,10 @@
             --neon-purple: #bd00ff;
             --text-main: #ffffff;
             --text-muted: #94a3b8;
-            /* Bonanza Vurgu Renkleri */
-            --bonanza-pink: #ff007f;
-            --bonanza-neon-pink: #ff66aa; 
+            /* Bonanza Özel Renkler */
+            --bonanza-pink: #ff007a;
+            --bonanza-neon: #ff6e9f; /* Neonlaştırılmış pembe ton */
+            --bonanza-yellow: #ffc300;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
@@ -36,7 +37,7 @@
             display: flex; flex-direction: column;
         }
 
-        /* --- HEADER STYLES (Modüler yapıyı desteklemek için gerekli) --- */
+        /* --- GLOBAL & HEADER/FOOTER STYLES (Çalışan Şablondan kopyalandı) --- */
         header { position: sticky; top: 0; z-index: 1000; }
         .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
@@ -71,7 +72,7 @@
         }
         .mega-menu-overlay.active { transform: translateY(0); }
         .menu-close { align-self: flex-end; cursor: pointer; color: #fff; font-weight: bold; font-size: 1.2rem; margin-bottom: 2rem; transition: 0.3s; }
-        .menu-content-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .menu-content-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 4rem; max-width: 1200px; width: 100%; }
         .menu-title { color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         .overlay-links { list-style: none; }
         .overlay-links li { margin-bottom: 15px; }
@@ -88,11 +89,18 @@
         .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
 
-        /* --- BONANZA STİLLERİ --- */
-        main { flex: 1; padding: 20px; max-width: 100%; margin: 0 auto; width: 100%; }
-        .kyrosil-final-page-v2 {
-            max-width: 700px;
-            margin: 40px auto;
+        /* --- BONANZA ÖZEL STİLLERİ --- */
+        main { 
+            flex: 1; 
+            padding: 120px 20px 20px 20px; /* KRİTİK DÜZELTME: Header altına inmesi için padding eklendi. */
+            max-width: 100%; 
+            margin: 0 auto; 
+            width: 100%; 
+        }
+
+        .bonanza-promo-container {
+            max-width: 650px;
+            margin: 30px auto;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: 15px;
@@ -100,166 +108,170 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.3);
             text-align: center;
         }
-        .promo-header {
-            display: flex; justify-content: center; align-items: center; gap: 25px; margin-bottom: 30px;
-        }
-        .promo-logo { max-width: 100px; height: auto; filter: brightness(0.9); }
-        
-        /* Dil Seçici Butonlar */
-        .promo-lang-switcher { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); }
-        .promo-lang-btn { 
-            padding: 10px 20px; font-weight: 600; color: var(--text-muted); 
-            background-color: transparent; border: none; border-radius: 8px 8px 0 0; 
-            border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.3s; 
-            font-size: 1em;
-        }
-        .promo-lang-btn.active { 
-            background-color: rgba(255, 255, 255, 0.05); 
-            color: var(--bonanza-neon-pink); 
-            border-bottom-color: var(--bonanza-neon-pink);
-        }
-        .promo-lang-btn:not(.active):hover { background-color: rgba(255, 255, 255, 0.03); color: #fff; }
 
-        /* Başlıklar */
-        .kyrosil-final-page-v2 h1 {
-            font-size: 2.8em;
+        /* Logo ve Başlık */
+        .bonanza-logo-container {
+            display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 25px;
+        }
+        .bonanza-logo { 
+            max-width: 120px; height: auto; 
+            filter: drop-shadow(0 0 5px rgba(255, 100, 200, 0.5)); /* Hafif Pembe Gölge */
+        }
+        .bonanza-title {
+            color: var(--bonanza-neon);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 2.2em;
             font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--neon-purple);
-            text-shadow: 0 0 10px rgba(189, 0, 255, 0.3);
+            text-shadow: 0 0 15px rgba(255, 110, 159, 0.5); 
         }
-        .content-area h2 {
-            font-size: 1.8em;
-            color: var(--bonanza-neon-pink);
-            border-bottom: 2px solid var(--glass-border);
-            padding-bottom: 5px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .content-area p {
+        .bonanza-slogan {
             font-size: 1.1em;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 20px;
+            color: var(--neon-blue);
+            margin-bottom: 25px;
+            font-weight: 500;
         }
+        .bonanza-aciklama { font-size: 1em; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
         
-        /* Ödül Listesi */
-        .content-area ul {
+        /* Ödül Kutusu */
+        .bonanza-odul-kutusu {
+            padding: 20px;
+            background-color: rgba(255, 0, 122, 0.1); /* Hafif pembe tonlu arkaplan */
+            border: 1px solid rgba(255, 0, 122, 0.3);
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .bonanza-odul-title {
+            color: var(--bonanza-neon);
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 8px;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            text-align:center;
+            font-weight: 600;
+        }
+        .bonanza-odul-list {
             list-style: none;
             padding: 0;
             margin: 0;
-            text-align: left;
-            padding-left: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
-            padding: 20px;
-        }
-        .content-area ul li {
             font-size: 1em;
-            color: var(--text-main);
-            margin-bottom: 10px;
-            border-left: 3px solid var(--bonanza-neon-pink);
-            padding-left: 10px;
+            color: var(--text-main); 
+            line-height: 1.7;
         }
-        .content-area ul li b {
-            color: var(--neon-blue);
-            font-weight: 700;
+        .bonanza-odul-list li {
+            position: relative;
+            padding-left: 20px;
+        }
+        .bonanza-odul-list li::before {
+            content: '🍬'; /* Şeker ikonları */
+            position: absolute;
+            left: 0;
+            color: var(--bonanza-yellow);
+        }
+        .bonanza-odul-list span { 
+            color: var(--bonanza-yellow); 
+            font-weight: 700; 
+            text-shadow: 0 0 5px rgba(255, 195, 0, 0.8); 
         }
 
         /* Buton */
-        .promo-main-button {
+        .bonanza-oyna-butonu {
             display: inline-block;
             background-color: var(--bonanza-pink); 
             color: #fff;
-            padding: 16px 40px;
+            padding: 14px 30px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2em;
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+            font-size: 1.15em;
+            box-shadow: 0 0 15px rgba(255, 0, 122, 0.4);
             transition: all 0.3s;
-            margin-top: 40px;
         }
-        .promo-main-button:hover {
-            background-color: var(--neon-blue);
-            box-shadow: 0 0 30px var(--neon-blue);
+        .bonanza-oyna-butonu:hover {
+            background-color: var(--bonanza-yellow);
+            color: var(--bg-dark);
+            box-shadow: 0 0 25px var(--bonanza-yellow);
             transform: translateY(-2px);
-            color: #000;
         }
 
-        /* Dil Gösterimi Mantığı (CSS Based Toggle) */
-        .lang-tr-text, .lang-en-text { display: none; }
-        .kyrosil-final-page-v2.show-tr .lang-tr-text { display: block; }
-        .kyrosil-final-page-v2.show-en .lang-en-text { display: block; }
-        /* Butonlar için inline block */
-        .kyrosil-final-page-v2.show-tr .lang-tr-inline, 
-        .kyrosil-final-page-v2.show-en .lang-en-inline { display: inline; }
-
+        /* DİL SEKMELERİ */
+        .bonanza-tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); }
+        .bonanza-tab-btn { padding: 12px 25px; font-weight: 600; color: var(--text-muted); background-color: transparent; border: none; border-radius: 8px 8px 0 0; border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.3s; }
+        .bonanza-tab-btn.active { background-color: var(--glass-bg); color: var(--bonanza-neon); border-bottom-color: var(--bonanza-neon); }
+        .bonanza-tab-btn:not(.active):hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .bonanza-tab-content { display: none; padding-top: 20px; }
+        .bonanza-tab-content.active { display: block; }
 
         /* --- MOBİL UYUMLULUK AYARLARI --- */
         @media (max-width: 768px) {
-            .kyrosil-final-page-v2 { margin: 20px 10px; padding: 20px 15px; }
-            .kyrosil-final-page-v2 h1 { font-size: 2em; }
-            .promo-logo { max-width: 80px; }
-            .content-area h2 { font-size: 1.5em; }
-            .content-area ul li { font-size: 0.9em; }
-            .promo-main-button { padding: 12px 30px; font-size: 1.1em; }
+            main { padding: 100px 10px 10px 10px; }
+            .bonanza-promo-container { margin: 20px 10px; padding: 20px 15px; }
+            .bonanza-title { font-size: 1.8em; }
         }
     </style>
 </head>
-<body class="kyrosil-final-page-v2 show-en">
+<body>
 
     <header></header>
 
     <main>
-        <div class="kyrosil-final-page-v2 show-en" id="bonanza-container">
-            <div class="promo-header">
-                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/adsiz-tasarim.png" alt="Kyrosil Logo" class="promo-logo">
+        <div class="bonanza-promo-container">
+            
+            <div class="bonanza-tab-buttons">
+                <button class="bonanza-tab-btn active" data-tab="turkish">🇹🇷 Türkçe</button>
+                <button class="bonanza-tab-btn" data-tab="english">🇬🇧 English</button>
             </div>
 
-            <div class="promo-lang-switcher">
-                <button class="promo-lang-btn" data-lang="tr">Türkçe</button>
-                <button class="promo-lang-btn active" data-lang="en">English</button>
-            </div>
-
-            <h1>
-                <span class="lang-tr-text lang-tr-inline">Kyrosil Bonanza ile Tatlı Kazançlar!</span>
-                <span class="lang-en-text lang-en-inline">Sweet Wins with Kyrosil Bonanza!</span>
-            </h1>
-
-            <div class="content-area">
-                <div class="lang-tr-text">
-                    <h2>Oyun Kuralları</h2>
-                    <p>5000 Kyroslira başlangıç bakiyenle şekerleri patlat, patlama (tumble) özelliği ile kazancını katla ve büyük ödüllere ulaş! En az 8 aynı sembolü bularak kazanmaya başla. 4 Scatter sembolü ise seni Bedava Çevirme bonus turuna götürür!</p>
-                    <h2>Ödüllerden Bazıları</h2>
-                    <ul>
-                        <li><b>THY Uçuş Biletleri</b></li>
-                        <li><b>Adidas Hediye Çekleri</b></li>
-                        <li><b>Starbucks &amp; Burger King Bakiyeleri</b></li>
-                        <li><b>...ve Market'teki daha fazlası!</b></li>
-                    </ul>
-                </div>
-                <div class="lang-en-text">
-                    <h2>Game Rules</h2>
-                    <p>Pop the candies with your 5000 Kyroslira starting balance, multiply your winnings with the tumble feature, and reach for the grand prizes! Win by finding at least 8 identical symbols. 4 Scatter symbols will take you to the Free Spins bonus round!</p>
-                    <h2>Some of the Prizes</h2>
-                    <ul>
-                        <li><b>THY Flight Tickets</b></li>
-                        <li><b>Adidas Gift Vouchers</b></li>
-                        <li><b>Starbucks &amp; Burger King Credits</b></li>
-                        <li><b>...and many more in the Market!</b></li>
-                    </ul>
+            <div id="turkish" class="bonanza-tab-content active">
+                <div class="bonanza-icerik-wp">
+                    <div class="bonanza-logo-container">
+                        <img src="https://i.imgur.com/eQ2Yt5O.png" alt="Bonanza Logo" class="bonanza-logo">
+                        <img src="https://kyrosil.wordpress.com/wp-content/uploads/2025/04/adsiz-tasarim.png?w=300" alt="Kyrosil Logo" class="bonanza-logo">
+                    </div>
+                    <h2 class="bonanza-title">🍬 Kyrosil Bonanza ile Tatlı Galibiyetler!</h2>
+                    <p class="bonanza-slogan">ÇOKLU KAZANÇLAR, ÜCRETSİZ DÖNDÜRMELER VE BÜYÜK ÖDÜLLER SENİ BEKLİYOR!</p>
+                    <p class="bonanza-aciklama">5000 Kyroslira başlangıç bakiyenle şekerleri patlat, çığ (tumble) özelliğiyle kazancını katla ve büyük ödüllere ulaş! En az 8 aynı sembolü bularak kazan. 4 Scatter sembolü seni Ücretsiz Döndürme (Free Spins) bonus turuna götürür!</p>
+                    <div class="bonanza-odul-kutusu">
+                        <h4 class="bonanza-odul-title">Kazanabileceğin Ödüller:</h4>
+                        <ul class="bonanza-odul-list">
+                            <li><span>THY Uçak Biletleri</span></li>
+                            <li><span>Adidas Hediye Çekleri</span></li>
+                            <li><span>Starbucks & Burger King Bakiyeleri</span></li>
+                            <li>Pazarda daha birçok <span>ekstra fırsat</span>!</li>
+                        </ul>
+                    </div>
+                    <div class="bonanza-buton-container">
+                        <a href="https://kyrosil.github.io/kyrosil-bonanza/" target="_blank" rel="noopener noreferrer" class="bonanza-oyna-butonu">HEMEN OYNA!</a>
+                    </div>
+                    <p class="starbucks-alt-bilgi" style="color: var(--text-muted);">(Oyun yeni sekmede açılır)<br>T&C'ler geçerlidir. Ödüller, oyun içi kazanımına göre sistem tarafından otomatik tanımlanacaktır.</p>
                 </div>
             </div>
-            
-            <a href="https://kyrosil.github.io/kyrosil-bonanza" target="_blank" class="promo-main-button">
-                <span class="lang-tr-text lang-tr-inline">HEMEN OYNA!</span>
-                <span class="lang-en-text lang-en-inline">PLAY NOW!</span>
-            </a>
-            
-            <p style="text-align: center; margin-top: 20px; font-size: 0.9em; color: var(--text-muted);">
-                *Winning requires reaching the minimum payout threshold and following the in-game instructions.
-            </p>
+
+            <div id="english" class="bonanza-tab-content">
+                <div class="bonanza-icerik-wp">
+                    <div class="bonanza-logo-container">
+                        <img src="https://i.imgur.com/eQ2Yt5O.png" alt="Bonanza Logo" class="bonanza-logo">
+                        <img src="https://kyrosil.wordpress.com/wp-content/uploads/2025/04/adsiz-tasarim.png?w=300" alt="Kyrosil Logo" class="bonanza-logo">
+                    </div>
+                    <h2 class="bonanza-title">🍭 Sweet Wins with Kyrosil Bonanza!</h2>
+                    <p class="bonanza-slogan">HUGE MULTIPLIERS, FREE SPINS, AND GRAND PRIZES AWAIT!</p>
+                    <p class="bonanza-aciklama">Pop the candies with your 5000 Kyroslira starting balance, multiply your winnings with the tumble feature, and reach for the grand prizes! Win by finding at least 8 identical symbols. 4 Scatter symbols will take you to the Free Spins bonus round!</p>
+                    <div class="bonanza-odul-kutusu">
+                        <h4 class="bonanza-odul-title">Prizes You Can Win:</h4>
+                        <ul class="bonanza-odul-list">
+                            <li><span>THY Flight Tickets</span></li>
+                            <li><span>Adidas Gift Vouchers</span></li>
+                            <li><span>Starbucks & Burger King Credits</span></li>
+                            <li>And many more <span>extra deals</span> in the Market!</li>
+                        </ul>
+                    </div>
+                    <div class="bonanza-buton-container">
+                        <a href="https://kyrosil.github.io/kyrosil-bonanza/" target="_blank" rel="noopener noreferrer" class="bonanza-oyna-butonu">PLAY NOW!</a>
+                    </div>
+                    <p class="starbucks-alt-bilgi" style="color: var(--text-muted);">(Game opens in a new tab)<br>T&Cs apply. Rewards will be automatically assigned by the system based on your in-game winnings.</p>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -281,36 +293,31 @@
                 .then(data => {
                     document.querySelector('footer').innerHTML = data;
                 });
-        });
 
-        // DİL GEÇİŞİ FONKSİYONU
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.getElementById('bonanza-container');
-            const buttons = document.querySelectorAll('.promo-lang-btn');
+            // Bonanza Sekme (Tab) fonksiyonu
+            const tabButtons = document.querySelectorAll('.bonanza-tab-btn');
+            const tabContents = document.querySelectorAll('.bonanza-tab-content');
 
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    
-                    // Sınıfları değiştirerek içeriği göster/gizle
-                    container.classList.remove('show-tr', 'show-en');
-                    container.classList.add(`show-${lang}`);
+            // Başlangıçta aktif sekme
+            let initialTab = document.querySelector('.bonanza-tab-btn.active');
+            if (initialTab) {
+                document.getElementById(initialTab.getAttribute('data-tab')).classList.add('active');
+            }
 
-                    // Aktif butonu ayarla
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    document.getElementById(tabId).classList.add('active');
                 });
             });
-
-            // Başlangıç dilini ayarla (varsayılan: English)
-            const activeBtn = container.querySelector('.promo-lang-btn.active');
-            if (activeBtn) {
-                container.classList.add(`show-${activeBtn.getAttribute('data-lang')}`);
-            } else {
-                // Eğer yoksa, varsayılan olarak English'i aktif et
-                container.classList.add('show-en');
-                container.querySelector('.promo-lang-btn[data-lang="en"]').classList.add('active');
-            }
         });
         
         // Mega Menü aç/kapa fonksiyonu
