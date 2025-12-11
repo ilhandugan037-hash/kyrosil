@@ -128,3 +128,47 @@ main { flex: 1; padding: 0; max-width: 100%; margin: 0 auto; width: 100%; }
     .footer-container { grid-template-columns: 1fr; text-align: center; }
     .footer-col h3 { border-left: none; border-bottom: 2px solid var(--neon-purple); padding-bottom: 5px; margin-top: 2rem; left: 50%; transform: translateX(-50%); }
 }
+
+/* MOBİLDE MEGA MENÜ TAMAMEN ALT ALTA, TEK SÜTUN, ZERO YATAY SCROLL */
+@media (max-width: 992px) {
+    .mega-menu-overlay.active {
+        padding: 2rem 1.5rem !important;
+    }
+
+    .menu-content-grid {
+        display: block !important;            /* grid’i tamamen öldür */
+        grid-template-columns: unset !important;
+    }
+
+    /* MAIN kısım (My Sponsors vs.) */
+    .overlay-links {
+        display: block !important;
+        margin-bottom: 3rem !important;
+    }
+    .overlay-links li {
+        margin-bottom: 1.8rem !important;
+    }
+    .overlay-links a {
+        font-size: 2rem !important;
+        display: block !important;
+    }
+
+    /* GAMES & APPS kısmı */
+    .games-grid {
+        display: block !important;
+        margin-top: 2rem !important;
+    }
+    .games-grid a {
+        display: block !important;
+        font-size: 1.4rem !important;
+        padding: 1rem 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        white-space: normal !important;
+    }
+
+    /* Bonus: başlıkların arası açılsın */
+    .menu-title {
+        margin-top: 3rem !important;
+        font-size: 0.9rem !important;
+    }
+}
