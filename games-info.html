@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyrosil Games Info | All Games & Apps</title>
+
+    <meta name="description" content="View short summaries, game rules, and links for all Kyrosil games including Cargo Craze, Starbucks Barista, and Penalty Challenge.">
+    <meta name="keywords" content="Kyrosil Games, Games Info, Cargo Craze, Starbucks, Penalty, Bonanza, KyrosJump">
+    
+    <style>
+        /* style.css - KESİN FINAL SÜRÜM (Çalışan Şablon + Games Info Özel Stiller) */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+
+        :root {
+            --bg-dark: #0a0e17;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f2ff;
+            --neon-purple: #bd00ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            /* Games Info Vurgu Renkleri */
+            --game-accent: var(--neon-blue);
+            --game-cta: var(--neon-purple);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            background-image: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+        }
+
+        /* --- HEADER/FOOTER GLOBAL STYLES (Çalışan Şablondan kopyalandı) --- */
+        header { position: sticky; top: 0; z-index: 1000; }
+        footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
+        .mega-menu-overlay { z-index: 2000; } 
+        main { flex: 1; padding: 20px 0; max-width: 100%; margin: 0 auto; width: 100%; }
+
+        /* --- GAMES INFO ÖZEL STİLLERİ --- */
+
+        .games-info-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .info-title {
+            font-size: 3em;
+            font-weight: 900;
+            color: var(--game-accent);
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
+        }
+        .info-subtitle {
+            font-size: 1.2em;
+            color: var(--neon-purple);
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .game-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 242, 255, 0.1);
+        }
+
+        .game-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--game-accent);
+            padding-bottom: 10px;
+        }
+
+        .game-card-header .icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: var(--neon-purple);
+        }
+
+        .game-card-header h3 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin: 0;
+            font-weight: 700;
+        }
+        .game-card-header .prize-tag {
+            font-size: 0.8em;
+            background: var(--game-cta);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .game-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            flex-grow: 1; 
+        }
+        
+        .game-card-link {
+            display: inline-block;
+            background-color: var(--game-cta);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .game-card-link:hover {
+            background-color: var(--game-accent);
+            box-shadow: 0 0 15px var(--game-accent);
+            color: #000;
+        }
+
+        /* Mobil Uyum */
+        @media (max-width: 768px) {
+            .info-title { font-size: 2.2em; }
+            .game-card-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 10px; }
+            .game-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main>
+        <div class="games-info-container">
+            <h1 class="info-title">Kyrosil Games Information Center</h1>
+            <p class="info-subtitle">Find short summaries, mechanics, and winning methods for all our games. Start playing now!</p>
+
+            <div class="game-card-grid">
+                
+                <div class="game-card">
+                    <div class="game-card-header">
+                        <span class="icon">☕</span>
+                        <h3>Starbucks Barista</h3>
+                        <span class="prize-tag">Balance & Cash</span>
+                    </div>
+                    <p>Prepare customer orders correctly to advance through the levels. Don't exceed the mistake limit! A grand cash prize awaits you upon reaching Level 10. Rewards are awarded in EUR/USD and TL.</p>
+                    <a href="starbucks.html" class="game-card-link">Go to Game →</a>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-card-header">
+                        <span class="icon">📦</span>
+                        <h3>Cargo Craze (Trendyol)</h3>
+                        <span class="prize-tag">Gift Voucher</span>
+                    </div>
+                    <p>A reflex game! Collect falling Trendyol logos and avoid rivals. Win Trendyol gift vouchers based on your accumulated score. You have 3 lives and 3 attempts per day in the game.</p>
+                    <a href="cargo-craze.html" class="game-card-link">Go to Game →</a>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-card-header">
+                        <span class="icon">🍬</span>
+                        <h3>Bonanza Deal</h3>
+                        <span class="prize-tag">Various Prizes</span>
+                    </div>
+                    <p>Pop candies with your 5000 Kyroslira starting balance, multiply winnings with the tumble feature, and reach for grand prizes in the Free Spins bonus round. THY tickets and Adidas vouchers are waiting.</p>
+                    <a href="bonanza.html" class="game-card-link">Go to Game →</a>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-card-header">
+                        <span class="icon">⚽</span>
+                        <h3>Adidas Penalty Challenge</h3>
+                        <span class="prize-tag">Gift Voucher</span>
+                    </div>
+                    <p>Test your soccer skills! Dodge the goalkeeper and score, then become the keeper to save the AI's shot. Win Adidas gift vouchers by increasing your successful shot and save count.</p>
+                    <a href="adidas-penalty.html" class="game-card-link">Go to Game →</a>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-card-header">
+                        <span class="icon">🧠</span>
+                        <h3>Know and Win (Quiz)</h3>
+                        <span class="prize-tag">Cash & Balance</span>
+                    </div>
+                    <p>A 20-question history and general knowledge marathon with increasing difficulty. Use your 4 different jokers strategically. Win Burger King credit and menus, with a grand cash prize at the end.</p>
+                    <a href="know-win.html" class="game-card-link">Go to Game →</a>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-card-header">
+                        <span class="icon">🎁</span>
+                        <h3>Kyrosil Daily</h3>
+                        <span class="prize-tag">Various Prizes</span>
+                    </div>
+                    <p>One free attempt per account, once every 24 hours. Gain instant access to grand cash prizes, THY tickets, holiday vouchers, and various brand gift cards. Easy to play, big to win.</p>
+                    <a href="kyrosil-daily.html" class="game-card-link">Go to Game →</a>
+                </div>
+                
+                <div class="game-card" style="opacity: 0.6;">
+                    <div class="game-card-header">
+                        <span class="icon">💡</span>
+                        <h3>Project Delta</h3>
+                        <span class="prize-tag">Coming Soon</span>
+                    </div>
+                    <p>The new Kyrosil app is currently under development. Stay tuned for updates and the release date on our social media channels!</p>
+                    <a href="#" class="game-card-link" style="background-color: var(--text-muted); pointer-events: none;">Coming Soon</a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script>
+        // Header ve Footer'ı çekme fonksiyonu
+        document.addEventListener("DOMContentLoaded", function() {
+            // Header'ı Çek
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('header').innerHTML = data;
+                });
+
+            // Footer'ı Çek
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('footer').innerHTML = data;
+                });
+        });
+        
+        // Mega Menü aç/kapa fonksiyonu
+        function toggleMenu() {
+            const overlay = document.getElementById('megaMenu');
+            if (!overlay) return; 
+
+            overlay.classList.toggle('active');
+            
+            if(overlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
