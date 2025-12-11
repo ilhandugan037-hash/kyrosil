@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
 // YENİ MENÜ FONKSİYONU
 function toggleMenu() {
     const overlay = document.getElementById('megaMenu');
+    if (!overlay) return; // megaMenu yüklenene kadar hatayı engellemek için
+
     overlay.classList.toggle('active');
     
     // Menü açılınca arkadaki sayfa kaymasın diye body'i kilitliyoruz
