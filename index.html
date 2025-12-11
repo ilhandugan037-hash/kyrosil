@@ -1,161 +1,235 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyrosil Global - NEXT GEN</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <title>Kyrosil – EU and NATO | Strategic Services & Games</title>
+    <meta name="description" content="Kyrosil – EU and NATO Historian & Strategic Services. Official giveaways, research articles, and exclusive collaborations with major brands like Starbucks, Adidas, and more.">
+    <meta name="keywords" content="Kyrosil, EU, NATO, Historian, Strategy, Giveaways, Starbucks, Adidas, Cargo Craze, KyrosJump, Research, European Union">
+    <meta name="author" content="Kyros İlhan Dugan">
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="style.css?v=2.2">
     <style>
-        /* CSS KODLARINI BURAYA GÖMDÜK - HATA RİSKİ SIFIR */
-        :root {
-            --bg-dark: #0a0e17;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --neon-blue: #00f2ff;
-            --neon-purple: #bd00ff;
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            background-image: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
-                              radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
-            min-height: 100vh;
-            display: flex; flex-direction: column;
-        }
-
-        /* HEADER */
-        header {
-            background: rgba(10, 14, 23, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 2rem;
-            position: sticky; top: 0; z-index: 1000;
-        }
-
-        .navbar-container {
-            display: flex; justify-content: space-between; align-items: center;
-            max-width: 1200px; margin: 0 auto;
-        }
-
-        .logo a {
-            font-size: 1.8rem; font-weight: 700; color: #fff; text-decoration: none;
-            text-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
-            letter-spacing: -1px;
-        }
-
-        .badge {
-            font-size: 0.7rem; background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-            padding: 3px 8px; border-radius: 20px; color: #000; font-weight: bold; margin-left: 8px;
-            vertical-align: middle; letter-spacing: 0;
-        }
-
-        /* MENÜ */
-        .nav-menu { display: flex; list-style: none; gap: 25px; align-items: center; }
-        .nav-link {
-            color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 0.95rem;
-            transition: 0.3s; position: relative;
-        }
-        .nav-link:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
-
-        /* BUTON */
-        .btn-primary {
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-            color: #fff; padding: 0.7rem 1.8rem; border-radius: 50px;
-            text-decoration: none; font-weight: 700; border: none;
-            box-shadow: 0 0 20px rgba(189, 0, 255, 0.3);
-            transition: transform 0.2s; display: inline-block;
-        }
-        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(189, 0, 255, 0.5); }
-
-        /* MAIN */
-        main { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem; text-align: center; flex: 1; }
+        /* Sadece Index.html için gerekli ek stiller (Style.css'e eklenebilir) */
         
-        h1 { 
-            font-size: 4.5rem; line-height: 1; margin-bottom: 1.5rem; 
-            background: linear-gradient(to right bottom, #fff, #a5f3fc);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-weight: 800; letter-spacing: -2px;
+        .hero-section {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; height: 70vh;
+            background-image: url('https://images.unsplash.com/photo-1620202931269-e0d5a37f5b3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzOTcwOTJ8MHwxfHNlYXJjaHw0fHxjdWJlciUyMGJsdWV8ZW58MHx8fHwxNzAzMzc3NzgzfDA&ixlib=rb-4.0.3&q=80&w=1080');
+            background-size: cover; background-position: center;
+            position: relative;
         }
 
-        .hero-desc { color: var(--text-muted); font-size: 1.3rem; max-width: 600px; margin: 0 auto 3rem auto; line-height: 1.6; }
-
-        /* MARQUEE (Kayan Yazı) */
-        .sponsor-wrapper { margin-top: 4rem; overflow: hidden; position: relative; }
-        .sponsor-wrapper::before, .sponsor-wrapper::after {
-            content: ""; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2;
+        .hero-section::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(3px);
+            z-index: 1;
         }
-        .sponsor-wrapper::before { left: 0; background: linear-gradient(to right, var(--bg-dark), transparent); }
-        .sponsor-wrapper::after { right: 0; background: linear-gradient(to left, var(--bg-dark), transparent); }
 
-        .sponsor-ticker { display: inline-block; white-space: nowrap; animation: scroll 30s linear infinite; }
-        .sponsor-item { 
-            display: inline-block; margin: 0 40px; font-weight: 700; font-size: 1.2rem;
-            color: rgba(255,255,255,0.3); transition: 0.3s; cursor: default;
+        .hero-content { z-index: 2; max-width: 800px; padding: 0 20px; }
+
+        .hero-title {
+            font-size: 3.5rem; font-weight: 900;
+            background: linear-gradient(to right, var(--neon-blue), #fff, var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
         }
-        .sponsor-item:hover { color: var(--neon-blue); text-shadow: 0 0 15px var(--neon-blue); }
 
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .hero-subtitle { font-size: 1.2rem; color: #fff; margin-bottom: 2rem; }
 
-        /* MOBİL */
-        .menu-toggle { display: none; font-size: 1.5rem; color: white; cursor: pointer; }
+        .action-buttons { display: flex; gap: 20px; justify-content: center; }
+
+        .action-btn {
+            padding: 15px 30px; text-decoration: none; border-radius: 8px;
+            font-weight: 700; font-size: 1rem; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 1px;
+            border: 2px solid;
+        }
+
+        .btn-research {
+            background: transparent; border-color: var(--neon-blue); color: var(--neon-blue);
+        }
+
+        .btn-play {
+            background: var(--neon-purple); border-color: var(--neon-purple); color: #fff;
+            box-shadow: 0 0 15px rgba(189, 0, 255, 0.4);
+        }
+
+        .btn-research:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 20px var(--neon-blue); }
+        .btn-play:hover { background: #fff; color: var(--neon-purple); }
+
+        /* --- Sponsor Marquee (Kayar Şerit) --- */
+        .marquee-strip {
+            background: rgba(0, 0, 0, 0.5); padding: 15px 0; border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border); overflow: hidden; white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block; animation: marquee 25s linear infinite;
+        }
+        .marquee-content span {
+            font-size: 1.5rem; font-weight: 500; color: var(--text-muted);
+            margin-right: 50px; text-transform: uppercase;
+        }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* --- Standart Bölüm Başlığı --- */
+        .section-header { text-align: center; margin: 4rem 0 2rem 0; }
+        .section-header h2 { font-size: 2rem; color: #fff; border-bottom: 3px solid var(--neon-blue); display: inline-block; padding-bottom: 10px; }
+
+        /* --- Araştırma Kartları --- */
+        .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .research-card {
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            padding: 20px; border-radius: 12px; transition: 0.3s;
+        }
+        .research-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15); }
+        .research-card h3 { color: var(--neon-blue); margin-bottom: 10px; }
+        .research-card p { font-size: 0.9rem; color: var(--text-muted); }
+        
+        /* --- Oyun Paneli (Grid) --- */
+        .games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 4rem; }
+        .game-item {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 10px; border-radius: 8px; text-decoration: none;
+            transition: all 0.3s ease-in-out; text-align: center;
+        }
+        .game-item:hover { 
+            transform: scale(1.05); 
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 20px rgba(189, 0, 255, 0.3);
+        }
+        .game-item .game-title { color: #fff; font-size: 1rem; font-weight: 600; margin-top: 10px; }
+        .game-icon { font-size: 2rem; color: var(--neon-blue); }
+
+        /* Mobil */
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .nav-menu { display: none; } /* Şimdilik mobilde menüyü gizledik, basit olsun */
-            .menu-toggle { display: block; }
+            .hero-title { font-size: 2.5rem; }
+            .action-buttons { flex-direction: column; }
+            .hero-section { height: 60vh; }
         }
+
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="navbar-container">
-            <div class="logo">
-                <a href="#">KYROSIL <span class="badge">EU & NATO</span></a>
-            </div>
-            <div class="menu-toggle">☰</div> <ul class="nav-menu">
-                <li><a href="#" class="nav-link">Sponsors</a></li>
-                <li><a href="#" class="nav-link">Projects</a></li>
-                <li><a href="#" class="nav-link">Giveaways</a></li>
-                <li><a href="#" class="nav-link">About Me</a></li>
-                <li><a href="#" class="btn-primary">Join EU Login</a></li>
-            </ul>
-        </div>
-    </header>
+    <header></header>
 
     <main>
-        <h1>GELECEĞİ <br> İNŞA EDİYORUZ.</h1>
-        <p class="hero-desc">
-            Kyrosil Global; Avrupa Birliği ve NATO standartlarında strateji, tarih ve teknoloji çözümleri sunan yeni nesil bir platformdur.
-        </p>
-        <a href="#" class="btn-primary">Projelerimi Keşfet</a>
+        
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">KYROSIL – EU AND NATO</h1>
+                <p class="hero-subtitle">Strategist. Historian. Innovator. Where European Geopolitics Meet Next-Gen Entertainment and Global Brands.</p>
+                <div class="action-buttons">
+                    <a href="research.html" class="action-btn btn-research">Access Strategic Research</a>
+                    <a href="giveaways.html" class="action-btn btn-play">Jump to Games & Giveaways!</a>
+                </div>
+            </div>
+        </section>
 
-        <div class="sponsor-wrapper">
-            <p style="color: var(--neon-blue); font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase;">Güçlü İş Ortaklarımız</p>
-            <div class="sponsor-ticker">
-                <span class="sponsor-item">ADIDAS</span>
-                <span class="sponsor-item">STARBUCKS BARISTA</span>
-                <span class="sponsor-item">IKEA ALLEN</span>
-                <span class="sponsor-item">BURGER KING</span>
-                <span class="sponsor-item">NATO</span>
-                <span class="sponsor-item">EUROPEAN UNION</span>
-                <span class="sponsor-item">CARGO CRAZE</span>
-                <span class="sponsor-item">KYROS JUMP</span>
-                <span class="sponsor-item">ADIDAS</span>
-                <span class="sponsor-item">STARBUCKS BARISTA</span>
-                <span class="sponsor-item">IKEA ALLEN</span>
-                <span class="sponsor-item">BURGER KING</span>
-                <span class="sponsor-item">NATO</span>
-                <span class="sponsor-item">EUROPEAN UNION</span>
-                <span class="sponsor-item">CARGO CRAZE</span>
-                <span class="sponsor-item">KYROS JUMP</span>
+        <div class="marquee-strip">
+            <div class="marquee-content">
+                <span>Coca-Cola</span>
+                <span>European Union</span>
+                <span>NATO</span>
+                <span>Starbucks</span>
+                <span>Audi</span>
+                <span>Pegasus Airlines</span>
+                <span>ETİ</span>
+                <span>Burger King</span>
+                <span>IKEA</span>
+                <span>Carrefour</span>
+                <span>Xiaomi</span>
+                <span>Unilever</span>
+                <span>Coca-Cola</span>
+                <span>European Union</span>
+                <span>NATO</span>
+                <span>Starbucks</span>
+                <span>Audi</span>
+                <span>Pegasus Airlines</span>
+                <span>ETİ</span>
+                <span>Burger King</span>
+                <span>IKEA</span>
+                <span>Carrefour</span>
+                <span>Xiaomi</span>
+                <span>Unilever</span>
             </div>
         </div>
+
+        <div class="section-header">
+            <h2>Featured Event</h2>
+        </div>
+        <section class="featured-event" style="background: linear-gradient(135deg, #1f013d 0%, #00f2ff20 100%); padding: 40px; border-radius: 12px; text-align: center; margin-bottom: 4rem;">
+            <h3 style="color: var(--neon-purple); font-size: 1.8rem;">Kyrosil Taste Rain: The Next Drop</h3>
+            <p style="color: #fff; font-size: 1.2rem; margin: 10px 0 20px 0;">Don't miss the biggest giveaway event of the season, sponsored by Coca-Cola and Starbucks.</p>
+            <div style="font-size: 2.5rem; color: var(--neon-blue); font-weight: 700; margin-bottom: 20px;">02 Gün 14 Saat 33 Dakika</div>
+            <a href="taste-rain.html" class="action-btn btn-play" style="background: var(--neon-blue); color: #000;">Join Now!</a>
+        </section>
+
+
+        <div class="section-header">
+            <h2>Latest Strategic Research</h2>
+        </div>
+        <section class="research-grid">
+            <div class="research-card">
+                <h3>Black Sea Security Dynamics</h3>
+                <p>An in-depth analysis of maritime security challenges and NATO's extended deterrence policy in the region.</p>
+                <a href="research-1.html" style="color: var(--neon-blue); text-decoration: none; font-weight: 600; display: block; margin-top: 10px;">Read Article →</a>
+            </div>
+            <div class="research-card">
+                <h3>EU's Digital Sovereignty</h3>
+                <p>The strategic implications of GDPR and AI regulation on data governance and global technological competition.</p>
+                <a href="research-2.html" style="color: var(--neon-blue); text-decoration: none; font-weight: 600; display: block; margin-top: 10px;">Read Article →</a>
+            </div>
+            <div class="research-card">
+                <h3>The Future of Hybrid Warfare</h3>
+                <p>Examining the blend of disinformation, cyberattacks, and kinetic actions in modern geopolitical conflicts.</p>
+                <a href="research-3.html" style="color: var(--neon-blue); text-decoration: none; font-weight: 600; display: block; margin-top: 10px;">Read Article →</a>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <h2>Kyrosil Games & Apps</h2>
+        </div>
+        <section class="games-grid">
+            <a href="kyrosjump.html" class="game-item">
+                <span class="game-icon">🎮</span>
+                <span class="game-title">KyrosJump!</span>
+            </a>
+            <a href="cargo-craze.html" class="game-item">
+                <span class="game-icon">📦</span>
+                <span class="game-title">Cargo Craze</span>
+            </a>
+            <a href="rewards.html" class="game-item">
+                <span class="game-icon">🤖</span>
+                <span class="game-title">Rewards Bot</span>
+            </a>
+            <a href="starbucks.html" class="game-item">
+                <span class="game-icon">☕</span>
+                <span class="game-title">Starbucks Barista</span>
+            </a>
+            <a href="ikea.html" class="game-item">
+                <span class="game-icon">🔨</span>
+                <span class="game-title">Ikea Allen</span>
+            </a>
+            <a href="spin-win.html" class="game-item">
+                <span class="game-icon">🎰</span>
+                <span class="game-title">Spin and Win!</span>
+            </a>
+        </section>
+
     </main>
 
+    <footer></footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
