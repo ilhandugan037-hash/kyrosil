@@ -9,7 +9,7 @@
     <meta name="keywords" content="Kyrosil, EU, NATO, Historian, Strategic Services, Founder">
     
     <style>
-        /* style.css - KYROSIL EU & NATO THEME FINAL V2.5 (TÜM CSS BİRLEŞTİRİLMİŞTİR) */
+        /* style.css - KESİN FINAL SÜRÜM */
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
 
         :root {
@@ -85,20 +85,16 @@
         .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
 
-        /* --- MAIN CONTENT & LAYOUT STYLES (Kısaltıldı) --- */
-        main { flex: 1; padding: 0; max-width: 100%; margin: 0 auto; width: 100%; }
-        .hero-title { font-size: 3.5rem; }
-        .marquee-content span { font-size: 1.5rem; }
-        .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .research-card { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 20px; border-radius: 12px; transition: 0.3s; }
-        .games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        /* --- ABOUT ME PAGE STYLES (Neon & Glassmorphism Conversion) --- */
+        /* --- ABOUT ME PAGE STYLES (Entegre Stiller + Gizleme Fix) --- */
         .kyrosil-about-me-container {
             max-width: 1000px; padding: 40px; margin: 40px auto; line-height: 1.7; color: var(--text-muted);
             background: var(--glass-bg); border-radius: 16px; border: 1px solid var(--glass-border);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); overflow: hidden;
         }
+        /* KRİTİK GİZLEME KURALI */
+        .kyrosil-tab-content { display: none; }
+        .kyrosil-tab-content.active { display: block; }
+
         .kyrosil-profile-img {
             max-width: 180px; border-radius: 50%; box-shadow: 0 0 30px var(--neon-purple);
             border: 5px solid var(--neon-blue); transition: all 0.5s;
@@ -118,9 +114,6 @@
             border: 1px solid rgba(255, 255, 255, 0.08); border-left-width: 5px; border-radius: 8px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .kyrosil-venture-card:hover {
-            transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 242, 255, 0.15); border-color: var(--neon-blue);
-        }
         .kyrosil-venture-card h4 { color: #fff; font-weight: 700; }
         .kyrosil-tab-buttons { margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); }
         .kyrosil-tab-btn {
@@ -131,15 +124,12 @@
             background-color: var(--glass-bg); color: var(--neon-blue);
             border-bottom-color: var(--neon-blue); transform: translateY(0); box-shadow: none;
         }
-        .kyrosil-tab-btn:not(.active):hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
-        .kyrosil-contact-btn { background-color: var(--neon-purple); box-shadow: 0 0 15px rgba(189, 0, 255, 0.4); }
         .kyrosil-contact-btn:hover { background-color: var(--neon-blue); box-shadow: 0 0 20px rgba(0, 242, 255, 0.5); color: #000; }
 
         /* --- MOBİL UYUMLULUK AYARLARI (Final ve Kritik Fix) --- */
         @media (max-width: 768px) {
             .hero-title { font-size: 2.5rem !important; line-height: 1.1; }
             h1 { font-size: 2.5rem !important; }
-            .section-header h2 { font-size: 1.5rem; }
             .navbar-top { padding: 0.8rem 1rem; }
             .logo-text { font-size: 1.1rem; }
             .logo-link img { height: 30px; }
@@ -277,7 +267,7 @@
                 <h3 class="kyrosil-section-title">Endüstriler ve Sektörler</h3>
                 <p>KyrosServices Global; ticaret, tekstil, inşaat, elektronik ödemeler ve danışmanlık hizmetleri dahil olmak üzere çeşitli sektörlerde faaliyet gösteren bir ana şirkettir. Şirketin çeşitli portföyü, geniş bir endüstri yelpazesinin ihtiyaçlarını karşılamak üzere tasarlanmıştır. Odağımız, müşteri memnuniyeti ve mükemmellik vurgusuyla dünya çapındaki müşterilere yüksek kaliteli ürün ve hizmetler sunmaktır.</p>
 
-                <h3 class="kyrosil-section-title">Türkiye'deki Bazı Operasyonlar</h3>
+                <h3 classil-section-title">Türkiye'deki Bazı Operasyonlar</h3>
                 <ul>
                     <li><strong>2 Burger King şubesi:</strong> Vadi İstanbul ve Bodrum Hilmiuran'da bulunan bu şubeler, müşteri memnuniyetini ve birinci sınıf bir deneyimi sürdürürken yüksek kaliteli fast food sunmaya odaklanmaktadır.</li>
                     <li><strong>1 Starbucks Loyalty şubesi:</strong> Bodrum Neyzen Tevfik'te yer alan bu Starbucks şubesi, küresel kahve markasını Türk müşterilere ulaştırarak premium kahveye ve kaliteli hizmete erişimlerini sağlar.</li>
@@ -399,7 +389,7 @@
         </div>
     </footer>
     <script>
-        // Mega Menü açma/kapama fonksiyonu (Header'dan kopyalandı)
+        // Header Mega Menü açma/kapama fonksiyonu (Header'dan kopyalandı)
         function toggleMenu() {
             const overlay = document.getElementById('megaMenu');
             overlay.classList.toggle('active');
