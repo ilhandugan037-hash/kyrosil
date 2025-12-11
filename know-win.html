@@ -9,7 +9,7 @@
     <meta name="keywords" content="Kyrosil Games, Know and Win, Burger King, Quiz, History, Cash Prize">
     
     <style>
-        /* style.css - KESİN FINAL SÜRÜM (Starbucks CSS'i korundu, renkler BK'ya göre güncellendi) */
+        /* style.css - KESİN FINAL SÜRÜM */
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
 
         :root {
@@ -20,8 +20,8 @@
             --neon-purple: #bd00ff;
             --text-main: #ffffff;
             --text-muted: #94a3b8;
-            /* Burger King Renkleri (Starbucks değişkenlerine atandı) */
-            --starbucks-green: #d62d20; /* BK Kırmızı */
+            /* RENKLER SADECE BURGER KING'E GÖRE DEĞİŞTİRİLDİ */
+            --starbucks-green: #d62d20; /* BK Ana Kırmızı */
             --starbucks-neon: #ff5e5e; /* BK Neon Kırmızı */
         }
 
@@ -88,7 +88,7 @@
         .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
 
-        /* --- ANA İÇERİK STİLLERİ (Starbucks Klasörleri Kullanıldı) --- */
+        /* --- ANA İÇERİK STİLLERİ (Starbucks Klasörleri Kullanıldı, BK için renkler ve fontlar güncellendi) --- */
         main { flex: 1; padding: 20px; max-width: 100%; margin: 0 auto; width: 100%; }
         .starbucks-promo-container {
             max-width: 650px;
@@ -105,16 +105,16 @@
         }
         .starbucks-logo { max-width: 120px; height: auto; filter: brightness(0.9); }
         .starbucks-title {
-            color: var(--neon-blue); /* Burger King'in ana başlık rengi için neon-blue kullandık */
+            color: var(--neon-blue); /* Burger King başlık rengi */
             margin-top: 0;
             margin-bottom: 10px;
-            font-size: 2.8em; /* BK boyutuna yaklaştırıldı */
+            font-size: 2.8em; 
             font-weight: 700;
             text-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
         }
         .starbucks-slogan {
             font-size: 1.1em;
-            color: var(--starbucks-neon);
+            color: var(--starbucks-neon); /* BK Kırmızı slogan */
             margin-bottom: 25px;
             font-weight: 500;
         }
@@ -123,7 +123,7 @@
         /* Ödül Kutusu */
         .starbucks-odul-kutusu {
             padding: 20px;
-            background-color: rgba(214, 45, 32, 0.15); /* BK Kırmızı tonlu arkaplan */
+            background-color: rgba(214, 45, 32, 0.15); /* BK Kırmızı arka plan */
             border: 1px solid rgba(214, 45, 32, 0.4);
             border-radius: 8px;
             margin-bottom: 25px;
@@ -134,7 +134,7 @@
             padding-bottom: 8px;
             margin: 0 0 15px 0;
             font-size: 1.3em;
-            text-align:left; /* BK içeriğine uyum sağlandı */
+            text-align:left;
             font-weight: 600;
         }
         .starbucks-odul-list {
@@ -155,11 +155,11 @@
             display: inline-block;
             background-color: var(--starbucks-green); 
             color: #fff;
-            padding: 16px 40px; /* BK Boyutuna yaklaştırıldı */
+            padding: 16px 40px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2em; /* BK Boyutuna yaklaştırıldı */
+            font-size: 1.2em;
             box-shadow: 0 0 20px rgba(214, 45, 32, 0.6);
             transition: all 0.3s;
             margin-top: 40px;
@@ -267,23 +267,27 @@
     <footer></footer>
 
     <script>
-        // Header ve Footer'ı çekme fonksiyonu (Starbucks JS'i korundu)
+        // Header ve Footer'ı çekme fonksiyonu
         document.addEventListener("DOMContentLoaded", function() {
-            // Header'ı Çek
+            // HEADER VE FOOTER FETCH İŞLEMLERİNİ TEMİZ BİR DENEME İÇİN KALDIRIYORUZ
+            // Bu kısım dışarıdan yüklenen o sorunlu EUIPO içeriğini gösteriyordu.
+            
+            /* YORUM SATIRINA ALINAN KODLAR
             fetch('header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.querySelector('header').innerHTML = data;
                 });
 
-            // Footer'ı Çek
             fetch('footer.html')
                 .then(response => response.text())
                 .then(data => {
                     document.querySelector('footer').innerHTML = data;
                 });
+            */
 
-            // Starbucks Sekme (Tab) fonksiyonu KORUNDU
+
+            // Starbucks Sekme (Tab) fonksiyonu (Korundu)
             const tabButtons = document.querySelectorAll('.starbucks-tab-btn');
             const tabContents = document.querySelectorAll('.starbucks-tab-content');
 
@@ -309,7 +313,7 @@
             });
         });
         
-        // Mega Menü aç/kapa fonksiyonu (Starbucks JS'i korundu)
+        // Mega Menü aç/kapa fonksiyonu
         function toggleMenu() {
             const overlay = document.getElementById('megaMenu');
             if (!overlay) return; 
