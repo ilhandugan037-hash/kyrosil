@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Research Articles | Kyrosil – EU and NATO</title>
+
+    <meta name="description" content="PDF archive of academic and strategic consultancy work by Kyros İlhan Dugan concerning the EU, NATO, and various Governments.">
+    <meta name="keywords" content="Kyrosil, Research, Articles, EU, NATO, History, Strategy, Publications, PDF">
+    
+    <style>
+        /* style.css - KESİN FINAL SÜRÜM */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+
+        :root {
+            --bg-dark: #0a0e17;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f2ff;
+            --neon-purple: #bd00ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            background-image: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+        }
+
+        /* --- HEADER STYLES --- */
+        header { position: sticky; top: 0; z-index: 1000; }
+        .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
+        .trademark-link { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; color: #666; text-decoration: none; padding: 2px 5px; line-height: 1; white-space: nowrap; }
+        .trademark-link img { height: 12px; filter: brightness(0.85); }
+        .trademark-link strong { color: var(--neon-blue); font-weight: 700; }
+        .navbar-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.8rem 3rem; 
+            max-width: 100%; 
+            margin: 0 auto;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .logo-container { padding: 0; margin: 0; }
+        .logo-link { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-link img { height: 35px; vertical-align: middle; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--text-main); text-shadow: 0 0 10px rgba(0, 242, 255, 0.2); }
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .btn-login { background: var(--neon-blue); color: #000; padding: 0.5rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .menu-trigger { display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
+        .hamburger-icon { display: flex; flex-direction: column; gap: 5px; width: 25px; }
+        .hamburger-icon span { display: block; width: 100%; height: 2px; background: #fff; transition: 0.3s; }
+        .mobile-hidden { display: block; }
+        .mega-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(5, 8, 15, 0.98); backdrop-filter: blur(15px);
+            z-index: 2000; padding: 3rem; transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            display: flex; flex-direction: column; overflow-y: auto;
+        }
+        .mega-menu-overlay.active { transform: translateY(0); }
+        .menu-close { align-self: flex-end; cursor: pointer; color: #fff; font-weight: bold; font-size: 1.2rem; margin-bottom: 2rem; transition: 0.3s; }
+        .menu-content-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .menu-title { color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .overlay-links { list-style: none; }
+        .overlay-links li { margin-bottom: 15px; }
+        .overlay-links a { font-size: 1.5rem; color: #fff; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .games-grid a { color: #cbd5e1; text-decoration: none; font-size: 1rem; padding: 5px 0; transition: 0.3s; display: block; }
+
+        /* --- FOOTER STYLES --- */
+        footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
+        .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; }
+        .footer-col h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
+        .footer-col ul { list-style: none; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; transition: 0.3s; display: block; }
+        .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
+
+        /* --- SAYFA İÇİ ORTAK STİLLER --- */
+        main { flex: 1; padding: 20px; max-width: 100%; margin: 0 auto; width: 100%; }
+        .section-header { text-align: center; margin: 4rem 0 2rem 0; }
+        .section-header h2 { font-size: 2rem; color: #fff; border-bottom: 3px solid var(--neon-blue); display: inline-block; padding-bottom: 10px; }
+        
+        /* --- RESEARCH PAGE STYLES (Neon & Dark Conversion) --- */
+        #research-archive-block {
+            max-width: 850px; /* Genişletildi */
+            margin: 40px auto;
+            padding: 30px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            line-height: 1.7;
+            color: var(--text-muted); /* Metin rengi */
+        }
+
+        /* Üst Logolar */
+        #research-archive-block > div:first-child {
+            border-bottom: 1px solid var(--glass-border) !important;
+            margin-bottom: 30px;
+        }
+
+        .research-archive-list h2 {
+            color: var(--neon-blue);
+            font-size: 1.9em;
+            text-shadow: 0 0 5px rgba(0, 242, 255, 0.2);
+        }
+
+        .research-archive-list p { color: var(--text-muted); }
+
+        .research-archive-list h3 {
+            color: var(--neon-purple) !important; /* Ay Başlığı */
+            border-bottom: 2px solid var(--glass-border) !important;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.5em;
+        }
+
+        .research-item {
+            border-bottom: 1px dashed rgba(255,255,255,0.1) !important; /* Kesik çizgi */
+        }
+        .research-item h4 {
+            font-size: 1.3em;
+            color: var(--text-main) !important; /* Makale Başlığı Beyaz/Parlak */
+            font-weight: 600;
+        }
+
+        /* İndirme Butonları (Dark/Neon) */
+        .download-links a {
+            text-decoration: none;
+            background-color: rgba(0, 242, 255, 0.05) !important; /* Çok hafif neon arka plan */
+            color: var(--neon-blue) !important;
+            padding: 5px 10px !important;
+            border-radius: 5px;
+            border: 1px solid var(--neon-blue) !important;
+            transition: all 0.3s;
+        }
+        .download-links a:hover {
+            background-color: var(--neon-blue) !important;
+            color: #000 !important;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+        .download-links strong { color: var(--text-main) !important; }
+        
+        /* Copyright */
+        .copyright-notice {
+            border-top: 1px solid var(--glass-border) !important;
+        }
+
+
+        /* --- MOBİL UYUMLULUK AYARLARI (Final ve Kritik Fix) --- */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem !important; line-height: 1.1; }
+            h1 { font-size: 2.5rem !important; }
+            .section-header h2 { font-size: 1.5rem; }
+            .navbar-top { padding: 0.8rem 1rem; }
+            .logo-text { font-size: 1.1rem; }
+            .logo-link img { height: 30px; }
+            .mega-menu-overlay { padding: 1rem; }
+            .menu-content-grid { grid-template-columns: 1fr; gap: 1.5rem; } 
+            .games-grid { grid-template-columns: 1fr; padding: 0 20px; } 
+            .games-grid a { white-space: normal; text-align: left; }
+            .footer-container { grid-template-columns: 1fr; text-align: center; }
+            .footer-col h3 { border-left: none; border-bottom: 2px solid var(--neon-purple); padding-bottom: 5px; margin-top: 2rem; left: 50%; transform: translateX(-50%); }
+            
+            #research-archive-block { margin: 20px 10px; padding: 15px; }
+            .research-item h4 { font-size: 1.1em; }
+            .download-links a { margin-right: 5px !important; margin-bottom: 5px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="utility-bar">
+            <div class="utility-content">
+                <a href="https://whois.eurid.eu/en/search/?domain=kyrosil.eu" target="_blank" class="trademark-link">
+                    <img src="https://whois.eurid.eu/static/dist/img/logo-euipo.78145eaa465c.png" alt="EUIPO Logo">
+                    <span><strong style="color:var(--neon-blue);">KYROSIL</strong> is also available as a European trade mark.</span>
+                </a>
+            </div>
+        </div>
+        <div class="navbar-top">
+            <div class="logo-container">
+                <a href="index.html" class="logo-link">
+                    <img src="https://i0.wp.com/kyrosil.eu/wp-content/uploads/2025/04/adsiz-tasarim.png" alt="Kyrosil Logo">
+                    <span class="logo-text">Kyrosil – EU and NATO</span>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="btn-login mobile-hidden" onclick="return false;">JOIN EU LOGIN</a>
+                <div class="menu-trigger" onclick="toggleMenu()">
+                    <span class="menu-text">MENU</span>
+                    <span class="hamburger-icon"><span></span><span></span></span>
+                </div>
+            </div>
+        </div>
+        <div class="mega-menu-overlay" id="megaMenu">
+            <div class="menu-close" onclick="toggleMenu()">✕ CLOSE</div>
+            <div class="menu-content-grid">
+                <div class="menu-section">
+                    <h4 class="menu-title">Main</h4>
+                    <ul class="overlay-links">
+                        <li><a href="sponsors.html">My Sponsors</a></li>
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="research.html">My Research Articles</a></li>
+                        <li><a href="giveaways.html">Giveaways!</a></li>
+                    </ul>
+                </div>
+                <div class="menu-section">
+                    <h4 class="menu-title">Games & Apps</h4>
+                    <div class="games-grid">
+                        <a href="spin-win.html">Spin and Win!</a>
+                        <a href="kyrosjump.html">KyrosJump!</a>
+                        <a href="cargo-craze.html">Kyrosil Cargo Craze</a>
+                        <a href="tiktak.html">Kyrosil Tiktak Kaçış</a>
+                        <a href="rewards.html">Kyrosil Rewards Bot</a>
+                        <a href="starbucks.html">Kyrosil Starbucks Barista</a>
+                        <a href="ikea.html">Kyrosil Ikea Allen</a>
+                        <a href="know-win.html">Know and Win</a>
+                        <a href="adidas.html">Kyrosil x Adidas Penalty</a>
+                        <a href="bonanza.html">Kyrosil Bonanza</a>
+                        <a href="daily.html">Kyrosil Daily</a>
+                        <a href="taste-rain.html">Kyrosil Taste Rain</a>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <h4 class="menu-title">Special</h4>
+                    <ul class="overlay-links">
+                        <li><a href="gifts.html" style="color: var(--neon-purple);">Special Gifts ✨</a></li>
+                        <li><a href="iyilik.html">İyilik Kazansın!</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="research-archive-block">
+            <div style="text-align: center;margin-bottom: 30px;padding-bottom: 20px;border-bottom: 1px solid #eee">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/cropped-adsiz_tasarim-removebg-preview.png?w=300" alt="Kyrosil Logo" title="Kyrosil" style="height: 55px;margin: 0 15px;vertical-align: middle; filter: brightness(0.9);">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-14.png?w=300" alt="EU Logo" title="European Union" style="height: 35px;margin: 0 15px;vertical-align: middle;opacity: 0.85">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-15.png?w=300" alt="NATO Logo" title="NATO" style="height: 35px;margin: 0 15px;vertical-align: middle;opacity: 0.85">
+            </div>
+
+            <div class="research-archive-list">
+                <h2 style="text-align: center;font-weight: 600;margin-bottom: 20px;">
+                    Research &amp; Articles
+                </h2>
+                <p style="font-size: 1.1em;line-height: 1.7;margin-bottom: 30px;max-width: 650px;margin-left: auto;margin-right: auto;text-align: center">
+                    Below you can find PDF versions of my past academic and strategic consultancy work concerning the EU, NATO, and various Governments. The archive is being updated, and more publications will be added over time. Download links for each available language are provided below. Please respect the copyright of these documents.
+                </p>
+
+                <div style="margin-top: 40px;text-align: left">
+
+                    <h3 style="text-align: center;">June 2025 Publications</h3>
+
+                    <div class="research-item">
+                        <h4>June 2, 2025 - The Cultural Heritage of Scandinavia</h4>
+                        <p style="font-size: 0.9em;margin-bottom: 12px">Pages: 281 | Kyrosil.eu Release: June 9, 2025</p>
+                        <div class="download-links">
+                            <strong style="display: inline-block;margin-bottom: 5px">Download:</strong><br>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇧 English PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇫🇷 Français PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇷 Ελληνικά PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇹🇷 Türkçe PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <h4>June 5, 2025 - The Renaissance Art of Italy</h4>
+                        <p style="font-size: 0.9em;margin-bottom: 12px">Pages: 229 | Kyrosil.eu Release: June 12, 2025</p>
+                        <div class="download-links">
+                            <strong style="display: inline-block;margin-bottom: 5px">Download:</strong><br>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇫🇷 Français PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇧 English PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <h4>June 18, 2025 - Global Trade Dynamics in the 21st Century</h4>
+                        <p style="font-size: 0.9em;margin-bottom: 12px">Pages: 331 | Kyrosil.eu Release: June 25, 2025</p>
+                        <div class="download-links">
+                            <strong style="display: inline-block;margin-bottom: 5px">Download:</strong><br>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇧 English PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇫🇷 Français PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇹🇷 Türkçe PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <h4>June 27, 2025 - Germany’s Industrial Revolution</h4>
+                        <p style="font-size: 0.9em;margin-bottom: 12px">Pages: 182 | Kyrosil.eu Release: July 4, 2025</p>
+                        <div class="download-links">
+                            <strong style="display: inline-block;margin-bottom: 5px">Download:</strong><br>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇸🇪 Svenska PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇧 English PDF</a>
+                        </div>
+                    </div>
+
+                    <h3 style="text-align: center;">April 2025 Publications</h3>
+
+                    <div class="research-item">
+                        <h4>April 10, 2025 - Greece and the Islands v4</h4>
+                        <p style="font-size: 0.9em;margin-bottom: 12px">Pages: 292 | Kyrosil.eu Release: April 17, 2025</p>
+                        <div class="download-links">
+                            <strong style="display: inline-block;margin-bottom: 5px">Download:</strong><br>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇷 Ελληνικά PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇧 English PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇹🇷 Türkçe PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <h4>April 16, 2025 - The Mysterious History of Norway</h4>
+                        <p style="font-size: 0.9em;margin-bottom: 12px">Pages: 183 | Kyrosil.eu Release: April 22, 2025</p>
+                        <div class="download-links">
+                            <strong style="display: inline-block;margin-bottom: 5px">Download:</strong><br>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇧 English PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <h4>April 18, 2025 - The United States and Military History</h4>
+                        <p style="font-size: 0.9em;margin-bottom: 12px">Pages: 319 | Kyrosil.eu Release: April 25, 2025</p>
+                        <div class="download-links">
+                            <strong style="display: inline-block;margin-bottom: 5px">Download:</strong><br>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇧 English PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇷 Ελληνικά PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇫🇷 Français PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇹🇷 Türkçe PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <h4>April 24, 2025 - France and Notre Dame</h4>
+                        <p style="font-size: 0.9em;margin-bottom: 12px">Pages: 226 | Kyrosil.eu Release: April 30, 2025</p>
+                        <div class="download-links">
+                            <strong style="display: inline-block;margin-bottom: 5px">Download:</strong><br>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇫🇷 Français PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇧 English PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <h4>April 29, 2025 - The Fall of the Berlin Wall!</h4>
+                        <p style="font-size: 0.9em;margin-bottom: 12px">Pages: 284 | Kyrosil.eu Release: May 6, 2025</p>
+                        <div class="download-links">
+                            <strong style="display: inline-block;margin-bottom: 5px">Download:</strong><br>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇩🇪 Deutsch PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇧 English PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇹🇷 Türkçe PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇬🇷 Ελληνικά PDF</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">🇫🇷 Français PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-notice" style="margin-top: 40px;padding-top: 20px;text-align: center">
+                <p style="font-size: 0.85em;line-height: 1.5">
+                    © 2025 Kyrosil. All rights reserved.<br>
+                    All research papers and articles presented here are the intellectual property of Kyrosil. Reproduction, distribution, or unauthorized use of this content without prior written permission is strictly prohibited and protected by international copyright laws.
+                </p>
+                <p style="font-size: 0.8em;margin-top: 5px">
+                    Tüm hakları saklıdır. Burada sunulan tüm araştırma makaleleri ve yazılar Kyrosil'in fikri mülkiyetindedir. Bu içeriğin önceden yazılı izin alınmaksızın çoğaltılması, dağıtılması veya yetkisiz kullanımı kesinlikle yasaktır ve uluslararası telif hakkı yasalarıyla korunmaktadır.
+                </p>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Kyrosil – EU and NATO</h3>
+                <p>As you navigate the complex tapestry of life, choices reveal paths that lead to extraordinary journeys and require creativity, curiosity, and courage for a truly fulfilling journey.</p>
+                <a href="#" class="eyp-btn">START YOUR DREAM WITH EYP</a>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p><strong>Address:</strong> Street 115, Φωτάκου<br>Locality 117 41, Attica, Greece (GR)</p>
+                <p><strong>Region:</strong> Subregion Southern Europe</p>
+                <p><strong>Mail:</strong> <a href="mailto:kyros@kyrosil.eu">kyros@kyrosil.eu</a></p>
+            </div>
+            <div class="footer-col">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="sponsors.html">My Sponsors</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="research.html">Research Articles</a></li>
+                    <li><a href="giveaways.html">Giveaways!</a></li>
+                    <li><a href="starbucks.html">Starbucks Barista</a></li>
+                    <li><a href="adidas.html">Adidas Penalty</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <div class="social-grid">
+                    <a href="#">IG</a><a href="#">Mail</a><a href="#">DA</a><a href="#">FB</a><a href="#">X</a><a href="#">YT</a><a href="#">IN</a><a href="#">Be</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <a href="https://whois.eurid.eu/en/search/?domain=kyrosil.eu" target="_blank" class="trademark-link">
+                <img src="https://whois.eurid.eu/static/dist/img/logo-euipo.78145eaa465c.png" alt="EUIPO Logo">
+                <span><strong style="color:var(--neon-blue);">KYROSIL</strong> is also available as a European trade mark.</span>
+            </a>
+            <div style="color: #555; font-size: 0.8rem;">Designed by Kyrosil &copy; 2025</div>
+        </div>
+    </footer>
+    <script>
+        // Mega Menü açma/kapama fonksiyonu (Header'dan kopyalandı)
+        function toggleMenu() {
+            const overlay = document.getElementById('megaMenu');
+            overlay.classList.toggle('active');
+            if(overlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
