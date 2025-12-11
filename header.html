@@ -5,30 +5,57 @@
         </a>
     </div>
 
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-    <a href="#" class="btn-login mobile-hidden">JOIN EU LOGIN</a>
+    <div class="nav-actions">
+        <a href="#" class="btn-login mobile-hidden">JOIN EU LOGIN</a>
+        
+        <div class="menu-trigger" onclick="toggleMenu()">
+            <span class="menu-text">MENU</span>
+            <span class="hamburger-icon">
+                <span></span>
+                <span></span>
+            </span>
+        </div>
+    </div>
 </div>
 
-<div class="nav-scroll-container">
-    <ul class="nav-menu" id="navMenu">
-        <li><a href="sponsors.html" class="nav-link">My Sponsors</a></li>
-        <li><a href="about.html" class="nav-link">About Me</a></li>
-        <li><a href="spin-win.html" class="nav-link">Spin and Win!</a></li>
-        <li><a href="kyrosjump.html" class="nav-link">KyrosJump!</a></li>
-        <li><a href="research.html" class="nav-link">My Research Articles</a></li>
-        <li><a href="giveaways.html" class="nav-link">Giveaways!</a></li>
-        <li><a href="iyilik.html" class="nav-link">İyilik Kazansın!</a></li>
-        <li><a href="cargo-craze.html" class="nav-link">Kyrosil Cargo Craze</a></li>
-        <li><a href="tiktak.html" class="nav-link">Kyrosil Tiktak Kaçış</a></li>
-        <li><a href="rewards.html" class="nav-link">Kyrosil Rewards Bot</a></li>
-        <li><a href="starbucks.html" class="nav-link">Kyrosil Starbucks Barista</a></li>
-        <li><a href="gifts.html" class="nav-link">Special Gifts</a></li>
-        <li><a href="ikea.html" class="nav-link">Kyrosil Ikea Allen</a></li>
-        <li><a href="know-win.html" class="nav-link">Know and Win</a></li>
-        <li><a href="adidas.html" class="nav-link">Kyrosil x Adidas Penalty</a></li>
-        <li><a href="bonanza.html" class="nav-link">Kyrosil Bonanza</a></li>
-        <li><a href="daily.html" class="nav-link">Kyrosil Daily</a></li>
-        <li><a href="taste-rain.html" class="nav-link">Kyrosil Taste Rain</a></li>
-    </ul>
+<div class="mega-menu-overlay" id="megaMenu">
+    <div class="menu-close" onclick="toggleMenu()">✕ CLOSE</div>
+    
+    <div class="menu-content-grid">
+        <div class="menu-section">
+            <h4 class="menu-title">Main</h4>
+            <ul class="overlay-links">
+                <li><a href="sponsors.html">My Sponsors</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="research.html">Research Articles</a></li>
+                <li><a href="giveaways.html">Giveaways!</a></li>
+            </ul>
+        </div>
+
+        <div class="menu-section">
+            <h4 class="menu-title">Games & Apps</h4>
+            <div class="games-grid">
+                <a href="spin-win.html">Spin and Win!</a>
+                <a href="kyrosjump.html">KyrosJump!</a>
+                <a href="cargo-craze.html">Cargo Craze</a>
+                <a href="tiktak.html">Tiktak Kaçış</a>
+                <a href="rewards.html">Rewards Bot</a>
+                <a href="starbucks.html">Starbucks Barista</a>
+                <a href="ikea.html">Ikea Allen</a>
+                <a href="know-win.html">Know & Win</a>
+                <a href="adidas.html">Adidas Penalty</a>
+                <a href="bonanza.html">Kyrosil Bonanza</a>
+                <a href="daily.html">Kyrosil Daily</a>
+                <a href="taste-rain.html">Taste Rain</a>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h4 class="menu-title">Special</h4>
+            <ul class="overlay-links">
+                <li><a href="gifts.html" style="color: var(--neon-purple);">Special Gifts ✨</a></li>
+                <li><a href="iyilik.html">İyilik Kazansın!</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
