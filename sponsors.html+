@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Sponsors & Partners | Kyrosil – EU and NATO</title>
+
+    <meta name="description" content="Official partners and sponsors of Kyrosil – EU and NATO. Collaborations with global brands like Coca-Cola, Starbucks, NATO, European Union, and more.">
+    <meta name="keywords" content="Kyrosil Sponsors, Kyrosil Partners, EU NATO Historian, Kyrosil Pegasus, Kyrosil Starbucks, Kyrosil ETI">
+    <meta name="author" content="Kyros İlhan Dugan">
+    <meta name="robots" content="index, follow">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* BU SAYFAYA ÖZEL STİLLER */
+        body { margin: 0; padding: 0; background-color: #0a0e17; } /* style.css gelmezse diye yedek */
+
+        .page-header {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: radial-gradient(circle at center, rgba(0, 242, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .page-title {
+            font-size: 3rem;
+            background: linear-gradient(to right, #fff, #00f2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle { color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        /* KATEGORİ BAŞLIKLARI */
+        .section-title {
+            text-align: center; margin: 4rem 0 2rem 0;
+            font-size: 1.5rem; letter-spacing: 2px; color: #fff;
+            position: relative; display: inline-block; left: 50%; transform: translateX(-50%);
+        }
+        .section-title::after {
+            content: ''; display: block; width: 60%; height: 3px; 
+            background: var(--neon-purple); margin: 10px auto 0 auto; border-radius: 2px;
+            box-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        /* LOGO GRID YAPISI */
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 30px;
+            max-width: 1200px; margin: 0 auto; padding: 0 20px;
+        }
+
+        /* SPONSOR KARTI (GLASSMORPHISM) */
+        .sponsor-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px 20px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* LOGO RESMİ */
+        .sponsor-card img {
+            max-width: 100%;
+            max-height: 70px;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(0.6); /* Başlangıçta gri ve soluk */
+            transition: 0.4s;
+        }
+
+        .sponsor-name {
+            margin-top: 15px;
+            color: #64748b;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        /* HOVER EFEKTLERİ (MOUSE ÜSTÜNE GELİNCE) */
+        .sponsor-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
+        }
+
+        .sponsor-card:hover img {
+            filter: grayscale(0%) opacity(1); /* Renkli ve net */
+            transform: scale(1.1);
+        }
+
+        .sponsor-card:hover .sponsor-name {
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* MAIN SPONSOR ÖZEL AYARI */
+        .main-sponsor-grid {
+            display: flex; justify-content: center; margin-bottom: 2rem;
+        }
+        .main-sponsor-grid .sponsor-card {
+            width: 300px; padding: 40px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,242,255,0.05));
+            border: 1px solid var(--neon-blue);
+        }
+        .main-sponsor-grid img { max-height: 100px; filter: grayscale(0%) opacity(1); } /* Main hep renkli */
+
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">GLOBAL PARTNERS</h1>
+            <p class="page-subtitle">Proudly co-funded and supported by world-leading organizations.</p>
+        </div>
+
+        <div class="section-title">MAIN SPONSOR</div>
+        <div class="main-sponsor-grid">
+            <a href="https://www.coca-cola.com" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.eu/wp-content/uploads/2025/04/image-5.png" alt="Coca Cola">
+                <div class="sponsor-name">COCA-COLA</div>
+            </a>
+        </div>
+
+        <div class="section-title" style="margin-top: 1rem;">CO-FUNDED BY</div>
+        <div class="sponsor-grid" style="justify-content: center; display: flex; flex-wrap: wrap;">
+            <a href="https://europa.eu" target="_blank" class="sponsor-card" style="width: 200px;">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-14.png?w=300" alt="European Union">
+                <div class="sponsor-name">EUROPEAN UNION</div>
+            </a>
+            <a href="https://www.nato.int" target="_blank" class="sponsor-card" style="width: 200px;">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-15.png?w=300" alt="NATO">
+                <div class="sponsor-name">NATO</div>
+            </a>
+        </div>
+
+        <div class="section-title">STRATEGIC PARTNERS</div>
+        <div class="sponsor-grid">
+            
+            <a href="https://www.flypgs.com" target="_blank" class="sponsor-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Pegasus_Airlines_logo.svg" alt="Pegasus">
+                <div class="sponsor-name">PEGASUS AIRLINES</div>
+            </a>
+
+            <a href="https://www.etietieti.com" target="_blank" class="sponsor-card">
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Eti_logo.svg" alt="ETİ">
+                <div class="sponsor-name">ETİ</div>
+            </a>
+
+            <a href="https://www.audi.com" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-2.png?w=300" alt="Audi">
+                <div class="sponsor-name">Audi</div>
+            </a>
+            
+            <a href="https://www.starbucks.com" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-7.png?w=150" alt="Starbucks">
+                <div class="sponsor-name">Starbucks</div>
+            </a>
+
+            <a href="https://www.burgerking.com" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-1.png?w=138" alt="Burger King">
+                <div class="sponsor-name">Burger King</div>
+            </a>
+
+            <a href="https://www.nestle.com" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-3.png?w=300" alt="Nestle">
+                <div class="sponsor-name">Nestle</div>
+            </a>
+
+            <a href="https://www.swiss.com" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-4.png?w=300" alt="Swiss Air">
+                <div class="sponsor-name">Swiss Air</div>
+            </a>
+
+            <a href="https://www.iga.com" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-6.png?w=300" alt="IGA">
+                <div class="sponsor-name">IGA</div>
+            </a>
+
+            <a href="https://www.tiktakkirala.com/" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/indir-1.png?w=150" alt="Tiktak">
+                <div class="sponsor-name">Tiktak</div>
+            </a>
+
+            <a href="https://www.turkcell.com.tr" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-8.png?w=300" alt="Turkcell">
+                <div class="sponsor-name">Turkcell</div>
+            </a>
+
+            <a href="https://www.mi.com" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-9.png?w=300" alt="Xiaomi">
+                <div class="sponsor-name">Xiaomi</div>
+            </a>
+
+            <a href="https://www.ikea.com" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-12.png?w=300" alt="IKEA">
+                <div class="sponsor-name">IKEA</div>
+            </a>
+
+            <a href="https://www.carrefour.com" target="_blank" class="sponsor-card">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-17.png?w=300" alt="Carrefour">
+                <div class="sponsor-name">Carrefour</div>
+            </a>
+            
+            <a href="https://en.aegeanair.com/" target="_blank" class="sponsor-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Aegean_Airlines_Logo_2020.svg/2560px-Aegean_Airlines_Logo_2020.svg.png" alt="Aegean">
+                <div class="sponsor-name">Aegean Airlines</div>
+            </a>
+        </div>
+        
+        <div style="height: 50px;"></div> </main>
+
+    <footer></footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
