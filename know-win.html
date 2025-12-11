@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Know and Win! | Kyrosil & Burger King</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Know and Win! | Kyrosil & Burger King</title>
 
-    <meta name="description" content="Kyrosil 'Know and Win' game sponsored by Burger King. Answer 20 history questions correctly to win Whopper menus, Burger King balance, and cash prizes.">
-    <meta name="keywords" content="Kyrosil Games, Know and Win, Burger King, Quiz, History, Cash Prize">
-        
-    <style>
-            /* style.css - KESİN FINAL SÜRÜM (Starbucks CSS'i korunuyor) */
-            @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+    <meta name="description" content="Kyrosil 'Know and Win' game sponsored by Burger King. Answer 20 history questions correctly to win Whopper menus, Burger King balance, and cash prizes.">
+    <meta name="keywords" content="Kyrosil Games, Know and Win, Burger King, Quiz, History, Cash Prize">
+    
+    <style>
+        /* style.css - KESİN FINAL SÜRÜM (Starbucks CSS'i korundu, renkler BK'ya göre güncellendi) */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
 
-            :root {
-                --bg-dark: #0a0e17;
-                --glass-bg: rgba(255, 255, 255, 0.05);
-                --glass-border: rgba(255, 255, 255, 0.1);
-                --neon-blue: #00f2ff;
-                --neon-purple: #bd00ff;
-                --text-main: #ffffff;
-                --text-muted: #94a3b8;
-                /* Yeni Kapsama Alanı Renkleri (BK'dan alındı, ancak Starbucks değişkenlerine atandı) */
-                --starbucks-green: #d62d20; /* BK Kırmızı */
-                --starbucks-neon: #ff5e5e; /* BK Neon Kırmızı */
-            }
-        /* ... Geri kalan tüm CSS (Starbucks Barista) aynı kaldı ... */
-        /* YENİDEN TANIMLANAN STİLLERİ ESKİ İSİMLERE ENTEGRE ETMEK GEREKİR */
-        /* ORİJİNAL STARBUCKS STİLLERİ */
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        :root {
+            --bg-dark: #0a0e17;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f2ff;
+            --neon-purple: #bd00ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            /* Burger King Renkleri (Starbucks değişkenlerine atandı) */
+            --starbucks-green: #d62d20; /* BK Kırmızı */
+            --starbucks-neon: #ff5e5e; /* BK Neon Kırmızı */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
 
         body {
             background-color: var(--bg-dark);
@@ -39,7 +36,7 @@
             display: flex; flex-direction: column;
         }
 
-        /* --- HEADER STYLES (Modüler yapıyı desteklemek için gerekli) --- */
+        /* --- HEADER STYLES (Korundu) --- */
         header { position: sticky; top: 0; z-index: 1000; }
         .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
@@ -82,7 +79,7 @@
         .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         .games-grid a { color: #cbd5e1; text-decoration: none; font-size: 1rem; padding: 5px 0; transition: 0.3s; display: block; }
 
-        /* --- FOOTER STYLES --- */
+        /* --- FOOTER STYLES (Korundu) --- */
         footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
         .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; }
         .footer-col h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
@@ -91,7 +88,7 @@
         .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
 
-        /* --- STARBUCKS STİLLERİ (Yeni içeriğe uyacak şekilde korundu) --- */
+        /* --- ANA İÇERİK STİLLERİ (Starbucks Klasörleri Kullanıldı) --- */
         main { flex: 1; padding: 20px; max-width: 100%; margin: 0 auto; width: 100%; }
         .starbucks-promo-container {
             max-width: 650px;
@@ -108,12 +105,12 @@
         }
         .starbucks-logo { max-width: 120px; height: auto; filter: brightness(0.9); }
         .starbucks-title {
-            color: var(--starbucks-neon);
+            color: var(--neon-blue); /* Burger King'in ana başlık rengi için neon-blue kullandık */
             margin-top: 0;
             margin-bottom: 10px;
-            font-size: 2.2em;
+            font-size: 2.8em; /* BK boyutuna yaklaştırıldı */
             font-weight: 700;
-            text-shadow: 0 0 15px rgba(62, 216, 109, 0.4); /* Neon Yeşil Gölge */
+            text-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
         }
         .starbucks-slogan {
             font-size: 1.1em;
@@ -126,7 +123,7 @@
         /* Ödül Kutusu */
         .starbucks-odul-kutusu {
             padding: 20px;
-            background-color: rgba(214, 45, 32, 0.15); /* Hafif Kırmızı tonlu arkaplan (Yeni renk) */
+            background-color: rgba(214, 45, 32, 0.15); /* BK Kırmızı tonlu arkaplan */
             border: 1px solid rgba(214, 45, 32, 0.4);
             border-radius: 8px;
             margin-bottom: 25px;
@@ -137,7 +134,7 @@
             padding-bottom: 8px;
             margin: 0 0 15px 0;
             font-size: 1.3em;
-            text-align:center;
+            text-align:left; /* BK içeriğine uyum sağlandı */
             font-weight: 600;
         }
         .starbucks-odul-list {
@@ -148,8 +145,9 @@
             color: var(--text-main);
             line-height: 1.7;
             text-align: left;
+            padding-left: 10px;
         }
-        .starbucks-odul-list span { color: #fff; font-weight: 700; text-shadow: 0 0 5px var(--starbucks-neon); }
+        .starbucks-odul-list span { color: var(--neon-blue); font-weight: 700; text-shadow: 0 0 5px var(--neon-blue); }
         .starbucks-go-notu { font-size: 0.9em; color: var(--text-muted); margin-top: 10px; font-weight: 500;}
 
         /* Buton */
@@ -157,13 +155,14 @@
             display: inline-block;
             background-color: var(--starbucks-green); 
             color: #fff;
-            padding: 14px 30px;
+            padding: 16px 40px; /* BK Boyutuna yaklaştırıldı */
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.15em;
-            box-shadow: 0 0 15px rgba(214, 45, 32, 0.4);
+            font-size: 1.2em; /* BK Boyutuna yaklaştırıldı */
+            box-shadow: 0 0 20px rgba(214, 45, 32, 0.6);
             transition: all 0.3s;
+            margin-top: 40px;
         }
         .starbucks-oyna-butonu:hover {
             background-color: var(--starbucks-neon);
@@ -182,7 +181,7 @@
         .starbucks-tab-content.active { display: block; }
 
 
-        /* --- MOBİL UYUMLULUK AYARLARI (Final ve Kritik Fix) --- */
+        /* --- MOBİL UYUMLULUK AYARLARI (Korundu) --- */
         @media (max-width: 768px) {
             .hero-title { font-size: 2.5rem !important; line-height: 1.1; }
             h1 { font-size: 2.5rem !important; }
@@ -197,7 +196,7 @@
             .starbucks-promo-container { margin: 20px 10px; padding: 20px 15px; }
             .starbucks-title { font-size: 1.8em; }
         }
-    </style>
+    </style>
 </head>
 <body>
 
@@ -217,12 +216,12 @@
                                                 <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/adsiz-tasarim.png" alt="Kyrosil Logo" class="starbucks-logo" style="max-width: 80px;">
                         <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-1.png" alt="Burger King Logo" class="starbucks-logo" style="max-width: 120px;">
                     </div>
-                    <h2 class="starbucks-title" style="font-size: 2.8em; color: var(--neon-blue);">Kyrosil ile Bil Kazan!</h2>
-                    <p class="starbucks-slogan" style="color: var(--starbucks-neon);">20 SORULUK TARİH MARATONU!<br>HEMEN BİL, MÜKEMMEL ÖDÜLLERİ KAZAN!</p>
+                    <h2 class="starbucks-title">Kyrosil ile Bil Kazan!</h2>
+                    <p class="starbucks-slogan">20 SORULUK TARİH MARATONU!<br>HEMEN BİL, MÜKEMMEL ÖDÜLLERİ KAZAN!</p>
                     <p class="starbucks-aciklama">20 soruluk tarih maratonuna hoş geldiniz! Zorluğu giderek artan soruları ve zaman sınırını aşarak kilometre taşlarına ulaşın, muhteşem ödüller kazanın. 4 farklı joker hakkınız stratejinize güç katacak!</p>
                     <div class="starbucks-odul-kutusu">
                         <h4 class="starbucks-odul-title">Ödül Seviyeleri (TL/€ Değerinde):</h4>
-                        <ul class="starbucks-odul-list" style="list-style: none;">
+                        <ul class="starbucks-odul-list">
                             <li><strong>5. Soru:</strong> <span>Burger King'den Whopper Menü!</span></li>
                             <li><strong>10. Soru:</strong> <span>BK'da geçerli 1000 TL / 20€ Bakiye!</span></li>
                             <li><strong>15. Soru:</strong> <span>BK'da geçerli 5000 TL / 120€ Bakiye!</span></li>
@@ -231,7 +230,7 @@
                         <p class="starbucks-go-notu">Not: Kazanılan BK bakiyeleri belirtilen bölgedeki Burger King mobil uygulaması ve şubelerinde geçerlidir. 20. Soru Büyük Nakit Ödüldür.</p>
                     </div>
                     <div class="starbucks-buton-container">
-                                                <a href="#" onclick="alert('Kyrosil Bil Kazan oyunu şu anda bakım ve güncellemeler nedeniyle çevrimdışıdır.'); return false;" class="starbucks-oyna-butonu">HEMEN OYNA!</a>
+                        <a href="#" onclick="alert('Kyrosil Bil Kazan oyunu şu anda bakım ve güncellemeler nedeniyle çevrimdışıdır.'); return false;" class="starbucks-oyna-butonu">HEMEN OYNA!</a>
                     </div>
                     <p class="starbucks-alt-bilgi" style="color: var(--text-muted);">(Oyun yeni sekmede açılır)<br>Ödülü almak için oyunda belirtilen adımları takip etmeniz ve/veya belirtilen adrese e-posta göndermeniz gerekmektedir. Bol şans!</p>
                 </div>
@@ -243,12 +242,12 @@
                                                 <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/adsiz-tasarim.png" alt="Kyrosil Logo" class="starbucks-logo" style="max-width: 80px;">
                         <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-1.png" alt="Burger King Logo" class="starbucks-logo" style="max-width: 120px;">
                     </div>
-                    <h2 class="starbucks-title" style="font-size: 2.8em; color: var(--neon-blue);">Know and Win with Kyrosil!</h2>
-                    <p class="starbucks-slogan" style="color: var(--starbucks-neon);">20-QUESTION HISTORY MARATHON!<br>KNOW AND WIN AMAZING PRIZES!</p>
+                    <h2 class="starbucks-title">Know and Win with Kyrosil!</h2>
+                    <p class="starbucks-slogan">20-QUESTION HISTORY MARATHON!<br>KNOW AND WIN AMAZING PRIZES!</p>
                     <p class="starbucks-aciklama">Welcome to the 20-question history marathon! Answer progressively harder questions correctly, pass milestones, and win amazing prizes. Your 4 different jokers will empower your strategy!</p>
                     <div class="starbucks-odul-kutusu">
                         <h4 class="starbucks-odul-title">Level Rewards (TL/€):</h4>
-                        <ul class="starbucks-odul-list" style="list-style: none;">
+                        <ul class="starbucks-odul-list">
                             <li><strong>Question 5:</strong> <span>A Whopper Menu from Burger King!</span></li>
                             <li><strong>Question 10:</strong> <span>1000 TL / 20€ Balance at BK!</span></li>
                             <li><strong>Question 15:</strong> <span>5000 TL / 120€ Balance at BK!</span></li>
@@ -257,10 +256,10 @@
                         <p class="starbucks-go-notu">IMPORTANT: BK Balance rewards are valid for Burger King locations and mobile app in the specified region. Question 20 is the Grand Cash Prize.</p>
                     </div>
                     <div class="starbucks-buton-container">
-                                                <a href="#" onclick="alert('The Kyrosil Know and Win game is currently offline for maintenance and updates.'); return false;" class="starbucks-oyna-butonu">PLAY NOW!</a>
+                        <a href="#" onclick="alert('The Kyrosil Know and Win game is currently offline for maintenance and updates.'); return false;" class="starbucks-oyna-butonu">PLAY NOW!</a>
                     </div>
                     <p class="starbucks-alt-bilgi" style="color: var(--text-muted);">(Game opens in a new tab)<br>To claim your reward, you need to follow the steps specified in the game and/or send an e-mail to the address specified. Good luck!</p>
-            </div>
+                </div>
             </div>
         </div>
     </main>
