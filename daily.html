@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyrosil Daily | Daily Prizes & Grand Rewards</title>
+    <title>Kyrosil Daily Reward | Games</title>
 
-    <meta name="description" content="Play Kyrosil Daily every 24 hours to win grand prizes like €5,000 cash, THY tickets, Santorini trips, and vouchers from Adidas, Trendyol, and CarrefourSA.">
-    <meta name="keywords" content="Kyrosil Daily, Daily Prize, Cash, THY, Santorini, Adidas, Trendyol, CarrefourSA">
+    <meta name="description" content="Kyrosil Daily is a free reward system where players can win cash prizes, flight tickets, gift cards and more every 24 hours.">
+    <meta name="keywords" content="Kyrosil Daily, Daily Reward, Free Prize, Cash Prize, THY, Adidas, Trendyol">
     
     <style>
-        /* style.css - KESİN FINAL SÜRÜM */
+        /* style.css - KESİN FINAL SÜRÜM (Çalışan Şablondan alınan tüm Global CSS dahil) */
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap'); /* Inter fontu metin için tutuldu */
 
         :root {
             --bg-dark: #0a0e17;
@@ -21,14 +20,9 @@
             --neon-purple: #bd00ff;
             --text-main: #ffffff;
             --text-muted: #94a3b8;
-            
-            /* KD Sınıfları için Neon Değerler */
-            --kd-accent: var(--neon-blue); /* Aksan rengi Neon Mavi */
-            --kd-bg: var(--bg-dark);
-            --kd-card: #0b1324;
-            --kd-muted: var(--text-muted);
-            --kd-text: var(--text-main);
-            --kd-line: rgba(255, 255, 255, .1);
+            /* Daily Özel Renkler */
+            --daily-gold: #ffc300;
+            --daily-red: #ff5e5e; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
@@ -42,8 +36,50 @@
             display: flex; flex-direction: column;
         }
 
-        /* --- HEADER/FOOTER TEMPLATE STYLES --- */
+        /* --- GLOBAL & HEADER/FOOTER STYLES (Çalışan Şablondan kopyalandı) --- */
         header { position: sticky; top: 0; z-index: 1000; }
+        .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
+        .trademark-link { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; color: #666; text-decoration: none; padding: 2px 5px; line-height: 1; white-space: nowrap; }
+        .trademark-link img { height: 12px; filter: brightness(0.85); }
+        .trademark-link strong { color: var(--neon-blue); font-weight: 700; }
+        .navbar-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.8rem 3rem; 
+            max-width: 100%; 
+            margin: 0 auto;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .logo-container { padding: 0; margin: 0; }
+        .logo-link { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-link img { height: 35px; vertical-align: middle; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--text-main); text-shadow: 0 0 10px rgba(0, 242, 255, 0.2); }
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .btn-login { background: var(--neon-blue); color: #000; padding: 0.5rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .menu-trigger { display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
+        .hamburger-icon { display: flex; flex-direction: column; gap: 5px; width: 25px; }
+        .hamburger-icon span { display: block; width: 100%; height: 2px; background: #fff; transition: 0.3s; }
+        .mobile-hidden { display: block; }
+        .mega-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(5, 8, 15, 0.98); backdrop-filter: blur(15px);
+            z-index: 2000; padding: 3rem; transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            display: flex; flex-direction: column; overflow-y: auto;
+        }
+        .mega-menu-overlay.active { transform: translateY(0); }
+        .menu-close { align-self: flex-end; cursor: pointer; color: #fff; font-weight: bold; font-size: 1.2rem; margin-bottom: 2rem; transition: 0.3s; }
+        .menu-content-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 4rem; max-width: 1200px; width: 100%; }
+        .menu-title { color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .overlay-links { list-style: none; }
+        .overlay-links li { margin-bottom: 15px; }
+        .overlay-links a { font-size: 1.5rem; color: #fff; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .games-grid a { color: #cbd5e1; text-decoration: none; font-size: 1rem; padding: 5px 0; transition: 0.3s; display: block; }
+
+        /* --- FOOTER STYLES --- */
         footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
         .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; }
         .footer-col h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
@@ -51,150 +87,173 @@
         .footer-col a { color: var(--text-muted); text-decoration: none; transition: 0.3s; display: block; }
         .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
-        /* --- MAIN CONTENT WRAPPER --- */
-        main { flex: 1; padding: 0; max-width: 100%; margin: 0 auto; width: 100%; }
 
-        /* --- KYROSIL DAILY (KD) STYLES (Neon uyumlu hale getirildi) --- */
-        .kd-landing { 
-            --bg: var(--kd-bg); 
-            --card: var(--kd-card); 
-            --muted: var(--kd-muted); 
-            --accent: var(--kd-accent); 
-            --text: var(--kd-text); 
-            --line: var(--kd-line);
-            font-family: 'Outfit', sans-serif !important; 
+        /* --- KYROSIL DAILY ÖZEL STİLLERİ --- */
+        main { 
+            flex: 1; 
+            padding: 120px 20px 20px 20px; /* KRİTİK DÜZELTME: Header altına inmesi için padding eklendi. */
+            max-width: 100%; 
+            margin: 0 auto; 
+            width: 100%; 
         }
-        .kd-wrap{max-width:1040px;margin:0 auto;padding:28px 20px;}
-        .kd-hero{
-            background:var(--glass-bg); 
-            border-radius:20px;
-            padding:30px;
-            border:1px solid var(--glass-border);
+
+        .daily-container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 40px;
             box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            text-align: center;
         }
-        .kd-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-        .kd-brand{display:flex;align-items:center;gap:10px}
-        .kd-logo{height:50px;filter:drop-shadow(0 0 10px rgba(0, 242, 255, 0.4));}
-        .kd-title{
-            margin:6px 0 6px;
-            font-size:clamp(28px,3.6vw,40px);
-            font-weight:900;
-            letter-spacing:.5px;
-            color: var(--neon-purple);
-            text-shadow: 0 0 10px rgba(189, 0, 255, 0.3);
-        }
-        .kd-sub{margin:0;color:var(--neon-blue);font-size:clamp(16px,2.6vw,20px); font-weight: 500;}
-        .kd-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-        
-        /* Butonlar */
-        .kd-btn{
-            border-radius:8px;
-            padding:12px 24px;
-            font-weight:700;
-            cursor:pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-        }
-        .kd-btn--ghost{
-            background:transparent;
-            color:var(--neon-blue);
-            outline:1px solid var(--neon-blue);
-        }
-        .kd-btn--ghost:hover {
-            background: var(--neon-blue);
-            color: #000;
-            box-shadow: 0 0 15px var(--neon-blue);
-        }
-        .kd-btn--primary{
-            background:var(--neon-purple);
-            color:var(--text-main);
-            box-shadow: 0 0 15px rgba(189, 0, 255, 0.5);
-        }
-        .kd-btn--primary:hover {
-            background: var(--neon-blue);
-            color: #000;
-            box-shadow: 0 0 20px var(--neon-blue);
-            transform: translateY(-2px);
-        }
-        .kd-anchors a{color:var(--neon-purple);text-decoration:underline; font-size: 14px;}
-        
-        /* İçerik Kartları */
-        .kd-section{margin-top:35px;display:grid;gap:20px}
-        .kd-card{
-            background:rgba(10, 14, 23, 0.7);
-            border:1px solid var(--glass-border);
-            border-radius:18px;
-            padding:25px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        }
-        .kd-h2{
-            margin:0 0 15px;
-            font-size:24px;
-            font-weight:900;
-            color: var(--neon-blue);
-            border-bottom: 2px solid var(--neon-purple);
-            padding-bottom: 5px;
-        }
-        .kd-steps{display:grid;gap:16px}
-        .kd-step{
-            display:grid;grid-template-columns:50px 1fr;gap:15px;align-items:center;
-            background:rgba(255,255,255,.05);
-            border:1px solid rgba(255,255,255,.1);
-            border-radius:14px;
-            padding:15px;
-        }
-        .kd-badge{
-            width:40px;height:40px;border-radius:50%;
-            display:flex;align-items:center;justify-content:center;
-            background:var(--neon-purple);
-            font-weight:900;
-            color:var(--text-main);
-            box-shadow: 0 0 8px var(--neon-purple);
-        }
-        .kd-step h4{margin:0 0 4px;font-size:16px; color: var(--text-main);}
-        .kd-step p{margin:0;color:var(--text-muted);font-size:14px}
-        
-        /* Ödüller */
-        .kd-awards{display:grid;gap:10px}
-        .kd-awards h3{margin:10px 0 10px;font-size:18px; color: var(--neon-blue); font-weight: 700;}
-        .kd-awards ul{margin:0;padding-left:20px; list-style: none;}
-        .kd-awards ul li{
-            margin-bottom: 8px;
-            border-left: 3px solid var(--neon-purple);
-            padding-left: 10px;
-            color: var(--text-main);
-            font-size: 15px;
-        }
-        .kd-note{margin-top:15px;color:var(--neon-purple);font-size:13px; font-weight: 500;}
-        
-        /* SSS */
-        .kd-faq details{
-            background:rgba(10, 14, 23, 0.7);
-            border:1px solid var(--glass-border);
-            border-radius:14px;
-            padding:15px;
+
+        /* Başlıklar ve Giriş */
+        .daily-title {
+            color: var(--daily-gold);
+            font-size: 2.8em;
+            font-weight: 900;
+            text-shadow: 0 0 15px rgba(255, 195, 0, 0.5); 
             margin-bottom: 10px;
         }
-        .kd-faq summary{
-            cursor:pointer;
-            font-weight:700;
-            color: var(--text-main);
+        .daily-slogan {
+            font-size: 1.3em;
+            color: var(--neon-blue);
+            margin-bottom: 30px;
+            font-weight: 500;
         }
-        .kd-faq p{margin:8px 0 0;color:var(--text-muted);font-size:14px}
-        .kd-footer{margin-top:20px;color:var(--text-muted);font-size:12px;text-align:center}
+        .daily-cta-button {
+            display: inline-block;
+            background-color: var(--daily-red); 
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.25em;
+            box-shadow: 0 0 20px rgba(255, 94, 94, 0.6);
+            transition: all 0.3s;
+            margin-bottom: 40px;
+        }
+        .daily-cta-button:hover {
+            background-color: var(--daily-gold);
+            color: var(--bg-dark);
+            box-shadow: 0 0 25px var(--daily-gold);
+            transform: translateY(-2px);
+        }
+        .skip-link {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-top: 10px;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+        .skip-link:hover { color: var(--neon-blue); }
 
-        /* Responsive */
-        @media (min-width:860px){
-            .kd-two{grid-template-columns:1.1fr .9fr}
+        /* Bölüm Başlıkları */
+        .section-title {
+            font-size: 2.2em;
+            color: var(--neon-purple);
+            border-bottom: 2px solid var(--daily-gold);
+            padding-bottom: 10px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: left;
         }
-        @media (max-width: 600px) {
-            .kd-hero { padding: 20px 15px; }
-            .kd-top { flex-direction: column; align-items: flex-start; }
-            .kd-lang { margin-top: 10px; }
-            .kd-title { font-size: 24px; }
-            .kd-sub { font-size: 14px; }
-            .kd-cta { justify-content: stretch; }
-            .kd-btn { width: 100%; }
+
+        /* Nasıl Çalışır (Adımlar) */
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: left;
+        }
+        .step-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 5px solid var(--neon-blue);
+        }
+        .step-card h3 {
+            color: var(--daily-gold);
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 0.95em;
+        }
+
+        /* Ödüller */
+        .reward-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .prize-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .prize-box h3 {
+            color: var(--neon-blue);
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .prize-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .prize-box li {
+            color: var(--text-main);
+            margin-bottom: 8px;
+            border-left: 3px solid var(--daily-red);
+            padding-left: 10px;
+            font-size: 0.95em;
+        }
+        .prize-box strong { color: var(--daily-gold); font-weight: 700; }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px dashed var(--glass-border);
+            padding: 15px 0;
+            text-align: left;
+        }
+        .faq-question {
+            font-weight: 700;
+            color: var(--neon-blue);
+            margin-bottom: 5px;
+        }
+
+        /* Dil Geçişi */
+        .daily-tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); }
+        .daily-tab-btn { padding: 12px 25px; font-weight: 600; color: var(--text-muted); background-color: transparent; border: none; border-radius: 8px 8px 0 0; border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.3s; }
+        .daily-tab-btn.active { background-color: var(--glass-bg); color: var(--daily-red); border-bottom-color: var(--daily-red); }
+        .daily-tab-btn:not(.active):hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .daily-tab-content { display: none; padding-top: 20px; }
+        .daily-tab-content.active { display: block; }
+        .back-to-top {
+            display: inline-block;
+            margin-top: 40px;
+            color: var(--neon-purple);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* --- MOBİL UYUMLULUK AYARLARI --- */
+        @media (max-width: 768px) {
+            main { padding: 100px 10px 10px 10px; }
+            .daily-container { padding: 20px 15px; margin: 20px auto; }
+            .daily-title { font-size: 2.2em; }
+            .daily-slogan { font-size: 1.1em; }
+            .section-title { font-size: 1.8em; margin-top: 30px; margin-bottom: 20px; }
+            .reward-grid { grid-template-columns: 1fr; gap: 20px; }
         }
     </style>
 </head>
@@ -203,109 +262,147 @@
     <header></header>
 
     <main>
-        <section class="kd-landing" data-lang="en" aria-label="Kyrosil Daily landing">
-            <div class="kd-wrap">
-                <div class="kd-hero" id="top">
-                    <div class="kd-top">
-                        <div class="kd-brand">
-                            <img class="kd-logo" src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/adsiz-tasarim.png" alt="Kyrosil Logo" loading="lazy">
-                        </div>
-                        <div class="kd-lang">
-                            <button type="button" class="kd-btn kd-btn--ghost" id="kd-lang" aria-label="Change language" data-state="en">EN / TR</button>
-                        </div>
-                    </div>
-
-                    <h1 class="kd-title" data-en="Kyrosil Daily is Live!" data-tr="Kyrosil Daily Yayında!">Kyrosil Daily is Live!</h1>
-                    <p class="kd-sub" data-en="You're closer to the grand prize every 24 hours!" data-tr="Her 24 saatte bir büyük ödüle daha da yaklaşıyorsun!">You're closer to the grand prize every 24 hours!</p>
-
-                    <div class="kd-cta">
-                        <a class="kd-btn kd-btn--primary" href="https://kyrosildaily.shop" target="_blank" rel="noopener" data-en="Play Now" data-tr="Hemen Oyna">Play Now</a>
-                        <a class="kd-btn kd-btn--ghost" href="#how" data-en="How it Works" data-tr="Nasıl Çalışır">How it Works</a>
-                        <a class="kd-btn kd-btn--ghost" href="#rewards" data-en="Rewards" data-tr="Ödüller">Rewards</a>
-                    </div>
-
-                    <div class="kd-anchors">
-                        <a href="#how" data-en="Skip to How it Works" data-tr="Nasıl Çalışır’a git">Skip to How it Works</a>
-                        <a href="#rewards" data-en="Skip to Rewards" data-tr="Ödüllere git">Skip to Rewards</a>
-                    </div>
-                </div>
-
-                <div class="kd-section kd-two">
-                    <div class="kd-card" id="how">
-                        <h2 class="kd-h2" data-en="How it Works" data-tr="Oyunun Amacı ve Mantığı">How it Works</h2>
-                        <div class="kd-steps">
-                            <div class="kd-step">
-                                <div class="kd-badge">1</div>
-                                <div>
-                                    <h4 data-en="Create Your Account" data-tr="Hesabını Oluştur">Create Your Account</h4>
-                                    <p data-en="Sign up for free or continue with Google." data-tr="Hemen ücretsiz bir hesap oluştur veya Google ile giriş yap.">Sign up for free or continue with Google.</p>
-                                </div>
-                            </div>
-                            <div class="kd-step">
-                                <div class="kd-badge">2</div>
-                                <div>
-                                    <h4 data-en="Try Your Luck" data-tr="Şansını Dene">Try Your Luck</h4>
-                                    <p data-en="Tap the daily reward button after logging in." data-tr="Giriş yaptıktan sonra günlük ödül butonuna bas.">Tap the daily reward button after logging in.</p>
-                                </div>
-                            </div>
-                            <div class="kd-step">
-                                <div class="kd-badge">3</div>
-                                <div>
-                                    <h4 data-en="Claim the Prize!" data-tr="Ödülü Kap!">Claim the Prize!</h4>
-                                    <p data-en="See your reward instantly and enjoy." data-tr="Kazandığın ödülü anında gör ve keyfini çıkar!">See your reward instantly and enjoy.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="kd-card" id="rewards">
-                        <h2 class="kd-h2" data-en="Rewards" data-tr="Ödüller">Rewards</h2>
-                        <div class="kd-awards">
-                            <h3 data-en="Grand Prizes" data-tr="Büyük Ödüller">Grand Prizes</h3>
-                            <ul>
-                                <li data-en="€5,000 Cash" data-tr="5.000 € Nakit">€5,000 Cash</li>
-                                <li data-en="Turkish Airlines $1,000 Gift Card" data-tr="Türk Hava Yolları 1.000$ Hediye Çeki">Turkish Airlines $1,000 Gift Card</li>
-                                <li data-en="3 Nights &amp; 4 Days in Santorini" data-tr="3 Gece 4 Gün Santorini Tatili">3 Nights &amp; 4 Days in Santorini</li>
-                                <li data-en="3-Day History Tour in Athens with Kyrosil" data-tr="Kyrosil ile Atina'da 3 Gün Tarih Gezisi">3-Day History Tour in Athens with Kyrosil</li>
-                            </ul>
-
-                            <h3 data-en="Other Prizes" data-tr="Diğer Ödüller">Other Prizes</h3>
-                            <ul>
-                                <li data-en="Trendyol €50 or ₺2,000 Gift Card" data-tr="Trendyol 50€ veya 2.000₺ Hediye Çeki">Trendyol €50 or ₺2,000 Gift Card</li>
-                                <li data-en="Adidas €100 or ₺5,000 Gift Card" data-tr="Adidas 100€ veya 5.000₺ Hediye Çeki">Adidas 100€ veya 5.000₺ Hediye Çeki</li>
-                                <li data-en="CarrefourSA €50 or ₺2,000 Gift Card" data-tr="CarrefourSA 50€ veya 2.000₺ Hediye Çeki">CarrefourSA 50€ veya 2.000₺ Hediye Çeki</li>
-                                <li data-en="50 USDT" data-tr="50 USDT">50 USDT</li>
-                                <li data-en="THY One-Way Ticket (Selected Routes)" data-tr="THY Tek Yön Bilet (Belirli Hatlar)">THY One-Way Ticket (Selected Routes)</li>
-                                <li data-en="Burger King &amp; Starbucks Gift Cards" data-tr="Burger King &amp; Starbucks Hediye Çekleri">Burger King &amp; Starbucks Hediye Çekleri</li>
-                            </ul>
-
-                            <p class="kd-note" data-en="Rewards are updated regularly." data-tr="Ödüller sürekli güncellenecektir.">Rewards are updated regularly.</p>
-
-                            <div class="kd-cta" style="margin-top:20px; justify-content: center;">
-                                <a class="kd-btn kd-btn--primary" href="https://kyrosildaily.shop" target="_blank" rel="noopener" data-en="Play Now" data-tr="Hemen Oyna">Play Now</a>
-                                <a class="kd-btn kd-btn--ghost" href="#top" data-en="Back to top" data-tr="Başa dön">Back to top</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="kd-section kd-faq" id="faq">
-                    <div class="kd-card">
-                        <h2 class="kd-h2" data-en="FAQ" data-tr="SSS">FAQ</h2>
-                        <details>
-                            <summary data-en="How often can I play?" data-tr="Ne sıklıkla oynayabilirim?">How often can I play?</summary>
-                            <p data-en="Once every 24 hours per account." data-tr="Hesap başına her 24 saatte bir kez.">Once every 24 hours per account.</p>
-                        </details>
-                        <details>
-                            <summary data-en="How do I claim my reward?" data-tr="Ödülümü nasıl alırım?">How do I claim my reward?</summary>
-                            <p data-en="Your reward appears instantly in the app. Follow the instructions on the screen." data-tr="Ödülün uygulamada anında görünür. Ekrandaki yönergeleri takip et.">Your reward appears instantly in the app. Follow the instructions on the screen.</p>
-                        </details>
-                    </div>
-                </div>
-
-                <p class="kd-footer" data-en="© Kyrosil. All rights reserved." data-tr="© Kyrosil. Tüm hakları saklıdır.">© Kyrosil. All rights reserved.</p>
+        <div class="daily-container">
+            
+            <div class="daily-tab-buttons">
+                <button class="daily-tab-btn active" data-tab="english">🇬🇧 English</button>
+                <button class="daily-tab-btn" data-tab="turkish">🇹🇷 Türkçe</button>
             </div>
-        </section>
+
+            <div id="english" class="daily-tab-content active">
+                <h2 class="daily-title">Kyrosil Daily is Live!</h2>
+                <p class="daily-slogan">You're closer to the grand prize every 24 hours!</p>
+                <a href="#" class="daily-cta-button" target="_blank" rel="noopener noreferrer">Play Now</a>
+                <a href="#how-it-works-en" class="skip-link">Skip to How it Works</a>
+                <a href="#rewards-en" class="skip-link">Skip to Rewards</a>
+
+                <div id="how-it-works-en">
+                    <h3 class="section-title">How it Works</h3>
+                    <div class="how-it-works-grid">
+                        <div class="step-card">
+                            <h3>1. Create Your Account</h3>
+                            <p>Sign up for free or continue with Google.</p>
+                        </div>
+                        <div class="step-card">
+                            <h3>2. Try Your Luck</h3>
+                            <p>Tap the daily reward button after logging in.</p>
+                        </div>
+                        <div class="step-card">
+                            <h3>3. Claim the Prize!</h3>
+                            <p>See your reward instantly and enjoy.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="rewards-en">
+                    <h3 class="section-title">Rewards</h3>
+                    <div class="reward-grid">
+                        <div class="prize-box">
+                            <h3>Grand Prizes</h3>
+                            <ul>
+                                <li><strong>€5,000 Cash</strong></li>
+                                <li>Turkish Airlines <strong>$1,000 Gift Card</strong></li>
+                                <li>3 Nights & 4 Days in Santorini</li>
+                                <li>3-Day History Tour in Athens with Kyrosil</li>
+                            </ul>
+                        </div>
+                        <div class="prize-box">
+                            <h3>Other Prizes</h3>
+                            <ul>
+                                <li>Trendyol €50 or ₺2,000 Gift Card</li>
+                                <li>Adidas €100 or ₺5,000 Gift Card</li>
+                                <li>CarrefourSA €50 or ₺2,000 Gift Card</li>
+                                <li>50 USDT</li>
+                                <li>THY One-Way Ticket (Selected Routes)</li>
+                                <li>Burger King & Starbucks Gift Cards</li>
+                            </ul>
+                            <p style="font-size: 0.85em; color: var(--daily-gold); margin-top: 10px;">Rewards are updated regularly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="daily-cta-button" target="_blank" rel="noopener noreferrer">Play Now</a>
+                
+                <h3 class="section-title">FAQ</h3>
+                <div class="faq-item">
+                    <p class="faq-question">How often can I play?</p>
+                    <p class="faq-answer">Once every 24 hours per account.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">How do I claim my reward?</p>
+                    <p class="faq-answer">Instructions are provided immediately after winning a prize and sent to your registered email.</p>
+                </div>
+
+                <a href="#top" class="back-to-top">Back to top</a>
+            </div>
+
+            <div id="turkish" class="daily-tab-content">
+                <h2 class="daily-title">Kyrosil Günlük Ödülü Yayında!</h2>
+                <p class="daily-slogan">Büyük ödüle her 24 saatte bir daha yakınsın!</p>
+                <a href="#" class="daily-cta-button" target="_blank" rel="noopener noreferrer">Hemen Oyna</a>
+                <a href="#how-it-works-tr" class="skip-link">Nasıl Çalışır'a Atla</a>
+                <a href="#rewards-tr" class="skip-link">Ödüllere Atla</a>
+
+                <div id="how-it-works-tr">
+                    <h3 class="section-title">Nasıl Çalışır</h3>
+                    <div class="how-it-works-grid">
+                        <div class="step-card">
+                            <h3>1. Hesap Oluştur</h3>
+                            <p>Ücretsiz kaydol veya Google ile devam et.</p>
+                        </div>
+                        <div class="step-card">
+                            <h3>2. Şansını Dene</h3>
+                            <p>Giriş yaptıktan sonra günlük ödül butonuna dokun.</p>
+                        </div>
+                        <div class="step-card">
+                            <h3>3. Ödülü Kap!</h3>
+                            <p>Ödülünü anında gör ve keyfini çıkar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="rewards-tr">
+                    <h3 class="section-title">Ödüller</h3>
+                    <div class="reward-grid">
+                        <div class="prize-box">
+                            <h3>Büyük Ödüller</h3>
+                            <ul>
+                                <li><strong>5.000€ Nakit</strong></li>
+                                <li>Türk Hava Yolları <strong>1.000$ Hediye Kartı</strong></li>
+                                <li>Santorini'de 3 Gece 4 Gün</li>
+                                <li>Kyrosil ile Atina'da 3 Günlük Tarih Turu</li>
+                            </ul>
+                        </div>
+                        <div class="prize-box">
+                            <h3>Diğer Ödüller</h3>
+                            <ul>
+                                <li>Trendyol 50€ veya 2.000₺ Hediye Kartı</li>
+                                <li>Adidas 100€ veya 5.000₺ Hediye Kartı</li>
+                                <li>CarrefourSA 50€ veya 2.000₺ Hediye Kartı</li>
+                                <li>50 USDT</li>
+                                <li>THY Tek Yön Bilet (Belirli Rotalar)</li>
+                                <li>Burger King & Starbucks Hediye Kartları</li>
+                            </ul>
+                            <p style="font-size: 0.85em; color: var(--daily-gold); margin-top: 10px;">Ödüller düzenli olarak güncellenmektedir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="daily-cta-button" target="_blank" rel="noopener noreferrer">Hemen Oyna</a>
+                
+                <h3 class="section-title">SSS</h3>
+                <div class="faq-item">
+                    <p class="faq-question">Ne sıklıkla oynayabilirim?</p>
+                    <p class="faq-answer">Hesap başına 24 saatte bir.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">Ödülümü nasıl talep ederim?</p>
+                    <p class="faq-answer">Ödül kazandıktan hemen sonra talimatlar verilir ve kayıtlı e-posta adresinize gönderilir.</p>
+                </div>
+
+                <a href="#top" class="back-to-top">Başa dön</a>
+            </div>
+        </div>
     </main>
 
     <footer></footer>
@@ -326,36 +423,33 @@
                 .then(data => {
                     document.querySelector('footer').innerHTML = data;
                 });
-        });
 
-        // KYROSIL DAILY DİL GEÇİŞİ FONKSİYONU
-        (function(){
-            const root = document.querySelector('.kd-landing');
-            const btn  = root.querySelector('#kd-lang');
-            
-            // Metin içeriğini değiştiren ana fonksiyon
-            const swap = (to) => {
-                root.setAttribute('data-lang', to);
-                btn.dataset.state = to;
-                root.querySelectorAll('[data-en], [data-tr]').forEach(el => {
-                    // Sadece data-en veya data-tr niteliğine sahip elemanların içeriğini güncelleyin
-                    if (to === 'en' && el.dataset.en) {
-                        el.textContent = el.dataset.en;
-                    } else if (to === 'tr' && el.dataset.tr) {
-                        el.textContent = el.dataset.tr;
-                    }
+            // Daily Sekme (Tab) fonksiyonu
+            const tabButtons = document.querySelectorAll('.daily-tab-btn');
+            const tabContents = document.querySelectorAll('.daily-tab-content');
+
+            // Başlangıçta aktif sekme
+            let initialTab = document.querySelector('.daily-tab-btn.active');
+            if (initialTab) {
+                document.getElementById(initialTab.getAttribute('data-tab')).classList.add('active');
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    document.getElementById(tabId).classList.add('active');
                 });
-                // Butonun içindeki metni EN / TR olarak tutun, sadece state'i güncelleyin
-                btn.textContent = 'EN / TR'; 
-            };
-            
-            // Sayfa yüklendiğinde varsayılan dili (en) ayarla
-            swap(btn.dataset.state);
-
-            // Tıklama olayını tanımla
-            btn.addEventListener('click', () => swap(btn.dataset.state === 'en' ? 'tr' : 'en'));
-        })();
-
+            });
+        });
+        
         // Mega Menü aç/kapa fonksiyonu
         function toggleMenu() {
             const overlay = document.getElementById('megaMenu');
