@@ -68,12 +68,12 @@
             border-bottom: 1px solid var(--glass-border); overflow: hidden; white-space: nowrap;
         }
         .marquee-content {
-            display: inline-flex; align-items: center; animation: marquee 35s linear infinite; gap: 60px;
+            display: inline-block; animation: marquee 25s linear infinite;
         }
-        .marquee-content img {
-            height: 40px; width: auto; object-fit: contain; opacity: 0.8; transition: 0.3s;
+        .marquee-content span {
+            font-size: 1.5rem; font-weight: 500; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 2px;
         }
-        .marquee-content img:hover { opacity: 1; transform: scale(1.1); }
         @keyframes marquee {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
@@ -230,7 +230,7 @@
             .hero-title { font-size: 2.5rem; }
             .action-buttons { flex-direction: column; }
             .hero-section { height: 60vh; }
-            .marquee-content img { height: 30px; }
+            .marquee-content span { font-size: 1.2rem; }
         }
 
     </style>
@@ -254,26 +254,7 @@
 
         <div class="marquee-strip">
             <div class="marquee-content">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Coca-Cola_logo.svg" alt="Coca-Cola">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" alt="European Union">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/NATO_OTAN_landscape_logo.svg" alt="NATO">
-                <img src="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg" alt="Starbucks">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Audi-Logo_2016.svg" alt="Audi">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Pegasus_Airlines_logo_2013.svg" alt="Pegasus Airlines">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Burger_King_Logo.svg" alt="Burger King">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikea_logo.svg" alt="IKEA">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Carrefour_logo.svg" alt="Carrefour">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg" alt="Xiaomi">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Coca-Cola_logo.svg" alt="Coca-Cola">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" alt="European Union">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/NATO_OTAN_landscape_logo.svg" alt="NATO">
-                <img src="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg" alt="Starbucks">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Audi-Logo_2016.svg" alt="Audi">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Pegasus_Airlines_logo_2013.svg" alt="Pegasus Airlines">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Burger_King_Logo.svg" alt="Burger King">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikea_logo.svg" alt="IKEA">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Carrefour_logo.svg" alt="Carrefour">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg" alt="Xiaomi">
+                <span>Coca-Cola - European Union - NATO - Starbucks - Audi - Pegasus Airlines - ETİ - Burger King - IKEA - Carrefour - Xiaomi - Unilever - Coca-Cola - European Union - NATO - Starbucks - Audi - Pegasus Airlines - ETİ - Burger King - IKEA - Carrefour - Xiaomi - Unilever</span>
             </div>
         </div>
 
