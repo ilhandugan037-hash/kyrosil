@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyrosil x Adidas Penalty Challenge</title>
+    <title>Kyrosil x Adidas Penalty Challenge | Games</title>
 
-    <meta name="description" content="Kyrosil x Adidas Penalty Challenge: Test your football skills against AI and win cash prizes and rewards. Game available until January 1, 2026.">
+    <meta name="description" content="Kyrosil x Adidas Penalty Challenge: Test your football skills against AI and win cash prizes and rewards.">
     <meta name="keywords" content="Kyrosil Games, Adidas, Penalty Challenge, Football, Soccer, Cash Prize">
     
     <style>
-        /* style.css - KESİN FINAL SÜRÜM */
+        /* style.css - KESİN FINAL SÜRÜM (Cargo Craze Şablonu + Adidas İçerik) */
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
 
         :root {
@@ -37,7 +37,7 @@
             display: flex; flex-direction: column;
         }
 
-        /* --- HEADER STYLES (Modüler yapıyı desteklemek için gerekli) --- */
+        /* --- HEADER STYLES (Çalışan Cargo Craze'den kopyalanmıştır.) --- */
         header { position: sticky; top: 0; z-index: 1000; }
         .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
@@ -89,137 +89,136 @@
         .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
 
-        /* --- ADIDAS PENALTY STİLLERİ --- */
-        main { flex: 1; padding: 20px; max-width: 100%; margin: 0 auto; width: 100%; }
-        .kyrosil-landing-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        
-        /* Uyarı Notu */
-        .expiry-note {
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid red;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 0 auto 30px auto;
-            max-width: 800px;
-            font-weight: 600;
-            color: #ff4d4d;
-            text-align: center;
+        /* --- ADIDAS PENALTY ÖZEL STİLLERİ --- */
+        main { 
+            flex: 1; 
+            padding: 20px; /* NİHAİ DÜZELTME: Sadece 20px padding korundu. Header altına inme görevi sisteme bırakıldı. */
+            max-width: 100%; 
+            margin: 0 auto; 
+            width: 100%; 
         }
 
-        .hero-section {
-            text-align: center;
-            padding: 40px 20px;
-            background: var(--glass-bg);
-            border-radius: 24px;
-            margin-bottom: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 1px solid var(--glass-border);
+        .penalty-promo-container { 
+            max-width: 750px; 
+            margin: 30px auto; 
+            background: var(--glass-bg); 
+            border: 1px solid var(--glass-border); 
+            border-radius: 15px; 
+            padding: 40px; 
+            box-shadow: 0 0 30px rgba(0,0,0,0.3); 
+            text-align: center; 
         }
-        .lang-switcher {
-            display: flex !important;
-            justify-content: center !important;
-            gap: 15px !important;
-            margin-bottom: 30px !important;
-            flex-wrap: wrap !important;
+
+        .logos-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 25px; 
+            margin-bottom: 30px; 
         }
-        .lang-switcher button {
-            background: rgba(255, 255, 255, 0.1) !important;
-            color: var(--text-muted) !important;
-            border: 1px solid var(--glass-border) !important;
-            padding: 10px 20px !important;
-            cursor: pointer !important;
-            border-radius: 8px !important;
-            transition: all 0.3s ease !important;
-            font-weight: 600 !important;
-            font-size: 1em !important;
-            min-width: 80px !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+        .logos-container img { 
+            max-width: 130px; 
+            height: auto; 
+            filter: brightness(0.9); 
         }
-        .lang-switcher button:hover, .lang-switcher button.active {
-            background: var(--adidas-blue) !important; 
-            color: var(--text-main) !important; 
-            border-color: var(--neon-blue) !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 0 15px var(--neon-blue) !important;
-        }
-        .logos { margin-bottom: 30px; }
-        .logos img { max-height: 70px; max-width: 120px; object-fit: contain; filter: brightness(0.9); }
-        .hero-section h1 {
-            font-size: 3.5em;
+
+        .penalty-title {
+            font-size: 2.8em;
             font-weight: 900;
-            margin: 0 0 15px 0;
-            color: var(--text-main);
-            text-shadow: 0 0 15px rgba(40, 167, 69, 0.4);
-            background: linear-gradient(to right, var(--neon-blue), var(--neon-pitch-green), var(--neon-purple));
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-section p.subtitle {
-            font-size: 1.3em;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-        }
-        .hero-section .play-button {
-            background: var(--neon-pitch-green);
-            color: var(--bg-dark);
-            padding: 18px 55px;
-            border-radius: 12px;
-            font-size: 1.5em;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(40, 167, 69, 0.5);
-        }
-        .hero-section .play-button:hover {
-            transform: translateY(-4px) scale(1.03);
-            background: var(--neon-blue);
-            box-shadow: 0 0 25px var(--neon-blue);
-            color: #000;
-        }
-        .info-section { padding: 40px 0; text-align: center; }
-        .info-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: var(--neon-blue);
-            border-bottom: 3px solid var(--neon-purple);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-        .cards-container { gap: 30px; }
-        .card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--neon-blue);
-        }
-        .card h3 { font-size: 1.5em; margin-bottom: 10px; margin-top: 0; color: var(--text-main); }
-        .card p { color: var(--text-muted); }
-        .prize-card h3 { color: var(--adidas-blue); }
-        .prize-card .prize-amount {
-            font-size: 2em;
-            font-weight: 700;
-            margin: 15px 0;
             color: var(--neon-pitch-green);
-            text-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+            text-shadow: 0 0 15px rgba(62, 216, 109, 0.5); 
+            margin-bottom: 15px;
         }
-        .content-section { display: none; }
-        .content-section.active { display: block; }
 
-        /* MOBİL UYUMLULUK AYARLARI */
+        .penalty-subtitle { 
+            font-size: 1.2em; 
+            color: var(--neon-blue); 
+            margin-bottom: 30px; 
+            font-weight: 500;
+        }
+
+        .rules-box {
+            padding: 20px;
+            background-color: rgba(0, 82, 162, 0.1); 
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .rules-box h4 {
+            color: var(--adidas-blue);
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 8px;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .rules-box p, .prizes-list li {
+            font-size: 1em;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .prizes-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .prizes-list li {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .prizes-list strong { 
+            color: var(--neon-pitch-green); 
+            font-weight: 700; 
+            text-shadow: 0 0 5px rgba(62, 216, 109, 0.5);
+        }
+
+        .penalty-oyna-butonu {
+            display: inline-block;
+            background-color: var(--adidas-blue); 
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.25em;
+            box-shadow: 0 0 20px rgba(0, 82, 162, 0.6);
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        .penalty-oyna-butonu:hover {
+            background-color: var(--neon-pitch-green);
+            color: var(--bg-dark);
+            box-shadow: 0 0 25px var(--neon-pitch-green);
+            transform: translateY(-2px);
+        }
+        
+        /* DİL SEKMELERİ */
+        .penalty-tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); }
+        .penalty-tab-btn { padding: 12px 25px; font-weight: 600; color: var(--text-muted); background-color: transparent; border: none; border-radius: 8px 8px 0 0; border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.3s; }
+        .penalty-tab-btn.active { background-color: var(--glass-bg); color: var(--adidas-blue); border-bottom-color: var(--adidas-blue); }
+        .penalty-tab-btn:not(.active):hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .penalty-tab-content { display: none; padding-top: 20px; }
+        .penalty-tab-content.active { display: block; }
+
+
+        /* --- MOBİL UYUMLULUK AYARLARI --- */
         @media (max-width: 768px) {
-            .kyrosil-landing-container { padding: 10px; }
-            .hero-section h1 { font-size: 2em; }
-            .hero-section p.subtitle { font-size: 1em; }
-            .hero-section .play-button { padding: 12px 30px; font-size: 1.2em; }
-            .info-section h2 { font-size: 1.8em; margin-bottom: 30px; }
-            .card { flex-basis: 100%; }
+            main { padding: 20px 10px 10px 10px; }
+            .penalty-promo-container { padding: 20px 15px; margin: 20px 10px; }
+            .penalty-title { font-size: 2.2em; }
+            .logos-container { gap: 15px; }
+            .logos-container img { max-width: 100px; }
         }
     </style>
 </head>
@@ -228,126 +227,66 @@
     <header></header>
 
     <main>
-        <div class="kyrosil-landing-container">
+        <div class="penalty-promo-container">
             
-            <div class="expiry-note" id="expiry-note-en">
-                🇬🇧 Since the sponsorship agreement is ending, this game will be removed on **January 1, 2026**. You can play until this date.
-            </div>
-            <div class="expiry-note" id="expiry-note-tr" style="display:none;">
-                🇹🇷 Sponsorluk anlaşması sona erdiği için bu oyun **1 Ocak 2026** tarihinde kaldırılacaktır. Bu tarihe kadar oynayabilirsiniz.
+            <div class="penalty-tab-buttons">
+                <button class="penalty-tab-btn active" data-tab="turkish">🇹🇷 Türkçe</button>
+                <button class="penalty-tab-btn" data-tab="english">🇬🇧 English</button>
             </div>
 
-            <section class="hero-section">
-                <div class="lang-switcher">
-                    <button onclick="switchLanguage('en')" class="active">🇬🇧 English</button>
-                    <button onclick="switchLanguage('tr')">🇹🇷 Türkçe</button>
-                </div>
-                
-                <div class="logos">
-                    <img src="https://kyrosil.eu/wp-content/uploads/2025/04/adsiz-tasarim.png" alt="Kyrosil Logo">
+            <div id="turkish" class="penalty-tab-content active">
+                <div class="logos-container">
+                    <img src="https://kyrosil.wordpress.com/wp-content/uploads/2025/04/adsiz-tasarim.png?w=300" alt="Kyrosil Logo">
                     <img src="https://turbologo.com/articles/wp-content/uploads/2019/07/Three-Bars-adidas-logo-1.jpg" alt="Adidas Logo">
                 </div>
                 
-                <div id="en" class="content-section active">
-                    <h1>Penalty Challenge</h1>
-                    <p class="subtitle">The ultimate Kyrosil x Adidas penalty shootout is here! Test your skills against the AI, pass the levels, and win grand prizes.</p>
-                    <div class="play-button-container">
-                        <a href="https://kyrosil.github.io/kyrosil-adidas-penalty/" target="_blank" class="play-button">PLAY NOW!</a>
-                    </div>
+                <h2 class="penalty-title">Kyrosil x Adidas Penaltı Atışı</h2>
+                <p class="penalty-subtitle">Yeteneklerini Yapay Zekaya Karşı Sına ve Büyük Ödülleri Kazan!</p>
+                
+                <div class="rules-box">
+                    <h4>Oyun Kuralları</h4>
+                    <p>Kaleciyi atlat ve golü at! Golde 3 puan kazanırken, kaçırdığında 1 can kaybedersin. Günde 3 deneme hakkın var. Ardından kaleci olup yapay zekanın şutunu kurtarmalısın!</p>
+                </div>
+
+                <div class="rules-box">
+                    <h4>Ödüller (TL)</h4>
+                    <ul class="prizes-list">
+                        <li>10 Başarılı Atış &amp; Kurtarış: <strong>1000 TL Hediye Çeki</strong></li>
+                        <li>25 Başarılı Atış &amp; Kurtarış: <strong>3000 TL Hediye Çeki</strong></li>
+                        <li>50 Başarılı Atış &amp; Kurtarış: <strong>8000 TL Hediye Çeki</strong></li>
+                    </ul>
+                </div>
+
+                <a href="https://kyrosil.github.io/kyrosil-adidas-penalty/" target="_blank" rel="noopener noreferrer" class="penalty-oyna-butonu">HEMEN OYNA!</a>
+                <p style="color: var(--text-muted); margin-top: 15px;">(Oyun yeni sekmede açılır. Ödüller e-posta yoluyla talep edilir.)</p>
+            </div>
+
+            <div id="english" class="penalty-tab-content">
+                <div class="logos-container">
+                    <img src="https://kyrosil.wordpress.com/wp-content/uploads/2025/04/adsiz-tasarim.png?w=300" alt="Kyrosil Logo">
+                    <img src="https://turbologo.com/articles/wp-content/uploads/2019/07/Three-Bars-adidas-logo-1.jpg" alt="Adidas Logo">
                 </div>
                 
-                <div id="tr" class="content-section">
-                    <h1>Penaltı Mücadelesi</h1>
-                    <p class="subtitle">En büyük Kyrosil x Adidas penaltı mücadelesi burada! Yeteneklerini yapay zekaya karşı sına, seviyeleri geç ve büyük ödülleri kazan.</p>
-                    <div class="play-button-container">
-                        <a href="https://kyrosil.github.io/kyrosil-adidas-penalty/" target="_blank" class="play-button">HEMEN OYNA!</a>
-                    </div>
+                <h2 class="penalty-title">Kyrosil x Adidas Penalty Shootout</h2>
+                <p class="penalty-subtitle">Test Your Skills Against the AI and Win Grand Prizes!</p>
+                
+                <div class="rules-box">
+                    <h4>Game Rules</h4>
+                    <p>Dodge the goalkeeper and score a goal! Earn 3 points for a score, lose 1 life for a miss. You have 3 attempts per day. Then, become the goalkeeper and save the AI's shot!</p>
                 </div>
-            </section>
 
-            <section class="info-section">
-                <div id="en-info" class="content-section active">
-                    <h2>How to Play?</h2>
-                    <div class="cards-container">
-                        <div class="card">
-                            <h3>1. Take Your Shot</h3>
-                            <p>In your turn, drag and release to shoot. You must score to proceed to the next stage of the level.</p>
-                        </div>
-                        <div class="card">
-                            <h3>2. Make the Save</h3>
-                            <p>Now it's the AI's turn to shoot! Tap or drag to where you want your goalie to dive. A save wins the level!</p>
-                        </div>
-                        <div class="card">
-                            <h3>3. Win Prizes!</h3>
-                            <p>Complete prize levels (2, 4, &amp; 6) to win grand cash prizes and claim your reward via email!</p>
-                        </div>
-                    </div>
+                <div class="rules-box">
+                    <h4>Prizes (EUR)</h4>
+                    <ul class="prizes-list">
+                        <li>10 Successful Shots &amp; Saves: <strong>€25 Gift Voucher</strong></li>
+                        <li>25 Successful Shots &amp; Saves: <strong>€100 Gift Voucher</strong></li>
+                        <li>50 Successful Shots &amp; Saves: <strong>€250 Gift Voucher</strong></li>
+                    </ul>
                 </div>
-                <div id="tr-info" class="content-section">
-                    <h2>Nasıl Oynanır?</h2>
-                    <div class="cards-container">
-                        <div class="card">
-                            <h3>1. Şutunu Çek</h3>
-                            <p>Sıra sendeyken, nişan almak için sürükle ve şut çekmek için bırak. Bir sonraki aşamaya geçmek için gol atmalısın.</p>
-                        </div>
-                        <div class="card">
-                            <h3>2. Kurtarış Yap</h3>
-                            <p>Şimdi şut çekme sırası yapay zekada! Kalecinin atlamasını istediğin yere dokun veya sürükle. Kurtarış yaparsan leveli geçersin!</p>
-                        </div>
-                        <div class="card">
-                            <h3>3. Ödülleri Kazan!</h3>
-                            <p>Büyük para ödüllerini kazanmak ve ödülünü e-posta ile talep etmek için ödüllü seviyeleri (2, 4, &amp; 6) tamamla!</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <section class="info-section">
-                <div id="en-prizes" class="content-section active">
-                    <h2>The Prizes</h2>
-                    <div class="cards-container">
-                        <div class="card prize-card">
-                            <h3>Level 2</h3>
-                            <p>First challenge passed!</p>
-                            <div class="prize-amount">€20</div>
-                        </div>
-                        <div class="card prize-card">
-                            <h3>Level 4</h3>
-                            <p>You are a pro!</p>
-                            <div class="prize-amount">€50</div>
-                        </div>
-                        <div class="card prize-card">
-                            <h3>Level 6</h3>
-                            <p>You are a true champion!</p>
-                            <div class="prize-amount">€200</div>
-                        </div>
-                    </div>
-                </div>
-                <div id="tr-prizes" class="content-section">
-                    <h2>Ödüller</h2>
-                    <div class="cards-container">
-                        <div class="card prize-card">
-                            <h3>Seviye 2</h3>
-                            <p>İlk mücadele tamam!</p>
-                            <div class="prize-amount">1000 TL</div>
-                        </div>
-                        <div class="card prize-card">
-                            <h3>Seviye 4</h3>
-                            <p>Sen bir profesyonelsin!</p>
-                            <div class="prize-amount">2500 TL</div>
-                        </div>
-                        <div class="card prize-card">
-                            <h3>Seviye 6</h3>
-                            <p>Sen gerçek bir şampiyonsun!</p>
-                            <div class="prize-amount">10.000 TL</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <p style="text-align: center; margin-top: 40px; font-size: 0.9em; color: var(--text-muted);">
-                *Cash prizes are subject to official Kyrosil terms & conditions and awarded via email. Daily attempts are limited.
-            </p>
+                <a href="https://kyrosil.github.io/kyrosil-adidas-penalty/" target="_blank" rel="noopener noreferrer" class="penalty-oyna-butonu">PLAY NOW!</a>
+                <p style="color: var(--text-muted); margin-top: 15px;">(Game opens in a new tab. Prizes are claimed via email.)</p>
+            </div>
         </div>
     </main>
 
@@ -369,11 +308,31 @@
                 .then(data => {
                     document.querySelector('footer').innerHTML = data;
                 });
-            
-            // Başlangıçta aktif dili kontrol et ve uyarı notunu göster
-            const initialLang = 'en'; 
-            switchLanguage(initialLang);
 
+            // Sekme (Tab) fonksiyonu
+            const tabButtons = document.querySelectorAll('.penalty-tab-btn');
+            const tabContents = document.querySelectorAll('.penalty-tab-content');
+
+            // Başlangıçta aktif sekme
+            let initialTab = document.querySelector('.penalty-tab-btn.active');
+            if (initialTab) {
+                document.getElementById(initialTab.getAttribute('data-tab')).classList.add('active');
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
         });
         
         // Mega Menü aç/kapa fonksiyonu
@@ -388,30 +347,6 @@
             } else {
                 document.body.style.overflow = 'auto';
             }
-        }
-        
-        // DİL GEÇİŞİ FONKSİYONU (Senin gönderdiğin koddan uyarlandı)
-        function switchLanguage(lang) {
-            // Tüm content-section'ları gizle
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            // Seçilen dilin tüm ilgili içeriğini göster
-            document.getElementById(lang).classList.add('active');
-            document.getElementById(lang + '-info').classList.add('active');
-            document.getElementById(lang + '-prizes').classList.add('active');
-            
-            // Aktif butonu güncelle
-            document.querySelectorAll('.lang-switcher button').forEach(button => {
-                button.classList.remove('active');
-                if (button.getAttribute('onclick') === `switchLanguage('${lang}')`) {
-                    button.classList.add('active');
-                }
-            });
-
-            // Uyarı notunu güncelle
-            document.getElementById('expiry-note-en').style.display = lang === 'en' ? 'block' : 'none';
-            document.getElementById('expiry-note-tr').style.display = lang === 'tr' ? 'block' : 'none';
         }
     </script>
 </body>
