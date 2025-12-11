@@ -22,7 +22,7 @@ body {
     display: flex; flex-direction: column;
 }
 
-/* --- HEADER STYLES (Ana Yapı) --- */
+/* --- HEADER STYLES --- */
 header {
     background: rgba(10, 14, 23, 0.9);
     backdrop-filter: blur(20px);
@@ -32,12 +32,54 @@ header {
 
 .navbar-top {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 1.2rem 3rem; 
+    padding: 0.8rem 3rem; /* Padding azaltıldı */
     border-bottom: 1px solid rgba(255,255,255,0.05);
     max-width: 1400px; margin: 0 auto;
 }
 
-.logo img { height: 40px; vertical-align: middle; }
+/* LOGO ANA TAŞIYICI */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* LOGO RESİM VE YAZI HİZALAMASI */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-link img { height: 35px; vertical-align: middle; } /* Logo boyutu biraz küçüldü */
+
+.logo-text {
+    font-size: 1.2rem; /* Başlık fontu */
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+}
+
+/* TRADEMARK STİLİ */
+.trademark-link {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 5px; 
+    font-size: 10px; 
+    color: #666; /* Daha silik */
+    text-decoration: none; 
+    padding: 2px 0; 
+    line-height: 1;
+    margin-top: 2px;
+}
+.trademark-link img { 
+    height: 12px; /* Logo küçüldü */
+    filter: brightness(0.85); 
+}
+.trademark-link strong { color: var(--neon-blue); font-weight: 700; }
+.trademark-link:hover { color: var(--neon-blue); }
 
 .nav-actions { display: flex; align-items: center; gap: 20px; }
 
