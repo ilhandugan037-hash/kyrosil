@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyrosil Taste Rain | Coca-Cola & Nestlé Rewards</title>
+
+    <meta name="description" content="Play Kyrosil Taste Rain to catch falling products and win rewards from Coca-Cola, Nestlé, CarrefourSA, and more.">
+    <meta name="keywords" content="Kyrosil Taste Rain, Lezzet Yağmuru, Coca-Cola, Nestlé, CarrefourSA, Rewards, Catch Game">
+    
+    <style>
+        /* style.css - KESİN FINAL SÜRÜM */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-dark: #0a0e17;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f2ff;
+            --neon-purple: #bd00ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            /* Taste Rain Vurgu Renkleri */
+            --cocacola-red: #e61d2b;
+            --kyrosil-blue: #0d3b66;
+            --neon-red: #ff5e5e; 
+            --neon-dark-blue: #3498db;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            background-image: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+        }
+
+        /* --- HEADER/FOOTER TEMPLATE STYLES --- */
+        header { position: sticky; top: 0; z-index: 1000; }
+        footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
+        .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; }
+        .footer-col h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
+        .footer-col ul { list-style: none; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; transition: 0.3s; display: block; }
+        .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
+        main { flex: 1; padding: 0; max-width: 100%; margin: 0 auto; width: 100%; }
+
+        /* --- TASTE RAIN STYLES (Neon uyumlu hale getirildi) --- */
+        #how-to-play-page-kyrosil {
+            font-family: 'Outfit', sans-serif !important;
+            color: var(--text-main);
+        }
+        #how-to-play-page-kyrosil .htp-container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--glass-bg);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-border);
+        }
+        #how-to-play-page-kyrosil .htp-header {
+            text-align: center;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        #how-to-play-page-kyrosil .htp-header h1 {
+            font-size: 3em;
+            color: var(--neon-red);
+            margin: 0;
+            text-shadow: 0 0 10px rgba(230, 29, 43, 0.5);
+        }
+        #how-to-play-page-kyrosil .htp-header p {
+            font-size: 1.2em;
+            color: var(--neon-blue);
+            margin: 5px 0 0 0;
+            font-weight: 500;
+        }
+        
+        /* Dil Seçici */
+        #how-to-play-page-kyrosil .lang-switcher {
+            position: static;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        #how-to-play-page-kyrosil .lang-switcher button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        #how-to-play-page-kyrosil .lang-switcher button:hover {
+            border-color: var(--neon-blue);
+            color: var(--text-main);
+        }
+        #how-to-play-page-kyrosil .lang-switcher button.active {
+            background: var(--neon-purple);
+            color: white;
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        /* Başlıklar ve Adımlar */
+        #how-to-play-page-kyrosil .htp-section h2 {
+            font-size: 2.2em;
+            color: var(--neon-blue);
+            border-bottom: 2px solid var(--neon-purple);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        #how-to-play-page-kyrosil .step-by-step {
+            counter-reset: step;
+            padding-left: 0;
+            list-style: none;
+        }
+        #how-to-play-page-kyrosil .step-by-step li {
+            position: relative;
+            padding: 15px 15px 15px 70px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--neon-blue);
+        }
+        #how-to-play-page-kyrosil .step-by-step li:before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--neon-red);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4em;
+            font-weight: 700;
+            box-shadow: 0 0 8px var(--neon-red);
+        }
+        #how-to-play-page-kyrosil .step-by-step li strong {
+            display: block;
+            font-size: 1.2em;
+            color: var(--text-main);
+        }
+
+        /* Oyun Kuralları Grid */
+        #how-to-play-page-kyrosil .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        #how-to-play-page-kyrosil .rule-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid var(--neon-purple);
+            color: var(--text-muted);
+            font-size: 1em;
+        }
+        #how-to-play-page-kyrosil .rule-item img {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.4));
+        }
+        #how-to-play-page-kyrosil .rule-item strong {
+            color: var(--neon-red);
+            font-weight: 600;
+        }
+
+        /* Ödül Listesi */
+        #how-to-play-page-kyrosil .reward-list {
+            list-style: none;
+            padding: 0;
+        }
+        #how-to-play-page-kyrosil .reward-list li {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            border-left: 3px solid var(--neon-blue);
+        }
+        #how-to-play-page-kyrosil .reward-list li strong {
+            color: var(--neon-red);
+        }
+        
+        /* CTA Butonu */
+        #how-to-play-page-kyrosil .htp-cta-wrapper {
+            text-align: center;
+            margin: 40px 0;
+        }
+        #how-to-play-page-kyrosil .htp-cta {
+            display: inline-block;
+            background-color: var(--neon-purple);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px var(--neon-purple);
+        }
+        #how-to-play-page-kyrosil .htp-cta:hover {
+            transform: scale(1.05);
+            background-color: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 30px var(--neon-blue);
+        }
+        
+        /* Sponsorlar */
+        #how-to-play-page-kyrosil .sponsors-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            opacity: 0.8;
+            flex-wrap: wrap;
+            padding: 20px 0;
+        }
+        #how-to-play-page-kyrosil .sponsors-section img {
+            max-height: 45px;
+            filter: grayscale(100%) brightness(1.5) drop-shadow(0 0 5px rgba(255,255,255,0.5));
+            transition: all 0.3s;
+        }
+        #how-to-play-page-kyrosil .sponsors-section img:hover {
+            filter: grayscale(0%) brightness(1) drop-shadow(0 0 10px var(--neon-blue));
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #how-to-play-page-kyrosil .htp-container { padding: 20px 15px; margin: 20px auto; }
+            #how-to-play-page-kyrosil .htp-header h1 { font-size: 2.2em; }
+            #how-to-play-page-kyrosil .htp-section h2 { font-size: 1.8em; }
+            #how-to-play-page-kyrosil .step-by-step li { padding: 15px 15px 15px 60px; }
+            #how-to-play-page-kyrosil .step-by-step li:before { left: 10px; width: 35px; height: 35px; font-size: 1.2em; }
+            #how-to-play-page-kyrosil .htp-cta { padding: 15px 30px; font-size: 1.2em; border-radius: 10px; }
+            #how-to-play-page-kyrosil .rules-grid { grid-template-columns: 1fr; }
+            #how-to-play-page-kyrosil .sponsors-section { gap: 20px; }
+            #how-to-play-page-kyrosil .sponsors-section img { max-height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main>
+        <div id="how-to-play-page-kyrosil">
+            <div class="htp-container">
+                <div class="htp-header">
+                    <div class="lang-switcher">
+                        <button id="htp-lang-en">EN</button>
+                        <button id="htp-lang-tr">TR</button>
+                    </div>
+                    
+                    <div id="htp-en-header">
+                        <h1>Kyrosil Taste Rain</h1>
+                        <p>How to Play &amp; Rewards</p>
+                    </div>
+                    <div id="htp-tr-header" style="display: none;">
+                        <h1>Kyrosil Lezzet Yağmuru</h1>
+                        <p>Nasıl Oynanır &amp; Ödüller</p>
+                    </div>
+                </div>
+
+                <div class="htp-cta-wrapper">
+                    <a href="https://kyrosiltasterain.store/" class="htp-cta" id="htp-cta-top" target="_blank">Play Now!</a>
+                </div>
+
+                <div id="htp-en-content">
+                    <div class="htp-section">
+                        <h2>How to Start</h2>
+                        <ol class="step-by-step">
+                            <li><strong>Select Region:</strong> Choose your region (Türkiye / Europe) on the first screen.</li>
+                            <li><strong>Sign Up:</strong> Create an account using your email. Fill in all required information and confirm you are following the @Kyrosil account.</li>
+                            <li><strong>Verify Email:</strong> Check your inbox for the verification email and click the link.</li>
+                            <li><strong>Log In:</strong> Return to the game, go to the "Login" tab, and log in with your new account. You're ready to play!</li>
+                        </ol>
+                    </div>
+                    <div class="htp-section">
+                        <h2>Game Rules</h2>
+                        <div class="rules-grid">
+                            <div class="rule-item"> <img src="https://kyrosil.github.io/Lezzet-Yagmuru/normal.png" alt="Coca-Cola"> <span>Catch Coca-Cola products: <strong>+3 Points</strong></span> </div>
+                            <div class="rule-item"> <img src="https://kyrosil.github.io/Lezzet-Yagmuru/carrefour.png" alt="Carrefour"> <span>Catch rare Carrefour logos: <strong>+15 Points</strong></span> </div>
+                            <div class="rule-item"> <img src="https://kyrosil.github.io/Lezzet-Yagmuru/pepsi.png" alt="Pepsi"> <span>Don't catch rival products or bombs: <strong>-5 Points &amp; Lose 1 Life</strong></span> </div>
+                            <div class="rule-item"> <img src="https://i.imgur.com/8Q9gL7s.png" alt="Miss"> <span>Don't miss good items: <strong>Lose 1 Life</strong></span> </div>
+                            <div class="rule-item"> <img src="https://kyrosil.github.io/Lezzet-Yagmuru/kitkat.png" alt="KitKat"> <span>Catch KitKat / Xpress: <strong>Slows down the game for 3 seconds.</strong></span> </div>
+                            <div class="rule-item"> <img src="https://kyrosil.github.io/Lezzet-Yagmuru/erikli.png" alt="Erikli"> <span>Catch Erikli: <strong>Gain 1 Life.</strong></span> </div>
+                        </div>
+                    </div>
+                    <div class="htp-section">
+                        <h2>Rewards</h2>
+                        <h3>Europe</h3>
+                        <ul class="reward-list">
+                            <li><strong>500 PTS:</strong> 5€ Points for Coca-Cola products</li>
+                            <li><strong>750 PTS:</strong> 7.5€ Points for Nestlé products</li>
+                            <li><strong>1000 PTS:</strong> 5€ Points for all products</li>
+                            <li><strong>1000 PTS:</strong> 12.5€ Points for Coca-Cola products</li>
+                            <li><strong>1500 PTS:</strong> 17.5€ Points for Nestlé products</li>
+                            <li><strong>2000 PTS:</strong> 30€ Points for Coca-Cola products</li>
+                            <li><strong>2000 PTS:</strong> 12€ Points for all products</li>
+                            <li><strong>5000 PTS:</strong> 50€ Points for Coca-Cola &amp; Nestlé</li>
+                            <li><strong>10,000 PTS:</strong> 80€ Points for all products</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="htp-tr-content" style="display: none;">
+                    <div class="htp-section">
+                        <h2>Nasıl Başlanır?</h2>
+                        <ol class="step-by-step">
+                            <li><strong>Bölge Seçimi:</strong> İlk ekranda bölgenizi (Türkiye / Europe) seçin.</li>
+                            <li><strong>Kayıt Olma:</strong> E-posta adresinizi kullanarak bir hesap oluşturun. Gerekli tüm bilgileri doldurun ve @Kyrosil hesabını takip ettiğinizi onaylayın.</li>
+                            <li><strong>E-postayı Doğrulama:</strong> Gelen kutunuzu kontrol edin ve doğrulama e-postasındaki linke tıklayın.</li>
+                            <li><strong>Giriş Yapma:</strong> Oyuna geri dönün, "Giriş Yap" sekmesine geçin ve yeni hesabınızla giriş yapın. Artık oynamaya hazırsınız!</li>
+                        </ol>
+                    </div>
+                    <div class="htp-section">
+                        <h2>Oyun Kuralları</h2>
+                        <div class="rules-grid">
+                            <div class="rule-item"> <img src="https://kyrosil.github.io/Lezzet-Yagmuru/normal.png" alt="Coca-Cola"> <span>Coca-Cola ürünlerini yakala: <strong>+3 Puan</strong></span> </div>
+                            <div class="rule-item"> <img src="https://kyrosil.github.io/Lezzet-Yagmuru/carrefour.png" alt="Carrefour"> <span>Nadir Carrefour logolarını yakala: <strong>+15 Puan</strong></span> </div>
+                            <div class="rule-item"> <img src="https://kyrosil.github.io/Lezzet-Yagmuru/pepsi.png" alt="Pepsi"> <span>Rakip ürünleri ve bombaları YAKALAMA: <strong>-5 Puan &amp; 1 Can Kaybı</strong></span> </div>
+                            <div class="rule-item"> <img src="https://i.imgur.com/8Q9gL7s.png" alt="Miss"> <span>İyi objeleri KAÇIRMA: <strong>1 Can Kaybı</strong></span> </div>
+                            <div class="rule-item"> <img src="https://kyrosil.github.io/Lezzet-Yagmuru/kitkat.png" alt="KitKat"> <span>KitKat / Xpress yakala: <strong>Oyun 3 saniyeliğine yavaşlar.</strong></span> </div>
+                            <div class="rule-item"> <img src="https://kyrosil.github.io/Lezzet-Yagmuru/erikli.png" alt="Erikli"> <span>Erikli yakala: <strong>1 Can kazanırsın.</strong></span> </div>
+                        </div>
+                    </div>
+                    <div class="htp-section">
+                        <h2>Ödüller</h2>
+                        <h3>Türkiye</h3>
+                        <ul class="reward-list">
+                            <li><strong>500 PUAN:</strong> Coca-Cola ürünlerinde geçerli 150 TL Puan</li>
+                            <li><strong>750 PUAN:</strong> Nestlé ürünlerinde geçerli 150 TL Puan</li>
+                            <li><strong>1000 PUAN:</strong> Tüm ürünlerde geçerli 100 TL Puan</li>
+                            <li><strong>1000 PUAN:</strong> Coca-Cola ürünlerinde geçerli 350 TL Puan</li>
+                            <li><strong>1500 PUAN:</strong> Nestlé ürünlerinde geçerli 400 TL Puan</li>
+                            <li><strong>2000 PUAN:</strong> Coca-Cola ürünlerinde geçerli 750 TL Puan</li>
+                            <li><strong>2000 PUAN:</strong> Tüm ürünlerde geçerli 200 TL Puan</li>
+                            <li><strong>5000 PUAN:</strong> Coca-Cola ve Nestlé'de geçerli 2500 TL Puan</li>
+                            <li><strong>10000 PUAN:</strong> Tüm ürünlerde geçerli 2000 TL Puan</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="htp-cta-wrapper">
+                    <a href="https://kyrosiltasterain.store/" class="htp-cta" id="htp-cta-bottom" target="_blank">Play Now!</a>
+                </div>
+
+                <div class="htp-section">
+                    <h2>Sponsorlar</h2>
+                    <div class="sponsors-section">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/2560px-Coca-Cola_logo.svg.png" alt="Coca-Cola">
+                        <img src="https://vectorseek.com/wp-content/uploads/2022/04/Carrefour-SA-Logo-Vector.svg-.png" alt="CarrefourSA">
+                        <img src="https://1000logos.net/wp-content/uploads/2017/03/Nestle-Logo.png" alt="Nestlé">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script>
+        // Header ve Footer'ı çekme fonksiyonu
+        document.addEventListener("DOMContentLoaded", function() {
+            // Header'ı Çek
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('header').innerHTML = data;
+                });
+
+            // Footer'ı Çek
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('footer').innerHTML = data;
+                });
+        });
+        
+        // DİL GEÇİŞİ FONKSİYONU
+        document.addEventListener('DOMContentLoaded', function() {
+            const page = document.getElementById('how-to-play-page-kyrosil');
+            if (page && !page.dataset.initialized) {
+                page.dataset.initialized = 'true';
+
+                const btnEN = page.querySelector('#htp-lang-en');
+                const btnTR = page.querySelector('#htp-lang-tr');
+                
+                const headerEN = page.querySelector('#htp-en-header');
+                const headerTR = page.querySelector('#htp-tr-header');
+                const contentEN = page.querySelector('#htp-en-content');
+                const contentTR = page.querySelector('#htp-tr-content');
+                
+                const ctaTop = page.querySelector('#htp-cta-top');
+                const ctaBottom = page.querySelector('#htp-cta-bottom');
+
+                function switchLanguage(lang) {
+                    if (lang === 'en') {
+                        headerEN.style.display = 'block';
+                        headerTR.style.display = 'none';
+                        contentEN.style.display = 'block';
+                        contentTR.style.display = 'none';
+                        ctaTop.textContent = 'Play Now!';
+                        ctaBottom.textContent = 'Play Now!';
+                        btnEN.classList.add('active');
+                        btnTR.classList.remove('active');
+                    } else {
+                        headerEN.style.display = 'none';
+                        headerTR.style.display = 'block';
+                        contentEN.style.display = 'none';
+                        contentTR.style.display = 'block';
+                        ctaTop.textContent = 'Hemen Oyna!';
+                        ctaBottom.textContent = 'Hemen Oyna!';
+                        btnEN.classList.remove('active');
+                        btnTR.classList.add('active');
+                    }
+                }
+
+                btnEN.addEventListener('click', function() { switchLanguage('en'); });
+                btnTR.addEventListener('click', function() { switchLanguage('tr'); });
+
+                // Varsayılan dil: İngilizce
+                switchLanguage('en');
+            }
+        });
+
+        // Mega Menü aç/kapa fonksiyonu
+        function toggleMenu() {
+            const overlay = document.getElementById('megaMenu');
+            if (!overlay) return; 
+
+            overlay.classList.toggle('active');
+            
+            if(overlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
