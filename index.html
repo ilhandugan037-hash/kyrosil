@@ -135,6 +135,90 @@
             margin-top: 10px;
         }
 
+        /* --- How It Works --- */
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 4rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .step-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15);
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .step-card h3 {
+            color: var(--neon-blue);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- Live Stats --- */
+        .live-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 4rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(0, 242, 255, 0.1) 0%, rgba(189, 0, 255, 0.1) 100%);
+            border: 1px solid var(--glass-border);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 242, 255, 0.2);
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--neon-blue);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
         /* --- Bug Report Form --- */
         .bug-report-form {
             max-width: 600px;
@@ -259,6 +343,27 @@
         </div>
 
         <div class="section-header">
+            <h2>How It Works</h2>
+        </div>
+        <section class="how-it-works">
+            <div class="step-card">
+                <div class="step-icon">1️⃣</div>
+                <h3>Choose Your Game</h3>
+                <p>Pick from 6+ skill-based games and challenges</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">2️⃣</div>
+                <h3>Play & Win</h3>
+                <p>Beat challenges and earn your rewards</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">3️⃣</div>
+                <h3>Claim Rewards</h3>
+                <p>Get instant vouchers & cash prizes</p>
+            </div>
+        </section>
+
+        <div class="section-header">
             <h2>Featured Events</h2>
         </div>
         <section class="events-grid">
@@ -305,6 +410,32 @@
                 </div>
                 <button type="submit" class="submit-btn">Submit Report</button>
             </form>
+        </section>
+
+        <div class="section-header">
+            <h2>Today's Activity</h2>
+        </div>
+        <section class="live-stats">
+            <div class="stat-card">
+                <div class="stat-icon">🎮</div>
+                <div class="stat-number" id="activePlayers">0</div>
+                <div class="stat-label">Active Players</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <div class="stat-number">€<span id="prizesWon">0</span></div>
+                <div class="stat-label">Prizes Won Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-number" id="gamesPlayed">0</div>
+                <div class="stat-label">Games Played</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎁</div>
+                <div class="stat-number" id="winnersToday">0</div>
+                <div class="stat-label">Winners Today</div>
+            </div>
         </section>
 
         <div class="section-header">
@@ -372,6 +503,63 @@
             alert('Thank you for your report! We will review it shortly.');
             this.reset();
         });
+
+        // Live Stats - Daily Reset & Synchronized Growth
+        function getDailyStats() {
+            const now = new Date();
+            const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+            const currentTime = now.getTime();
+            const elapsed = currentTime - startOfDay; // Milliseconds since midnight
+            const totalDayMs = 24 * 60 * 60 * 1000;
+            const progress = elapsed / totalDayMs; // 0 to 1 throughout the day
+            
+            // Target values at end of day
+            const targets = {
+                players: 12847,
+                prizes: 4230,
+                games: 156394,
+                winners: 1847
+            };
+            
+            // Calculate current values based on time of day
+            return {
+                players: Math.floor(targets.players * progress),
+                prizes: Math.floor(targets.prizes * progress),
+                games: Math.floor(targets.games * progress),
+                winners: Math.floor(targets.winners * progress)
+            };
+        }
+        
+        function animateValue(element, start, end, duration) {
+            const range = end - start;
+            const increment = range / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= end) {
+                    element.textContent = end.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 16);
+        }
+        
+        function updateStats() {
+            const stats = getDailyStats();
+            
+            animateValue(document.getElementById('activePlayers'), 0, stats.players, 2000);
+            animateValue(document.getElementById('prizesWon'), 0, stats.prizes, 2000);
+            animateValue(document.getElementById('gamesPlayed'), 0, stats.games, 2000);
+            animateValue(document.getElementById('winnersToday'), 0, stats.winners, 2000);
+        }
+        
+        // Update stats on load
+        updateStats();
+        
+        // Update every minute to show growth
+        setInterval(updateStats, 60000);
     </script>
 </body>
 </html>
