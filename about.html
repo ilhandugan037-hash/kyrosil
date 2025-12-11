@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Kyrosil – EU and NATO</title>
+
+    <meta name="description" content="Official profile of Kyros İlhan Dugan: EU and NATO Historian, Cultural Attaché, and Founder of KyroServices Global.">
+    <meta name="keywords" content="Kyrosil, EU, NATO, Historian, Strategic Services, Founder">
+    
+    <style>
+        /* style.css - KYROSIL EU & NATO THEME FINAL V2.5 (TÜM CSS BİRLEŞTİRİLMİŞTİR) */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+
+        :root {
+            --bg-dark: #0a0e17;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f2ff;
+            --neon-purple: #bd00ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            background-image: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+        }
+
+        /* --- HEADER STYLES --- */
+        header { position: sticky; top: 0; z-index: 1000; }
+        .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
+        .trademark-link { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; color: #666; text-decoration: none; padding: 2px 5px; line-height: 1; white-space: nowrap; }
+        .trademark-link img { height: 12px; filter: brightness(0.85); }
+        .trademark-link strong { color: var(--neon-blue); font-weight: 700; }
+        .navbar-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.8rem 3rem; 
+            max-width: 100%; 
+            margin: 0 auto;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .logo-container { padding: 0; margin: 0; }
+        .logo-link { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-link img { height: 35px; vertical-align: middle; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--text-main); text-shadow: 0 0 10px rgba(0, 242, 255, 0.2); }
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .btn-login { background: var(--neon-blue); color: #000; padding: 0.5rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .menu-trigger { display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
+        .hamburger-icon { display: flex; flex-direction: column; gap: 5px; width: 25px; }
+        .hamburger-icon span { display: block; width: 100%; height: 2px; background: #fff; transition: 0.3s; }
+        .mobile-hidden { display: block; }
+        .mega-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(5, 8, 15, 0.98); backdrop-filter: blur(15px);
+            z-index: 2000; padding: 3rem; transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            display: flex; flex-direction: column; overflow-y: auto;
+        }
+        .mega-menu-overlay.active { transform: translateY(0); }
+        .menu-close { align-self: flex-end; cursor: pointer; color: #fff; font-weight: bold; font-size: 1.2rem; margin-bottom: 2rem; transition: 0.3s; }
+        .menu-content-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .menu-title { color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .overlay-links { list-style: none; }
+        .overlay-links li { margin-bottom: 15px; }
+        .overlay-links a { font-size: 1.5rem; color: #fff; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .games-grid a { color: #cbd5e1; text-decoration: none; font-size: 1rem; padding: 5px 0; transition: 0.3s; display: block; }
+
+        /* --- FOOTER STYLES --- */
+        footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
+        .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; }
+        .footer-col h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
+        .footer-col ul { list-style: none; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; transition: 0.3s; display: block; }
+        .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
+
+        /* --- MAIN CONTENT & LAYOUT STYLES (Kısaltıldı) --- */
+        main { flex: 1; padding: 0; max-width: 100%; margin: 0 auto; width: 100%; }
+        .hero-title { font-size: 3.5rem; }
+        .marquee-content span { font-size: 1.5rem; }
+        .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .research-card { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 20px; border-radius: 12px; transition: 0.3s; }
+        .games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- ABOUT ME PAGE STYLES (Neon & Glassmorphism Conversion) --- */
+        .kyrosil-about-me-container {
+            max-width: 1000px; padding: 40px; margin: 40px auto; line-height: 1.7; color: var(--text-muted);
+            background: var(--glass-bg); border-radius: 16px; border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); overflow: hidden;
+        }
+        .kyrosil-profile-img {
+            max-width: 180px; border-radius: 50%; box-shadow: 0 0 30px var(--neon-purple);
+            border: 5px solid var(--neon-blue); transition: all 0.5s;
+        }
+        .kyrosil-title {
+            color: #fff; margin-top: 15px; margin-bottom: 5px; font-size: 2.5em; font-weight: 800;
+            background: linear-gradient(to right, var(--neon-blue), var(--text-main));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .kyrosil-citizen { color: var(--neon-purple); margin-bottom: 30px; }
+        .kyrosil-section-title {
+            color: var(--neon-blue); margin-top: 35px; margin-bottom: 15px; font-size: 1.6em;
+            border-bottom: 2px solid var(--glass-border); padding-bottom: 8px; font-weight: 600;
+        }
+        .kyrosil-venture-card {
+            padding: 15px; background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08); border-left-width: 5px; border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kyrosil-venture-card:hover {
+            transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 242, 255, 0.15); border-color: var(--neon-blue);
+        }
+        .kyrosil-venture-card h4 { color: #fff; font-weight: 700; }
+        .kyrosil-tab-buttons { margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); }
+        .kyrosil-tab-btn {
+            padding: 12px 25px; font-weight: 600; color: var(--text-muted); background-color: transparent;
+            border: none; border-radius: 8px 8px 0 0; border-bottom: 3px solid transparent;
+        }
+        .kyrosil-tab-btn.active {
+            background-color: var(--glass-bg); color: var(--neon-blue);
+            border-bottom-color: var(--neon-blue); transform: translateY(0); box-shadow: none;
+        }
+        .kyrosil-tab-btn:not(.active):hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .kyrosil-contact-btn { background-color: var(--neon-purple); box-shadow: 0 0 15px rgba(189, 0, 255, 0.4); }
+        .kyrosil-contact-btn:hover { background-color: var(--neon-blue); box-shadow: 0 0 20px rgba(0, 242, 255, 0.5); color: #000; }
+
+        /* --- MOBİL UYUMLULUK AYARLARI (Final ve Kritik Fix) --- */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem !important; line-height: 1.1; }
+            h1 { font-size: 2.5rem !important; }
+            .section-header h2 { font-size: 1.5rem; }
+            .navbar-top { padding: 0.8rem 1rem; }
+            .logo-text { font-size: 1.1rem; }
+            .logo-link img { height: 30px; }
+            .mega-menu-overlay { padding: 1rem; }
+            .menu-content-grid { grid-template-columns: 1fr; gap: 1.5rem; } 
+            .games-grid { grid-template-columns: 1fr; padding: 0 20px; } 
+            .games-grid a { white-space: normal; text-align: left; }
+            .footer-container { grid-template-columns: 1fr; text-align: center; }
+            .footer-col h3 { border-left: none; border-bottom: 2px solid var(--neon-purple); padding-bottom: 5px; margin-top: 2rem; left: 50%; transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="utility-bar">
+            <div class="utility-content">
+                <a href="https://whois.eurid.eu/en/search/?domain=kyrosil.eu" target="_blank" class="trademark-link">
+                    <img src="https://whois.eurid.eu/static/dist/img/logo-euipo.78145eaa465c.png" alt="EUIPO Logo">
+                    <span><strong style="color:var(--neon-blue);">KYROSIL</strong> is also available as a European trade mark.</span>
+                </a>
+            </div>
+        </div>
+        <div class="navbar-top">
+            <div class="logo-container">
+                <a href="index.html" class="logo-link">
+                    <img src="https://i0.wp.com/kyrosil.eu/wp-content/uploads/2025/04/adsiz-tasarim.png" alt="Kyrosil Logo">
+                    <span class="logo-text">Kyrosil – EU and NATO</span>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="btn-login mobile-hidden">JOIN EU LOGIN</a>
+                <div class="menu-trigger" onclick="toggleMenu()">
+                    <span class="menu-text">MENU</span>
+                    <span class="hamburger-icon"><span></span><span></span></span>
+                </div>
+            </div>
+        </div>
+        <div class="mega-menu-overlay" id="megaMenu">
+            <div class="menu-close" onclick="toggleMenu()">✕ CLOSE</div>
+            <div class="menu-content-grid">
+                <div class="menu-section">
+                    <h4 class="menu-title">Main</h4>
+                    <ul class="overlay-links">
+                        <li><a href="sponsors.html">My Sponsors</a></li>
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="research.html">My Research Articles</a></li>
+                        <li><a href="giveaways.html">Giveaways!</a></li>
+                    </ul>
+                </div>
+                <div class="menu-section">
+                    <h4 class="menu-title">Games & Apps</h4>
+                    <div class="games-grid">
+                        <a href="spin-win.html">Spin and Win!</a>
+                        <a href="kyrosjump.html">KyrosJump!</a>
+                        <a href="cargo-craze.html">Kyrosil Cargo Craze</a>
+                        <a href="tiktak.html">Kyrosil Tiktak Kaçış</a>
+                        <a href="rewards.html">Kyrosil Rewards Bot</a>
+                        <a href="starbucks.html">Kyrosil Starbucks Barista</a>
+                        <a href="ikea.html">Kyrosil Ikea Allen</a>
+                        <a href="know-win.html">Know and Win</a>
+                        <a href="adidas.html">Kyrosil x Adidas Penalty</a>
+                        <a href="bonanza.html">Kyrosil Bonanza</a>
+                        <a href="daily.html">Kyrosil Daily</a>
+                        <a href="taste-rain.html">Kyrosil Taste Rain</a>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <h4 class="menu-title">Special</h4>
+                    <ul class="overlay-links">
+                        <li><a href="gifts.html" style="color: var(--neon-purple);">Special Gifts ✨</a></li>
+                        <li><a href="iyilik.html">İyilik Kazansın!</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="kyrosil-about-me-container">
+            <div class="kyrosil-profile-header">
+                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/cropped-adsiz_tasarim-removebg-preview-1.png?w=300" alt="Kyros İlhan Dugan" class="kyrosil-profile-img">
+            </div>
+
+            <div class="kyrosil-tab-buttons">
+                <button class="kyrosil-tab-btn active" data-tab="turkish">Türkçe Versiyon</button>
+                <button class="kyrosil-tab-btn" data-tab="english">English Version</button>
+            </div>
+
+            <div id="turkish" class="kyrosil-tab-content active">
+                <h2 class="kyrosil-title">Kyros İlhan Dugan</h2>
+                <p class="kyrosil-subtitle">
+                    Kültür Ataşesi | AB Nezdinde GR Daimi Temsilciliği<br>
+                    AB ve NATO Resmi Tarihçisi<br>
+                    Sahibi | KyroServices Global
+                </p>
+                <p class="kyrosil-citizen">Yunanistan Vatandaşı</p>
+
+                <h3 class="kyrosil-section-title">Geçmiş ve Eğitim</h3>
+                <p>12 Temmuz 1998'de Bodrum'da doğdum, lise eğitimimi 2016 yılında Bodrum Doğa Koleji'nde tamamladım. Ardından Boğaziçi Üniversitesi'nde Tarih lisans eğitimimi sürdürdüm ve 2021'de mezun oldum.</p>
+                <p>Tarihe olan tutkum beni Atina Üniversitesi'ne yönlendirdi ve burada 2023 yılında Antik Tarih alanında Yüksek Lisansımı tamamladım. Şu anda doktora çalışmalarıma Manchester Üniversitesi'nde devam etmekteyim.</p>
+
+                <h3 class="kyrosil-section-title">Meslek ve Uzmanlık Alanı</h3>
+                <p>Ben bir AB ve NATO tarihçisiyim ve Yunanistan, Fransa, İsveç, Norveç, Birleşik Krallık ve Amerika Birleşik Devletleri dahil olmak üzere birçok ülkede hükümet tarihçisi olarak görev yapıyorum. Çalışmalarım, tarihsel olayları analiz etmeye ve bunları günümüz karar alma süreçleriyle ilişkilendirmeye odaklanmaktadır.</p>
+                <p>Hükümetlere, kurumlara ve kuruluşlara stratejik danışmanlık sunarak, tarihsel verilere ve içgörülere dayanarak bilinçli kararlar almalarına yardımcı oluyorum. Akademik kariyerimin yanı sıra, tarih bilgimi hükümet politikaları ve karar alma çerçevelerine değerli katkılar sağlamak için kullanarak çok sayıda stratejik danışmanlık projesinde çalıştım.</p>
+                <p><strong style="color:var(--neon-blue);">Kyros and Dimitri History Services</strong> aracılığıyla hükümetlere, kurumlara ve diğer stratejik kuruluşlara tarihsel danışmanlık hizmetleri sunuyorum. Amacım, günümüz ve gelecekte daha iyi kararların şekillendirilmesine yardımcı olmak için tarihten dersler çıkarmaktır.</p>
+
+                <h3 class="kyrosil-section-title">KyrosServices Global Kurucusu &amp; Girişimlerimiz</h3>
+                <p>KyrosServices Global, ticaretten tekstile, vize danışmanlığından inşaata kadar çeşitli sektörlerde faaliyet gösteren bir ana şirkettir. Şirket, her biri dünya çapındaki müşterilere yüksek kaliteli hizmetler sunmaya odaklanan, farklı pazarlara ve sektörlere hitap eden birkaç uzmanlaşmış markayı denetlemektedir.</p>
+                
+                <div class="kyrosil-venture-card" style="border-left-color: #3498db;">
+                    <h4>Kyros and Dimitri History Services</h4>
+                    <p>Bu marka, hükümet tarihi ve tarihsel danışmanlık hizmetlerine odaklanmaktadır. Uluslararası alanda çalışarak hükümetlere, kuruluşlara ve karar vericilere, çağdaş sorunların karmaşıklıklarında yol almalarına yardımcı olmak için tarihsel süreçlere dair içgörüler sağlıyoruz.</p>
+                </div>
+                <div class="kyrosil-venture-card" style="border-left-color: #e74c3c;">
+                    <h4>PEP</h4>
+                    <p>PEP, online ödeme çözümleri sunan bir elektronik para şirketidir. Hızlı, güvenli ve modern ödeme hizmetleri sunarak dijital para dünyasında kendine yer edinen PEP, küresel varlığını genişletmeye devam etmektedir. Amacımız, dijital ödemeler sektörünün ön saflarında yer almak ve müşterilerimize yenilikçi çözümler sunmaktır.</p>
+                </div>
+                <div class="kyrosil-venture-card" style="border-left-color: #2ecc71;">
+                    <h4>Yunan’dan Gelsin</h4>
+                    <p>Bu marka, geleneksel Yunan ürünlerinin Türkiye pazarında satışını kolaylaştırmaktadır. Yunan gıda ürünlerinden zeytinyağına, zeytine ve diğer yöresel spesiyalitelere kadar, Yunan'dan Gelsin, Türk müşterilerin otantik Yunan ürünlerinin tadını çıkarması için benzersiz bir platform sunmaktadır. Şirketin misyonu, Yunan kültürünü ve mutfağını Türk pazarına tanıtmaktır.</p>
+                </div>
+                <div class="kyrosil-venture-card" style="border-left-color: #f39c12;">
+                    <h4>Kampüs Giyim</h4>
+                    <p>Özellikle üniversite öğrencileri başta olmak üzere gençler için trend ve rahat giysiler sunmaya odaklanmış bir moda markasıdır. Kampüs Giyim, modaya uygun ve konforlu giysiler arayan genç bir kitle için tasarlanmış şık ve uygun fiyatlı koleksiyonlar sunmaktadır.</p>
+                </div>
+                <div class="kyrosil-venture-card" style="border-left-color: #9b59b6;">
+                    <h4>ReziKyros</h4>
+                    <p>Bir gayrimenkul ve inşaat markası olan ReziKyros, üst düzey konut projelerine odaklanmaktadır. Kalite ve lüks vurgusuyla, Türkiye'deki ve uluslararası pazarlardaki yatırımcılar için konut mülkleri geliştiriyoruz. Amacımız, müşterilerimize birinci sınıf gayrimenkul çözümleri sunmaktır.</p>
+                </div>
+                <div class="kyrosil-venture-card" style="border-left-color: #1abc9c;">
+                    <h4>Kosmos Vize</h4>
+                    <p>Kosmos Vize, Yunanistan vize hizmetlerinde uzmanlaşmış ve Türkiye'deki tek Yunanistan yetkili vize danışmanlık şirketi olan bir vize danışmanlık firmasıdır. Yunanistan vizelerine ek olarak, Schengen vize hizmetleri de sunmaktayız. Kosmos Vize, Türk vatandaşlarının Yunanistan için vize başvuru sürecinde yol almalarına yardımcı olarak tüm gerekliliklerin hızlı ve verimli bir şekilde karşılanmasını sağlar.</p>
+                </div>
+
+                <h3 class="kyrosil-section-title">Endüstriler ve Sektörler</h3>
+                <p>KyrosServices Global; ticaret, tekstil, inşaat, elektronik ödemeler ve danışmanlık hizmetleri dahil olmak üzere çeşitli sektörlerde faaliyet gösteren bir ana şirkettir. Şirketin çeşitli portföyü, geniş bir endüstri yelpazesinin ihtiyaçlarını karşılamak üzere tasarlanmıştır. Odağımız, müşteri memnuniyeti ve mükemmellik vurgusuyla dünya çapındaki müşterilere yüksek kaliteli ürün ve hizmetler sunmaktır.</p>
+
+                <h3 class="kyrosil-section-title">Türkiye'deki Bazı Operasyonlar</h3>
+                <ul>
+                    <li><strong>2 Burger King şubesi:</strong> Vadi İstanbul ve Bodrum Hilmiuran'da bulunan bu şubeler, müşteri memnuniyetini ve birinci sınıf bir deneyimi sürdürürken yüksek kaliteli fast food sunmaya odaklanmaktadır.</li>
+                    <li><strong>1 Starbucks Loyalty şubesi:</strong> Bodrum Neyzen Tevfik'te yer alan bu Starbucks şubesi, küresel kahve markasını Türk müşterilere ulaştırarak premium kahveye ve kaliteli hizmete erişimlerini sağlar.</li>
+                </ul>
+
+                <h3 class="kyrosil-section-title">Sonuç</h3>
+                <p>Sonuç olarak, KyrosServices Global; ticaret, tekstil, gayrimenkul, elektronik ödemeler ve vize danışmanlığı dahil olmak üzere çeşitli sektörlerde faaliyet gösteren çok yönlü bir kuruluştur. Geniş kapsamlı operasyonlarımız, en kaliteli hizmetleri ve ürünleri sunarak geniş bir müşteri tabanına hizmet vermemizi sağlar. Bir tarihçi olarak, iş yaklaşımımızı yönlendirmek için tarihsel verileri ve içgörüleri kullanarak şirketin stratejik karar alma süreçlerine katkıda bulunuyor, sürekli başarı ve büyüme için hazır olmamızı sağlıyorum.</p>
+                
+                <div class="kyrosil-contact-section">
+                    <p>Bağlantı kuralım veya daha fazla tartışalım!</p>
+                    <a href="ILETISIM_SAYFASI_VEYA_SOSYAL_MEDYA_LINKIN_BURAYA" target="_blank" rel="noopener noreferrer" class="kyrosil-contact-btn">İletişime Geç</a>
+                </div>
+            </div>
+
+            <div id="english" class="kyrosil-tab-content">
+                <h2 class="kyrosil-title">Kyros İlhan Dugan</h2>
+                <p class="kyrosil-subtitle">
+                    Cultural Attaché | Perm Rep GR to EU<br>
+                    EU and NATO Official Historian<br>
+                    Owner | KyroServices Global
+                </p>
+                <p class="kyrosil-citizen">Greek Citizen</p>
+
+                <h3 class="kyrosil-section-title">Background &amp; Education</h3>
+                <p>Born on July 12, 1998, in Bodrum, I completed my high school education at Bodrum Doğa College in 2016. I then pursued my undergraduate studies in History at Boğaziçi University, graduating in 2021.</p>
+                <p>My passion for history led me to Athens University, where I completed my Master’s in Ancient History in 2023. Currently, I am continuing my doctoral studies at the University of Manchester.</p>
+
+                <h3 class="kyrosil-section-title">Profession and Expertise</h3>
+                <p>I am a EU and NATO historian, and I serve as a government historian in several countries, including Greece, France, Sweden, Norway, the United Kingdom, and the United States. My work focuses on analyzing historical events and connecting them with contemporary decision-making processes.</p>
+                <p>I offer strategic consulting to governments, institutions, and organizations, helping them make informed decisions based on historical data and insights. Alongside my academic career, I have worked on numerous strategic consultancy projects, using my knowledge of history to provide valuable insights into governmental policies and decision-making frameworks.</p>
+                <p>Through <strong style="color:var(--neon-blue);">Kyros and Dimitri History Services</strong>, I offer historical consultancy services to governments, institutions, and other strategic entities. My goal is to use the lessons of history to help shape better decisions in the present and future.</p>
+
+                <h3 class="kyrosil-section-title">Founder of KyrosServices Global &amp; Our Ventures</h3>
+                <p>KyrosServices Global is a parent company that operates across various industries, ranging from trade and textile to visa consultancy and construction. The company oversees several specialized brands that cater to different markets and sectors, each focusing on providing high-quality services to customers around the world.</p>
+                
+                <div class="kyrosil-venture-card" style="border-left-color: #3498db;">
+                    <h4>Kyros and Dimitri History Services</h4>
+                    <p>This brand focuses on government history and historical consultancy services. We work internationally, providing governments, organizations, and decision-makers with insights into historical processes to help them navigate the complexities of contemporary issues.</p>
+                </div>
+                <div class="kyrosil-venture-card" style="border-left-color: #e74c3c;">
+                    <h4>PEP</h4>
+                    <p>PEP is an electronic money company offering online payment solutions. By providing fast, secure, and modern payment services, PEP has carved a niche in the digital currency world and continues to expand its global presence. Our goal is to stay at the forefront of the digital payments industry and provide innovative solutions to our customers.</p>
+                </div>
+                <div class="kyrosil-venture-card" style="border-left-color: #2ecc71;">
+                    <h4>Yunan’dan Gelsin</h4>
+                    <p>This brand facilitates the sale of traditional Greek products in the Turkish market. From Greek food products to olive oil, olive, and other regional specialties, Yunan’dan Gelsin offers a unique platform for Turkish customers to enjoy authentic Greek goods. The company’s mission is to introduce Greek culture and cuisine to the Turkish market.</p>
+                </div>
+                <div class="kyrosil-venture-card" style="border-left-color: #f39c12;">
+                    <h4>Kampüs Giyim</h4>
+                    <p>A fashion brand focused on providing trendy and comfortable clothing for young people, especially university students. Kampüs Giyim offers stylish and affordable collections designed for a young audience looking for fashion-forward and comfortable apparel.</p>
+                </div>
+                <div class="kyrosil-venture-card" style="border-left-color: #9b59b6;">
+                    <h4>ReziKyros</h4>
+                    <p>A real estate and construction brand, ReziKyros focuses on high-end residential projects. With an emphasis on quality and luxury, we develop residential properties for investors in Turkey and international markets. Our goal is to provide top-notch real estate solutions to our clients.</p>
+                </div>
+                <div class="kyrosil-venture-card" style="border-left-color: #1abc9c;">
+                    <h4>Kosmos Vize</h4>
+                    <p>Kosmos Vize is a visa consultancy company that specializes in Greece visa services and is the only Greece-authorized visa consultancy company in Turkey. In addition to Greece visas, we also offer Schengen visa services. Kosmos Vize helps Turkish citizens navigate the visa application process for Greece, ensuring that all requirements are met quickly and efficiently.</p>
+                </div>
+
+                <h3 class="kyrosil-section-title">Industries and Sectors</h3>
+                <p>KyrosServices Global operates in various sectors, including trade, textile, construction, electronic payments, and consultancy services. The company’s diverse portfolio is designed to meet the needs of a broad range of industries. Our focus is on delivering high-quality products and services to clients worldwide, with an emphasis on customer satisfaction and excellence.</p>
+
+                <h3 class="kyrosil-section-title">Some Operations in Turkey</h3>
+                <ul>
+                    <li><strong>2 Burger King branches:</strong> Located in Vadi Istanbul and Bodrum Hilmiuran, these outlets focus on delivering high-quality fast food while maintaining customer satisfaction and a top-tier experience.</li>
+                    <li><strong>1 Starbucks Loyalty branch:</strong> Situated in Bodrum Neyzen Tevfik, this Starbucks outlet brings the global coffee brand to Turkish customers, ensuring they have access to premium coffee and quality service.</li>
+                </ul>
+
+                <h3 class="kyrosil-section-title">Conclusion</h3>
+                <p>In conclusion, KyrosServices Global is a versatile organization that operates across various industries, including trade, textile, real estate, electronic payments, and visa consultancy. Our wide-ranging operations allow us to serve a broad client base, delivering top-quality services and products. Our focus is to use historical data and insights to guide our strategic approach, ensuring we are poised for continued success and growth.</p>
+                
+                <div class="kyrosil-contact-section">
+                    <p>Let's connect or discuss further!</p>
+                    <a href="ILETISIM_SAYFASI_VEYA_SOSYAL_MEDYA_LINKIN_BURAYA" target="_blank" rel="noopener noreferrer" class="kyrosil-contact-btn">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Kyrosil – EU and NATO</h3>
+                <p>As you navigate the complex tapestry of life, choices reveal paths that lead to extraordinary journeys and require creativity, curiosity, and courage for a truly fulfilling journey.</p>
+                <a href="#" class="eyp-btn">START YOUR DREAM WITH EYP</a>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p><strong>Address:</strong> Street 115, Φωτάκου<br>Locality 117 41, Attica, Greece (GR)</p>
+                <p><strong>Region:</strong> Subregion Southern Europe</p>
+                <p><strong>Mail:</strong> <a href="mailto:kyros@kyrosil.eu">kyros@kyrosil.eu</a></p>
+            </div>
+            <div class="footer-col">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="sponsors.html">My Sponsors</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="research.html">Research Articles</a></li>
+                    <li><a href="giveaways.html">Giveaways!</a></li>
+                    <li><a href="starbucks.html">Starbucks Barista</a></li>
+                    <li><a href="adidas.html">Adidas Penalty</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <div class="social-grid">
+                    <a href="#">IG</a><a href="#">Mail</a><a href="#">DA</a><a href="#">FB</a><a href="#">X</a><a href="#">YT</a><a href="#">IN</a><a href="#">Be</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <a href="https://whois.eurid.eu/en/search/?domain=kyrosil.eu" target="_blank" class="trademark-link">
+                <img src="https://whois.eurid.eu/static/dist/img/logo-euipo.78145eaa465c.png" alt="EUIPO Logo">
+                <span><strong style="color:var(--neon-blue);">KYROSIL</strong> is also available as a European trade mark.</span>
+            </a>
+            <div style="color: #555; font-size: 0.8rem;">Designed by Kyrosil &copy; 2025</div>
+        </div>
+    </footer>
+    <script>
+        // Mega Menü açma/kapama fonksiyonu (Header'dan kopyalandı)
+        function toggleMenu() {
+            const overlay = document.getElementById('megaMenu');
+            overlay.classList.toggle('active');
+            if(overlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // About Me Sekme (Tab) fonksiyonu
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.kyrosil-tab-btn');
+            const tabContents = document.querySelectorAll('.kyrosil-tab-content');
+
+            // Başlangıçta aktif sekme
+            let initialTab = document.querySelector('.kyrosil-tab-btn.active');
+            if (initialTab) {
+                document.getElementById(initialTab.getAttribute('data-tab')).classList.add('active');
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
