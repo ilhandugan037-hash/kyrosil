@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyrosil Cargo Craze | Trendyol</title>
+
+    <meta name="description" content="Play Kyrosil Cargo Craze to win Trendyol gift vouchers. Test your reflexes and collect logos to earn rewards.">
+    <meta name="keywords" content="Kyrosil Games, Cargo Craze, Trendyol, Gift Vouchers, Rewards">
+    
+    <style>
+        /* style.css - KESİN FINAL SÜRÜM */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+
+        :root {
+            --bg-dark: #0a0e17;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f2ff;
+            --neon-purple: #bd00ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            background-image: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+        }
+
+        /* --- HEADER STYLES (Modüler yapıyı desteklemek için gerekli) --- */
+        header { position: sticky; top: 0; z-index: 1000; }
+        .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
+        .trademark-link { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; color: #666; text-decoration: none; padding: 2px 5px; line-height: 1; white-space: nowrap; }
+        .trademark-link img { height: 12px; filter: brightness(0.85); }
+        .trademark-link strong { color: var(--neon-blue); font-weight: 700; }
+        .navbar-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.8rem 3rem; 
+            max-width: 100%; 
+            margin: 0 auto;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .logo-container { padding: 0; margin: 0; }
+        .logo-link { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-link img { height: 35px; vertical-align: middle; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--text-main); text-shadow: 0 0 10px rgba(0, 242, 255, 0.2); }
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .btn-login { background: var(--neon-blue); color: #000; padding: 0.5rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .menu-trigger { display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
+        .hamburger-icon { display: flex; flex-direction: column; gap: 5px; width: 25px; }
+        .hamburger-icon span { display: block; width: 100%; height: 2px; background: #fff; transition: 0.3s; }
+        .mobile-hidden { display: block; }
+        .mega-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(5, 8, 15, 0.98); backdrop-filter: blur(15px);
+            z-index: 2000; padding: 3rem; transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            display: flex; flex-direction: column; overflow-y: auto;
+        }
+        .mega-menu-overlay.active { transform: translateY(0); }
+        .menu-close { align-self: flex-end; cursor: pointer; color: #fff; font-weight: bold; font-size: 1.2rem; margin-bottom: 2rem; transition: 0.3s; }
+        .menu-content-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .menu-title { color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .overlay-links { list-style: none; }
+        .overlay-links li { margin-bottom: 15px; }
+        .overlay-links a { font-size: 1.5rem; color: #fff; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .games-grid a { color: #cbd5e1; text-decoration: none; font-size: 1rem; padding: 5px 0; transition: 0.3s; display: block; }
+
+        /* --- FOOTER STYLES --- */
+        footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
+        .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; }
+        .footer-col h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
+        .footer-col ul { list-style: none; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; transition: 0.3s; display: block; }
+        .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
+
+        /* --- SAYFA İÇİ ORTAK STİLLER --- */
+        main { flex: 1; padding: 20px; max-width: 100%; margin: 0 auto; width: 100%; }
+
+        /* --- CARGO CRAZE STİLLERİ --- */
+        .kargo-tanitim-wp {
+            max-width: 650px;
+            margin: 30px auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 30px 40px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .kargo-logo-container-wp {
+            display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 25px;
+        }
+        .kargo-logo-wp { max-width: 120px; height: auto; filter: brightness(0.9); }
+        .kargo-title-wp {
+            color: var(--neon-blue);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+        }
+        .kargo-slogan-wp {
+            font-size: 1.1em;
+            color: var(--neon-purple);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        .kargo-aciklama-wp { font-size: 1em; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+        
+        /* Ödül Kutusu */
+        .kargo-odul-kutusu-wp {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .kargo-odul-title-wp {
+            color: var(--text-main);
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 8px;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            text-align:center;
+            font-weight: 600;
+        }
+        .kargo-odul-list-wp {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1em;
+            color: var(--text-muted);
+            line-height: 1.7;
+            text-align: left;
+        }
+        .kargo-odul-list-wp span { color: var(--neon-blue); font-weight: 700; }
+        .kargo-go-notu-wp, .kargo-onemli-not-wp { font-size: 0.9em; color: var(--neon-purple); margin-top: 10px; font-weight: 500;}
+
+        /* Buton */
+        .kargo-oyna-butonu-wp {
+            display: inline-block;
+            background-color: #f05a22; /* Trendyol Turuncu */
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.15em;
+            box-shadow: 0 0 15px rgba(240, 90, 34, 0.4);
+            transition: all 0.3s;
+        }
+        .kargo-oyna-butonu-wp:hover {
+            background-color: #d1471b;
+            box-shadow: 0 0 25px rgba(240, 90, 34, 0.7);
+            transform: translateY(-2px);
+        }
+        .kargo-alt-bilgi-wp a { color: var(--neon-blue); text-decoration: none; }
+        
+        /* DİL SEKMELERİ */
+        .kargo-tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); }
+        .kargo-tab-btn { padding: 12px 25px; font-weight: 600; color: var(--text-muted); background-color: transparent; border: none; border-radius: 8px 8px 0 0; border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.3s; }
+        .kargo-tab-btn.active { background-color: var(--glass-bg); color: var(--neon-blue); border-bottom-color: var(--neon-blue); }
+        .kargo-tab-btn:not(.active):hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .kargo-tab-content { display: none; padding-top: 20px; }
+        .kargo-tab-content.active { display: block; }
+
+        /* UYARI NOTU */
+        .expiry-note {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid red;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #ff4d4d;
+        }
+
+        /* --- MOBİL UYUMLULUK AYARLARI (Final ve Kritik Fix) --- */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem !important; line-height: 1.1; }
+            h1 { font-size: 2.5rem !important; }
+            .navbar-top { padding: 0.8rem 1rem; }
+            .logo-text { font-size: 1.1rem; }
+            .logo-link img { height: 30px; }
+            .mega-menu-overlay { padding: 1rem; }
+            .menu-content-grid { grid-template-columns: 1fr; gap: 1.5rem; } 
+            .games-grid { grid-template-columns: 1fr; padding: 0 20px; } 
+            .games-grid a { white-space: normal; text-align: left; }
+            .footer-container { grid-template-columns: 1fr; text-align: center; }
+            .kargo-tanitim-wp { margin: 20px 10px; padding: 20px 15px; }
+            .kargo-tab-buttons { flex-direction: column; gap: 5px; }
+            .kargo-title-wp { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main>
+        <div class="kargo-tanitim-wp">
+            
+            <div class="expiry-note" id="expiry-note-tr">
+                🇹🇷 Trendyol sponsorluk anlaşması sona erdiği için oyun **1 Ocak 2026** tarihinde kaldırılacaktır. Bu tarihe kadar oynayabilirsiniz.
+            </div>
+            <div class="expiry-note" id="expiry-note-en" style="display:none;">
+                🇬🇧 Since the Trendyol sponsorship agreement is ending, the game will be removed on **January 1, 2026**. You can play until this date.
+            </div>
+
+            <div class="kargo-tab-buttons">
+                <button class="kargo-tab-btn active" data-tab="turkish">🇹🇷 Türkçe</button>
+                <button class="kargo-tab-btn" data-tab="english">🇬🇧 English</button>
+            </div>
+
+            <div id="turkish" class="kargo-tab-content active">
+                <div class="kargo-icerik-wp">
+                    <div class="kargo-logo-container-wp">
+                        <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/images-4.jpg?w=150" alt="Trendyol Logo" class="kargo-logo-wp">
+                        <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/adsiz-tasarim.png?w=300" alt="Kyrosil Logo" class="kargo-logo-wp">
+                    </div>
+                    <h2 class="kargo-title-wp">Kyrosil Kargo Çılgınlığı</h2>
+                    <p class="kargo-slogan-wp">LOGOLARI KARGON GİBİN DÜŞÜN VE TOPLA,<br>GERÇEK KARGON HEDİYE ÇEKİNLE KAPINA GELSİN!</p>
+                    <p class="kargo-aciklama-wp">Reflekslerini test etmeye hazır mısın? Kyrosil Kargo Çılgınlığı'nda düşen logoları yakalayarak puan topla, skoruna göre muhteşem Trendyol hediye çekleri kazanma şansı yakala! Unutma, 3 kargo kaçırırsan oyun biter ve günde sadece 3 deneme hakkın var!</p>
+                    <div class="kargo-odul-kutusu-wp">
+                        <h4 class="kargo-odul-title-wp">Kazanılacak Ödül Seviyeleri (TL):</h4>
+                        <ul class="kargo-odul-list-wp">
+                            <li><strong>50 Puan:</strong> <span>100 TL</span></li>
+                            <li><strong>100 Puan:</strong> <span>250 TL</span></li>
+                            <li><strong>250 Puan:</strong> <span>500 TL</span></li>
+                            <li><strong>350 Puan:</strong> <span>1000 TL</span></li>
+                            <li><strong>500 Puan:</strong> <span>10000 TL</span></li>
+                            <li><strong>Altı:</strong> Daha çok çalış! 😉</li>
+                        </ul>
+                        <p class="kargo-go-notu-wp">Not: Kazanılan TL hediye çekleri Trendyol ana uygulamasının yanı sıra Trendyol GO (Market ve Yemek) siparişlerinde de geçerlidir.</p>
+                    </div>
+                    <div class="kargo-buton-container-wp">
+                        <a href="https://kyrosil.github.io/kyrosil-kargo-cilginligi/" target="_blank" rel="noopener noreferrer" class="kargo-oyna-butonu-wp">OYUNU HEMEN OYNA!</a>
+                    </div>
+                    <p class="kargo-alt-bilgi-wp" style="color: var(--text-muted);">(Oyun yeni sekmede açılır)<br>Ödülü almak için oyunda belirtilen adrese e-posta göndermeniz gerekmektedir. Bol şans!</p>
+                </div>
+            </div>
+
+            <div id="english" class="kargo-tab-content">
+                <div class="kargo-icerik-wp">
+                    <div class="kargo-logo-container-wp">
+                        <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/images-4.jpg?w=150" alt="Trendyol Logo" class="kargo-logo-wp">
+                        <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/adsiz-tasarim.png?w=300" alt="Kyrosil Logo" class="kargo-logo-wp">
+                    </div>
+                    <h2 class="kargo-title-wp">Kyrosil Cargo Craze</h2>
+                    <p class="kargo-slogan-wp">COLLECT THE LOGOS LIKE YOUR CARGO,<br>GET YOUR REAL CARGO WITH YOUR GIFT VOUCHER!</p>
+                    <p class="kargo-aciklama-wp">Ready to test your reflexes? Catch the falling logos in Kyrosil Cargo Craze to collect points and get a chance to win amazing Trendyol gift vouchers based on your score! Remember, the game ends if you miss 3 packages, and you only have 3 attempts per day!</p>
+                    <div class="kargo-odul-kutusu-wp">
+                        <h4 class="kargo-odul-title-wp">Reward Tiers (EUR):</h4>
+                        <ul class="kargo-odul-list-wp">
+                            <li><strong>50 Points:</strong> <span>5 Euro</span></li>
+                            <li><strong>100 Points:</strong> <span>15 Euro</span></li>
+                            <li><strong>250 Points:</strong> <span>30 Euro</span></li>
+                            <li><strong>350 Points:</strong> <span>50 Euro</span></li>
+                            <li><strong>500 Points:</strong> <span>250 Euro</span></li>
+                            <li><strong>Below:</strong> Work harder! 😉</li>
+                        </ul>
+                        <p class="kargo-onemli-not-wp">IMPORTANT: Codes are valid for Trendyol Europe only. Cannot be used in Turkey.</p>
+                    </div>
+                    <div class="kargo-buton-container-wp">
+                        <a href="https://kyrosil.github.io/kyrosil-kargo-cilginligi/" target="_blank" rel="noopener noreferrer" class="kargo-oyna-butonu-wp">PLAY NOW!</a>
+                    </div>
+                    <p class="kargo-alt-bilgi-wp" style="color: var(--text-muted);">(Game opens in a new tab)<br>To claim your reward, you need to send an e-mail to the address specified in the game. Good luck!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script>
+        // Header ve Footer'ı çekme fonksiyonu
+        document.addEventListener("DOMContentLoaded", function() {
+            // Header'ı Çek
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('header').innerHTML = data;
+                });
+
+            // Footer'ı Çek
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('footer').innerHTML = data;
+                });
+
+            // Cargo Craze Sekme (Tab) fonksiyonu
+            const tabButtons = document.querySelectorAll('.kargo-tab-btn');
+            const tabContents = document.querySelectorAll('.kargo-tab-content');
+            
+            // Trendyol Notlarını Yönetme
+            const expiryNoteTR = document.getElementById('expiry-note-tr');
+            const expiryNoteEN = document.getElementById('expiry-note-en');
+
+
+            // Başlangıçta aktif sekme
+            let initialTab = document.querySelector('.kargo-tab-btn.active');
+            if (initialTab) {
+                document.getElementById(initialTab.getAttribute('data-tab')).classList.add('active');
+                if (initialTab.getAttribute('data-tab') === 'turkish') {
+                    expiryNoteTR.style.display = 'block';
+                    expiryNoteEN.style.display = 'none';
+                } else {
+                    expiryNoteTR.style.display = 'none';
+                    expiryNoteEN.style.display = 'block';
+                }
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    document.getElementById(tabId).classList.add('active');
+
+                    // Notları Yönet
+                    if (tabId === 'turkish') {
+                        expiryNoteTR.style.display = 'block';
+                        expiryNoteEN.style.display = 'none';
+                    } else {
+                        expiryNoteTR.style.display = 'none';
+                        expiryNoteEN.style.display = 'block';
+                    }
+                });
+            });
+        });
+        
+        // Mega Menü aç/kapa fonksiyonu
+        function toggleMenu() {
+            const overlay = document.getElementById('megaMenu');
+            if (!overlay) return; 
+
+            overlay.classList.toggle('active');
+            
+            if(overlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
