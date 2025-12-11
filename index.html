@@ -24,16 +24,22 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(8px);
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             z-index: 9999;
             opacity: 0;
-            animation: fadeIn 0.3s ease-in forwards;
         }
         
         @keyframes fadeIn {
             to { opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: scale(0.95);
+            }
         }
         
         .migration-popup {
@@ -473,7 +479,7 @@
             <div class="popup-content">
                 <p>Kyrosil has migrated to a brand new server powered by <span class="popup-highlight">KyroServices Global</span> in Amsterdam.</p>
                 <p>Built exclusively for <span class="popup-highlight">KyrosFlare</span> to deliver faster performance, enhanced security, and better gaming experience.</p>
-                <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-muted);">🌍 Serving you from the Netherlands</p>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-muted);">🌐 Serving you from the Netherlands</p>
             </div>
             <button class="popup-button" onclick="closePopup()">Let's Go!</button>
         </div>
@@ -629,7 +635,16 @@
 
     <script src="script.js"></script>
     <script>
-        // Migration Popup Handler
+        // Migration Popup Handler - Shows after 7 seconds delay (KyrosFlare protection time)
+        function showMigrationPopup() {
+            const popup = document.getElementById('migrationPopup');
+            popup.style.display = 'flex';
+            popup.style.animation = 'fadeIn 0.3s ease-in forwards';
+        }
+        
+        // Wait 7 seconds before showing popup (allows KyrosFlare to fully load)
+        setTimeout(showMigrationPopup, 7000);
+        
         function closePopup() {
             const popup = document.getElementById('migrationPopup');
             popup.style.animation = 'fadeOut 0.3s ease-out forwards';
@@ -638,25 +653,13 @@
             }, 300);
         }
         
-        // Auto-close after 8 seconds if user doesn't interact
+        // Auto-close after 8 seconds of being visible
         setTimeout(() => {
             const popup = document.getElementById('migrationPopup');
             if (popup.style.display !== 'none') {
                 closePopup();
             }
-        }, 8000);
-        
-        // Add fade out animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeOut {
-                to {
-                    opacity: 0;
-                    transform: scale(0.95);
-                }
-            }
-        `;
-        document.head.appendChild(style);
+        }, 15000); // 7s delay + 8s display = 15s total
         
         // Countdown Timer for Pegasus Giveaway
         const targetDate = new Date('December 12, 2025 18:30:00 GMT+0100').getTime();
