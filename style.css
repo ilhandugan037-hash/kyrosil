@@ -95,18 +95,101 @@ header {
 .games-grid a { color: #cbd5e1; text-decoration: none; font-size: 1rem; padding: 5px 0; transition: 0.3s; display: block; }
 .games-grid a:hover { color: var(--neon-blue); transform: translateX(5px); }
 
-/* FOOTER STYLES (Ekstra yer kaplamamak için kısaltıldı) */
-footer { background: #05080f; border-top: 1px solid var(--glass-border); padding: 4rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .footer-container { grid-template-columns: 1fr 1fr; }
+/* --- FOOTER STYLES (YENİ VE TEMİZLENMİŞ VERSİYON) --- */
+footer {
+    background: #05080f;
+    border-top: 2px solid var(--neon-blue); /* Daha belirgin bir üst çizgi */
+    padding: 3rem 2rem 1rem 2rem;
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
+
+.footer-container {
+    max-width: 1400px; margin: 0 auto;
+    display: grid;
+    /* Masaüstünde 4 sütun: Marka, İletişim, Menü, Sosyal */
+    grid-template-columns: 1.5fr 1fr 1fr 1fr; 
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+}
+
+.footer-col h3 { 
+    color: #fff; 
+    margin-bottom: 1.2rem; 
+    font-size: 1.1rem; 
+    /* Başlık altına neon çizgi */
+    border-left: 3px solid var(--neon-purple); 
+    padding-left: 10px; 
+}
+
+.footer-col p { 
+    line-height: 1.6; 
+    margin-bottom: 1rem; 
+    color: var(--text-muted); /* Metin rengi daha soft */
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+
+/* Footer Linkleri Neon Etkisi */
+.footer-col a { 
+    color: var(--text-muted); 
+    text-decoration: none; 
+    transition: 0.3s; 
+    display: block;
+}
+
+.footer-col a:hover { 
+    color: var(--neon-blue); 
+    padding-left: 5px; /* Kayma efekti */
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.4); 
+}
+
+/* Social Icons Grid */
+.social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.social-icon {
+    background: rgba(255,255,255,0.05); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.8rem;
+    transition: 0.3s;
+}
+.social-icon:hover { background: var(--neon-purple); transform: translateY(-3px); }
+
+/* En Alt Kısım (Trademark ve Designed by) */
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-size: 0.75rem;
+}
+.footer-bottom > div { color: #555; }
+.footer-bottom a { line-height: 1.2; }
+
+
+/* --- MOBİL UYUMLULUK AYARLARI --- */
+@media (max-width: 1024px) {
+    /* Tablet ve küçük ekranlarda 2 sütuna düş */
+    .footer-container { grid-template-columns: 1fr 1fr; } 
+    .footer-bottom { justify-content: center; text-align: center; }
+}
+
 @media (max-width: 768px) {
-    .navbar-top { padding: 1rem 1rem; }
-    .mobile-hidden { display: none; }
-    .menu-content-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .overlay-links a { font-size: 1.2rem; }
-    .games-grid { grid-template-columns: 1fr; }
+    /* Telefondan tek sütuna düş ve ortala */
+    .footer-container { grid-template-columns: 1fr; text-align: center; }
+    .footer-col h3 { 
+        border-left: none; 
+        border-bottom: 2px solid var(--neon-purple); 
+        padding-bottom: 5px;
+        margin-top: 2rem;
+        left: 50%; transform: translateX(-50%); /* Ortala */
+    }
+    .social-grid { justify-content: center; }
 }
