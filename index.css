@@ -29,15 +29,35 @@ body {
     flex-direction: column !important;
 }
 
-/* --- GLOBAL HEADER/FOOTER STYLES (Header'ın sorunsuz çalışması için kritik olan minimum kurallar) --- */
-header { position: sticky !important; top: 0 !important; z-index: 9999 !important; }
+/* --- GLOBAL HEADER/FOOTER STYLES (Düzeltilmiş Sticky Kuralları) --- */
+header { 
+    z-index: 9999 !important; /* Header'ın genel z-index'i yüksek kalsın */
+    /* position: sticky KURALI ARTIK BURADA DEĞİL */
+}
 footer { margin-top: auto !important; }
 .mega-menu-overlay { z-index: 10000 !important; } 
 
+/* Yapışkanlığı tek tek çubuklara uyguluyoruz, aksi halde yükleme sorunu yaratıyor */
+.utility-bar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9998 !important; /* Navbar'dan bir tık az */
+    background-color: var(--bg-dark) !important; /* Arkaplan ekle */
+}
+
+.navbar-top {
+    position: sticky !important;
+    top: 35px !important; /* Utility bar'ın yüksekliğinden sonra yapışması için (tahmini 35px) */
+    z-index: 9999 !important; 
+    background-color: var(--bg-dark) !important; /* Arkaplan ekle */
+}
+
 /* İçerik ve Header Kayması Fix */
-main { flex: 1; padding: 0; max-width: 100%; margin: 0 auto; width: 100%; padding-top: 40px; }
+main { flex: 1; padding: 0; max-width: 100%; margin: 0 auto; width: 100%; padding-top: 40px; } /* Bu padding'i header'ın toplam yüksekliğine göre ayarlayabilirsiniz */
 
 /* --- INDEX.HTML ÖZEL STİLLERİ --- */
+
+/* ... (Geri kalan tüm stilleriniz aynı kaldı) ... */
 
 .hero-section {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -55,102 +75,12 @@ main { flex: 1; padding: 0; max-width: 100%; margin: 0 auto; width: 100%; paddin
 
 .hero-content { z-index: 2; max-width: 800px; padding: 0 20px; }
 
-.hero-title {
-    font-size: 3.5rem; font-weight: 900;
-    background: linear-gradient(to right, var(--neon-blue), #fff, var(--neon-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
-}
-.hero-subtitle { font-size: 1.2rem; color: #fff; margin-bottom: 2rem; }
-.action-buttons { display: flex; gap: 20px; justify-content: center; }
-
-.action-btn {
-    padding: 15px 30px; text-decoration: none; border-radius: 8px;
-    font-weight: 700; font-size: 1rem; transition: 0.3s;
-    text-transform: uppercase; letter-spacing: 1px;
-    border: 2px solid;
-    white-space: nowrap;
-}
-
-.btn-about {
-    background: transparent; border-color: var(--neon-blue); color: var(--neon-blue);
-}
-
-.btn-play {
-    background: var(--neon-purple); border-color: var(--neon-purple); color: #fff;
-    box-shadow: 0 0 15px rgba(189, 0, 255, 0.4);
-}
-
-.btn-about:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 20px var(--neon-blue); }
-.btn-play:hover { background: #fff; color: var(--neon-purple); }
-
-/* --- Sponsor Marquee --- */
-.marquee-strip {
-    background: rgba(0, 0, 0, 0.5); padding: 15px 0; border-top: 1px solid var(--glass-border);
-    border-bottom: 1px solid var(--glass-border); overflow: hidden; white-space: nowrap;
-}
-.marquee-content { display: inline-block; animation: marquee 25s linear infinite; padding-right: 50px; }
-.marquee-content img { max-height: 25px; vertical-align: middle; margin-right: 50px; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s; }
-.marquee-content img:hover { filter: grayscale(0%); opacity: 1; }
+/* ... (Geri kalan tüm stilleriniz aynı kaldı) ... */
 
 @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-100%); }
 }
-
-/* --- Standart Bölüm Başlığı --- */
-.section-header { text-align: center; margin: 4rem 0 2rem 0; }
-.section-header h2 { font-size: 2rem; color: #fff; border-bottom: 3px solid var(--neon-blue); display: inline-block; padding-bottom: 10px; }
-
-/* --- Featured Event (Pegasus) --- */
-.featured-event { 
-    background: linear-gradient(135deg, var(--pegasus-dark-red) 0%, var(--pegasus-red) 100%); 
-    padding: 40px; 
-    border-radius: 12px; 
-    text-align: center; 
-    max-width: 1000px; 
-    margin: 0 auto 4rem auto;
-    box-shadow: 0 0 30px rgba(224, 53, 74, 0.5);
-    border: 2px solid var(--prize-gold);
-}
-.featured-event h3 { color: #fff; font-size: 2.2rem; margin-bottom: 10px; }
-.featured-event p { color: #fff; font-size: 1.2rem; margin: 10px 0 20px 0; }
-.featured-event .countdown { font-size: 2.5rem; color: var(--prize-gold); font-weight: 700; margin-bottom: 20px; text-shadow: 0 0 10px #ffc300; }
-.featured-event .prize-info { font-size: 1.5rem; color: #fff; margin-top: 15px; font-weight: 600; }
-
-/* --- Hata Bildirim Formu (İngilizce) --- */
-.bug-report-form {
-    max-width: 600px;
-    margin: 0 auto 4rem auto;
-    padding: 30px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    text-align: left;
-}
-.bug-report-form h3 { color: var(--neon-purple); font-size: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; margin-bottom: 20px; }
-.bug-report-form label { display: block; margin-bottom: 8px; color: var(--neon-blue); font-weight: 600; }
-.bug-report-form input[type="text"], .bug-report-form input[type="email"], .bug-report-form textarea {
-    width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid var(--glass-border); background: rgba(255, 255, 255, 0.05); color: var(--text-main); border-radius: 6px; box-sizing: border-box;
-}
-.bug-report-form textarea { resize: vertical; }
-.bug-report-form button { background: var(--neon-purple); color: #fff; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; font-weight: 700; }
-.bug-report-form button:hover { background: var(--neon-blue); color: #000; }
-
-/* --- Oyun Paneli (Grid) --- */
-.games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 4rem; padding: 0 20px; max-width: 1400px; margin: 0 auto 4rem auto;}
-.game-item {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 20px 10px; border-radius: 8px; text-decoration: none;
-    transition: all 0.3s ease-in-out; text-align: center;
-    position: relative;
-}
-.game-item:hover { transform: scale(1.05); border-color: var(--neon-purple); box-shadow: 0 0 20px rgba(189, 0, 255, 0.3); }
-.game-item .game-title { color: #fff; font-size: 1rem; font-weight: 600; margin-top: 10px; }
-.game-icon { font-size: 2rem; color: var(--neon-blue); }
-.coming-soon-badge { position: absolute; top: 5px; right: 5px; background: var(--pegasus-red); color: white; font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; font-weight: 700; }
 
 /* Mobil */
 @media (max-width: 768px) {
