@@ -1,150 +1,119 @@
-/* style.css - KYROSIL NEON TOKYO SEXY EDITION 2026 */
+/* KYROSIL NEON TOKYO – SENİN HTML’İN İÇİN ÖZEL ÇÖZÜM */
 @import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&display=swap');
 
 :root {
-    --bg-dark: #0a001a;
-    --neon-purple: #e100ff;
-    --neon-cyan: #00ffff;
-    --neon-pink: #ff00aa;
-    --text-main: #ffffff;
-    --text-muted: #b8b8ff;
-    --glass-bg: rgba(20, 0, 40, 0.5);
-    --glass-border: rgba(225, 0, 255, 0.25);
+    --bg: #0a001a;
+    --purple: #e100ff;
+    --cyan: #00ffff;
+    --pink: #ff00aa;
+    --text: #ffffff;
+    --muted: #b8b8ff;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Clash Display', sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Clash Display',sans-serif; }
 
 body {
-    background: radial-gradient(circle at 20% 80%, #1a0033 0%, #0a001a 30%, #000000 100%),
-                radial-gradient(circle at 80% 20%, rgba(0,255,255,0.15) 0%, transparent 50%);
-    background-attachment: fixed;
-    color: var(--text-main);
+    background: radial-gradient(circle at 20% 80%, #1a0033 0%, #0a001a 40%, #000 100%);
+    color: var(--text);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
 }
 
-/* HEADER */
-header { position: sticky; top: 0; z-index: 1000; }
-
-.utility-bar {
-    background: rgba(10,0,30,0.8);
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(225,0,255,0.2);
-    backdrop-filter: blur(10px);
-}
-.utility-content { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
-.trademark-link { font-size: 11px; color: #aaa; }
-
-/* NAVBAR */
+/* NAVBAR DÜZELT */
 .navbar-top {
-    padding: 1rem 3rem;
-    background: rgba(10,0,30,0.7);
-    backdrop-filter: blur(30px);
-    border-bottom: 1px solid var(--glass-border);
+    padding: 0.8rem 2rem !important;
+    background: rgba(10,0,30,0.9) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(225,0,255,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .logo-text {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan));
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: -1px;
 }
 .btn-login {
-    background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink));
-    color: #fff;
+    background: linear-gradient(45deg, var(--purple), var(--pink));
     padding: 0.7rem 1.8rem;
-    border-radius: 8px;
+    border-radius: 50px;
+    color: white;
     font-weight: 700;
-    letter-spacing: 1px;
-    box-shadow: 0 0 30px rgba(225,0,255,0.5);
-    transition: all 0.4s;
+    box-shadow: 0 0 30px rgba(225,0,255,0.6);
 }
-.btn-login:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 50px rgba(255,0,170,0.8);
-}
-.hamburger-icon span {
-    background: var(--neon-purple);
-    box-shadow: 0 0 15px var(--neon-purple);
-    height: 3px;
-}
+.hamburger-icon span { background: var(--purple); height: 3px; box-shadow: 0 0 15px var(--purple); }
 
-/* MEGA MENU – SEXY TOKYO MODE */
+/* MEGA MENU – SENİN YAPISINA GÖRE YENİDEN YAZILDI */
 .mega-menu-overlay {
-    background: linear-gradient(135deg, rgba(10,0,30,0.98), rgba(20,0,40,0.95));
+    background: linear-gradient(135deg, rgba(8,0,25,0.98), rgba(15,0,40,0.95));
     backdrop-filter: blur(20px);
-    padding: 3rem 2rem;
 }
-.mega-menu-overlay.active { transform: translateY(0); }
+.mega-menu-overlay.active {
+    transform: translateY(0);
+    padding: 2.5rem 2rem;
+}
 
-.menu-close { color: var(--neon-cyan); font-size: 2rem; }
+.menu-content-grid {
+    display: block !important; /* mobilde tek sütun */
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-/* Mobilde tek sütun, ultra temiz */
+.menu-title {
+    color: var(--pink);
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 4rem 0 2rem;
+    border-bottom: 1px solid rgba(255,0,170,0.3);
+    padding-bottom: 10px;
+}
+
+/* MAIN LINKLER */
+.overlay-links {
+    display: block !important;
+}
+.overlay-links li {
+    margin-bottom: 1.6rem;
+}
+.overlay-links a {
+    font-size: 2rem !important;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    padding: 8px 0;
+    transition: 0.4s;
+}
+.overlay-links a:hover {
+    transform: translateX(15px);
+    text-shadow: 0 0 30px var(--cyan);
+}
+
+/* GAMES & APPS */
+.games-grid {
+    display: block !important;
+}
+.games-grid a {
+    display: block !important;
+    font-size: 1.3rem !important;
+    color: #e0e0ff !important;
+    padding: 14px 0 !important;
+    border-bottom: 1px solid rgba(0,255,255,0.15);
+    transition: 0.4s;
+}
+.games-grid a:hover {
+    color: var(--cyan) !important;
+    padding-left: 12px !important;
+    text-shadow: 0 0 20px var(--cyan);
+}
+
+/* MOBİL GARANTİ */
 @media (max-width: 992px) {
-    .mega-menu-overlay.active { padding: 2.5rem 1.8rem; }
-    .menu-content-grid { display: block !important; }
-
-    .overlay-links { margin-bottom: 4rem; }
-    .overlay-links a {
-        font-size: 2.1rem !important;
-        font-weight: 700;
-        background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        display: block;
-        padding: 10px 0;
-        transition: all 0.4s;
-    }
-    .overlay-links a:hover {
-        transform: translateX(15px);
-        text-shadow: 0 0 30px var(--neon-cyan);
-    }
-
-    .games-grid {
-        display: block !important;
-        margin-top: 1rem;
-    }
-    .games-grid a {
-        font-size: 1.3rem !important;
-        padding: 16px 0 !important;
-        border-bottom: 1px solid rgba(0,255,255,0.15);
-        color: #e0e0ff !important;
-        transition: all 0.4s;
-    }
-    .games-grid a:hover {
-        color: var(--neon-cyan) !important;
-        padding-left: 12px !important;
-        text-shadow: 0 0 20px var(--neon-cyan);
-    }
-
-    .menu-title {
-        font-size: 0.85rem;
-        letter-spacing: 4px;
-        color: var(--neon-pink);
-        margin: 4rem 0 2rem;
-    }
-}
-
-/* Genel hover efektleri */
-a, .btn-login, .game-item {
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-a:hover, .game-item:hover {
-    transform: translateY(-6px);
-    text-shadow: 0 0 30px var(--neon-cyan);
-}
-
-/* Footer neon yapalım */
-footer {
-    background: #000;
-    border-top: 2px solid var(--neon-purple);
-}
-.footer-col h3 {
-    border-left: none;
-    border-bottom: 3px solid var(--neon-cyan);
-    padding-bottom: 8px;
-    color: var(--neon-cyan);
+    .navbar-top { padding: 0.8rem 1.5rem; }
+    .logo-text { font-size: 1.4rem; }
+    .menu-content-grid { padding: 0 1rem; }
 }
