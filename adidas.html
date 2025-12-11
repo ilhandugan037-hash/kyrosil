@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyrosil x Adidas Penalty Challenge</title>
+
+    <meta name="description" content="Kyrosil x Adidas Penalty Challenge: Test your football skills against AI and win cash prizes and rewards. Game available until January 1, 2026.">
+    <meta name="keywords" content="Kyrosil Games, Adidas, Penalty Challenge, Football, Soccer, Cash Prize">
+    
+    <style>
+        /* style.css - KESİN FINAL SÜRÜM */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+
+        :root {
+            --bg-dark: #0a0e17;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f2ff;
+            --neon-purple: #bd00ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            /* Adidas Vurgu Renkleri */
+            --adidas-blue: #0052A2;
+            --pitch-green: #28a745;
+            --neon-pitch-green: #3ed86d; /* Temaya uygun neon yeşil */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            background-image: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+        }
+
+        /* --- HEADER STYLES (Modüler yapıyı desteklemek için gerekli) --- */
+        header { position: sticky; top: 0; z-index: 1000; }
+        .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
+        .trademark-link { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; color: #666; text-decoration: none; padding: 2px 5px; line-height: 1; white-space: nowrap; }
+        .trademark-link img { height: 12px; filter: brightness(0.85); }
+        .trademark-link strong { color: var(--neon-blue); font-weight: 700; }
+        .navbar-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.8rem 3rem; 
+            max-width: 100%; 
+            margin: 0 auto;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .logo-container { padding: 0; margin: 0; }
+        .logo-link { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-link img { height: 35px; vertical-align: middle; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--text-main); text-shadow: 0 0 10px rgba(0, 242, 255, 0.2); }
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .btn-login { background: var(--neon-blue); color: #000; padding: 0.5rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .menu-trigger { display: flex; align-items: center; gap: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
+        .hamburger-icon { display: flex; flex-direction: column; gap: 5px; width: 25px; }
+        .hamburger-icon span { display: block; width: 100%; height: 2px; background: #fff; transition: 0.3s; }
+        .mobile-hidden { display: block; }
+        .mega-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(5, 8, 15, 0.98); backdrop-filter: blur(15px);
+            z-index: 2000; padding: 3rem; transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            display: flex; flex-direction: column; overflow-y: auto;
+        }
+        .mega-menu-overlay.active { transform: translateY(0); }
+        .menu-close { align-self: flex-end; cursor: pointer; color: #fff; font-weight: bold; font-size: 1.2rem; margin-bottom: 2rem; transition: 0.3s; }
+        .menu-content-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .menu-title { color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .overlay-links { list-style: none; }
+        .overlay-links li { margin-bottom: 15px; }
+        .overlay-links a { font-size: 1.5rem; color: #fff; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .games-grid a { color: #cbd5e1; text-decoration: none; font-size: 1rem; padding: 5px 0; transition: 0.3s; display: block; }
+
+        /* --- FOOTER STYLES --- */
+        footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
+        .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; }
+        .footer-col h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
+        .footer-col ul { list-style: none; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; transition: 0.3s; display: block; }
+        .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
+
+        /* --- ADIDAS PENALTY STİLLERİ --- */
+        main { flex: 1; padding: 20px; max-width: 100%; margin: 0 auto; width: 100%; }
+        .kyrosil-landing-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        /* Uyarı Notu */
+        .expiry-note {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid red;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 0 auto 30px auto;
+            max-width: 800px;
+            font-weight: 600;
+            color: #ff4d4d;
+            text-align: center;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--glass-bg);
+            border-radius: 24px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-border);
+        }
+        .lang-switcher {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 15px !important;
+            margin-bottom: 30px !important;
+            flex-wrap: wrap !important;
+        }
+        .lang-switcher button {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: var(--text-muted) !important;
+            border: 1px solid var(--glass-border) !important;
+            padding: 10px 20px !important;
+            cursor: pointer !important;
+            border-radius: 8px !important;
+            transition: all 0.3s ease !important;
+            font-weight: 600 !important;
+            font-size: 1em !important;
+            min-width: 80px !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+        }
+        .lang-switcher button:hover, .lang-switcher button.active {
+            background: var(--adidas-blue) !important; 
+            color: var(--text-main) !important; 
+            border-color: var(--neon-blue) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 0 15px var(--neon-blue) !important;
+        }
+        .logos { margin-bottom: 30px; }
+        .logos img { max-height: 70px; max-width: 120px; object-fit: contain; filter: brightness(0.9); }
+        .hero-section h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            margin: 0 0 15px 0;
+            color: var(--text-main);
+            text-shadow: 0 0 15px rgba(40, 167, 69, 0.4);
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-pitch-green), var(--neon-purple));
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-section p.subtitle {
+            font-size: 1.3em;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        .hero-section .play-button {
+            background: var(--neon-pitch-green);
+            color: var(--bg-dark);
+            padding: 18px 55px;
+            border-radius: 12px;
+            font-size: 1.5em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(40, 167, 69, 0.5);
+        }
+        .hero-section .play-button:hover {
+            transform: translateY(-4px) scale(1.03);
+            background: var(--neon-blue);
+            box-shadow: 0 0 25px var(--neon-blue);
+            color: #000;
+        }
+        .info-section { padding: 40px 0; text-align: center; }
+        .info-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--neon-blue);
+            border-bottom: 3px solid var(--neon-purple);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .cards-container { gap: 30px; }
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--neon-blue);
+        }
+        .card h3 { font-size: 1.5em; margin-bottom: 10px; margin-top: 0; color: var(--text-main); }
+        .card p { color: var(--text-muted); }
+        .prize-card h3 { color: var(--adidas-blue); }
+        .prize-card .prize-amount {
+            font-size: 2em;
+            font-weight: 700;
+            margin: 15px 0;
+            color: var(--neon-pitch-green);
+            text-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+        }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+
+        /* MOBİL UYUMLULUK AYARLARI */
+        @media (max-width: 768px) {
+            .kyrosil-landing-container { padding: 10px; }
+            .hero-section h1 { font-size: 2em; }
+            .hero-section p.subtitle { font-size: 1em; }
+            .hero-section .play-button { padding: 12px 30px; font-size: 1.2em; }
+            .info-section h2 { font-size: 1.8em; margin-bottom: 30px; }
+            .card { flex-basis: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main>
+        <div class="kyrosil-landing-container">
+            
+            <div class="expiry-note" id="expiry-note-en">
+                🇬🇧 Since the sponsorship agreement is ending, this game will be removed on **January 1, 2026**. You can play until this date.
+            </div>
+            <div class="expiry-note" id="expiry-note-tr" style="display:none;">
+                🇹🇷 Sponsorluk anlaşması sona erdiği için bu oyun **1 Ocak 2026** tarihinde kaldırılacaktır. Bu tarihe kadar oynayabilirsiniz.
+            </div>
+
+            <section class="hero-section">
+                <div class="lang-switcher">
+                    <button onclick="switchLanguage('en')" class="active">🇬🇧 English</button>
+                    <button onclick="switchLanguage('tr')">🇹🇷 Türkçe</button>
+                </div>
+                
+                <div class="logos">
+                    <img src="https://kyrosil.eu/wp-content/uploads/2025/04/adsiz-tasarim.png" alt="Kyrosil Logo">
+                    <img src="https://turbologo.com/articles/wp-content/uploads/2019/07/Three-Bars-adidas-logo-1.jpg" alt="Adidas Logo">
+                </div>
+                
+                <div id="en" class="content-section active">
+                    <h1>Penalty Challenge</h1>
+                    <p class="subtitle">The ultimate Kyrosil x Adidas penalty shootout is here! Test your skills against the AI, pass the levels, and win grand prizes.</p>
+                    <div class="play-button-container">
+                        <a href="https://kyrosil.github.io/kyrosil-adidas-penalty/" target="_blank" class="play-button">PLAY NOW!</a>
+                    </div>
+                </div>
+                
+                <div id="tr" class="content-section">
+                    <h1>Penaltı Mücadelesi</h1>
+                    <p class="subtitle">En büyük Kyrosil x Adidas penaltı mücadelesi burada! Yeteneklerini yapay zekaya karşı sına, seviyeleri geç ve büyük ödülleri kazan.</p>
+                    <div class="play-button-container">
+                        <a href="https://kyrosil.github.io/kyrosil-adidas-penalty/" target="_blank" class="play-button">HEMEN OYNA!</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <div id="en-info" class="content-section active">
+                    <h2>How to Play?</h2>
+                    <div class="cards-container">
+                        <div class="card">
+                            <h3>1. Take Your Shot</h3>
+                            <p>In your turn, drag and release to shoot. You must score to proceed to the next stage of the level.</p>
+                        </div>
+                        <div class="card">
+                            <h3>2. Make the Save</h3>
+                            <p>Now it's the AI's turn to shoot! Tap or drag to where you want your goalie to dive. A save wins the level!</p>
+                        </div>
+                        <div class="card">
+                            <h3>3. Win Prizes!</h3>
+                            <p>Complete prize levels (2, 4, &amp; 6) to win grand cash prizes and claim your reward via email!</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="tr-info" class="content-section">
+                    <h2>Nasıl Oynanır?</h2>
+                    <div class="cards-container">
+                        <div class="card">
+                            <h3>1. Şutunu Çek</h3>
+                            <p>Sıra sendeyken, nişan almak için sürükle ve şut çekmek için bırak. Bir sonraki aşamaya geçmek için gol atmalısın.</p>
+                        </div>
+                        <div class="card">
+                            <h3>2. Kurtarış Yap</h3>
+                            <p>Şimdi şut çekme sırası yapay zekada! Kalecinin atlamasını istediğin yere dokun veya sürükle. Kurtarış yaparsan leveli geçersin!</p>
+                        </div>
+                        <div class="card">
+                            <h3>3. Ödülleri Kazan!</h3>
+                            <p>Büyük para ödüllerini kazanmak ve ödülünü e-posta ile talep etmek için ödüllü seviyeleri (2, 4, &amp; 6) tamamla!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <div id="en-prizes" class="content-section active">
+                    <h2>The Prizes</h2>
+                    <div class="cards-container">
+                        <div class="card prize-card">
+                            <h3>Level 2</h3>
+                            <p>First challenge passed!</p>
+                            <div class="prize-amount">€20</div>
+                        </div>
+                        <div class="card prize-card">
+                            <h3>Level 4</h3>
+                            <p>You are a pro!</p>
+                            <div class="prize-amount">€50</div>
+                        </div>
+                        <div class="card prize-card">
+                            <h3>Level 6</h3>
+                            <p>You are a true champion!</p>
+                            <div class="prize-amount">€200</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tr-prizes" class="content-section">
+                    <h2>Ödüller</h2>
+                    <div class="cards-container">
+                        <div class="card prize-card">
+                            <h3>Seviye 2</h3>
+                            <p>İlk mücadele tamam!</p>
+                            <div class="prize-amount">1000 TL</div>
+                        </div>
+                        <div class="card prize-card">
+                            <h3>Seviye 4</h3>
+                            <p>Sen bir profesyonelsin!</p>
+                            <div class="prize-amount">2500 TL</div>
+                        </div>
+                        <div class="card prize-card">
+                            <h3>Seviye 6</h3>
+                            <p>Sen gerçek bir şampiyonsun!</p>
+                            <div class="prize-amount">10.000 TL</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <p style="text-align: center; margin-top: 40px; font-size: 0.9em; color: var(--text-muted);">
+                *Cash prizes are subject to official Kyrosil terms & conditions and awarded via email. Daily attempts are limited.
+            </p>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script>
+        // Header ve Footer'ı çekme fonksiyonu
+        document.addEventListener("DOMContentLoaded", function() {
+            // Header'ı Çek
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('header').innerHTML = data;
+                });
+
+            // Footer'ı Çek
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('footer').innerHTML = data;
+                });
+            
+            // Başlangıçta aktif dili kontrol et ve uyarı notunu göster
+            const initialLang = 'en'; 
+            switchLanguage(initialLang);
+
+        });
+        
+        // Mega Menü aç/kapa fonksiyonu
+        function toggleMenu() {
+            const overlay = document.getElementById('megaMenu');
+            if (!overlay) return; 
+
+            overlay.classList.toggle('active');
+            
+            if(overlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // DİL GEÇİŞİ FONKSİYONU (Senin gönderdiğin koddan uyarlandı)
+        function switchLanguage(lang) {
+            // Tüm content-section'ları gizle
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Seçilen dilin tüm ilgili içeriğini göster
+            document.getElementById(lang).classList.add('active');
+            document.getElementById(lang + '-info').classList.add('active');
+            document.getElementById(lang + '-prizes').classList.add('active');
+            
+            // Aktif butonu güncelle
+            document.querySelectorAll('.lang-switcher button').forEach(button => {
+                button.classList.remove('active');
+                if (button.getAttribute('onclick') === `switchLanguage('${lang}')`) {
+                    button.classList.add('active');
+                }
+            });
+
+            // Uyarı notunu güncelle
+            document.getElementById('expiry-note-en').style.display = lang === 'en' ? 'block' : 'none';
+            document.getElementById('expiry-note-tr').style.display = lang === 'tr' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
