@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyrosil Bil Kazan | Burger King Ödülleri</title>
+    <title>Kyrosil ile Bil ve Kazan | Games</title>
 
-    <meta name="description" content="Kyrosil'in 20 soruluk tarih maratonunu oyna ve Burger King menüleri, bakiye yüklemeleri ve 20.000 TL Nakit Ödül kazanma şansı yakala!">
-    <meta name="keywords" content="Kyrosil Games, Bilgi Yarışması, Tarih, Burger King, Whopper, Nakit Ödül, Kazan">
+    <meta name="description" content="Know and Win with Kyrosil! Answer 20 progressively harder history questions to win cash and Burger King mobile balance prizes.">
+    <meta name="keywords" content="Kyrosil Games, Burger King, BK, Know and Win, Cash Prize, History Game, Whopper">
     
     <style>
         /* style.css - KESİN FINAL SÜRÜM */
@@ -20,10 +20,9 @@
             --neon-purple: #bd00ff;
             --text-main: #ffffff;
             --text-muted: #94a3b8;
-            /* Burger King Özel Renkler */
-            --bk-red: #d62d20;
-            --bk-yellow: #f8e124;
-            --bk-neon: #ff6600; /* Kırmızı/Sarı arasına neon turuncu ton */
+            /* Starbucks Özel Renkler (BK için güncellendi, ancak değişken adı korundu) */
+            --starbucks-green: #ff7f00; /* BK Turuncu */
+            --starbucks-neon: #ffaa00; /* Parlak Turuncu Ton */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
@@ -89,186 +88,184 @@
         .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
 
-        /* --- KYROSIL BİL KAZAN STİLLERİ --- */
+        /* --- STARBUCKS STİLLERİ (BK için güncellendi) --- */
         main { flex: 1; padding: 20px; max-width: 100%; margin: 0 auto; width: 100%; }
-        .kyrosil-final-page-v2 {
-            max-width: 700px;
+        .starbucks-promo-container {
+            max-width: 650px;
             margin: 30px auto;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: 15px;
-            padding: 40px;
+            padding: 30px 40px;
             box-shadow: 0 0 30px rgba(0,0,0,0.3);
             text-align: center;
         }
-        .promo-header {
-            display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 25px;
+        .starbucks-logo-container {
+            display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 25px;
         }
-        .promo-logo { max-height: 50px; width: auto; filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1)); }
-        .kyrosil-final-page-v2 h1 {
-            color: var(--bk-neon);
-            font-size: 2.5em;
-            font-weight: 900;
-            text-shadow: 0 0 15px rgba(255, 102, 0, 0.5); /* Neon Turuncu Gölge */
-            margin-bottom: 30px;
-        }
-        .kyrosil-final-page-v2 h2 {
-            color: var(--text-main);
-            font-size: 1.5em;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid var(--glass-border);
-            text-align: left;
-        }
-        .content-area p {
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .content-area ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            margin-bottom: 30px;
-            background-color: rgba(214, 45, 32, 0.1); /* BK Kırmızı Hafif */
-            border: 1px solid rgba(214, 45, 32, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-        }
-        .content-area ul li {
-            color: var(--text-main);
-            line-height: 2;
-        }
-        .content-area ul b {
-            color: var(--bk-neon);
+        .starbucks-logo { max-width: 120px; height: auto; filter: brightness(0.9); }
+        .starbucks-title {
+            color: var(--starbucks-neon);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 2.2em;
             font-weight: 700;
+            text-shadow: 0 0 15px rgba(255, 127, 0, 0.4); /* Neon Turuncu Gölge */
         }
-
-        /* DİL GİZLEME / GÖSTERME MANTIĞI */
-        .lang-tr-text, .lang-en-text { display: none; }
-        .kyrosil-final-page-v2.show-tr .lang-tr-text { display: block; }
-        .kyrosil-final-page-v2.show-en .lang-en-text { display: block; }
-        .kyrosil-final-page-v2.show-tr .lang-en-text.lang-en-inline { display: none; }
-        .kyrosil-final-page-v2.show-en .lang-tr-text.lang-tr-inline { display: none; }
-        .kyrosil-final-page-v2.show-tr .lang-tr-text.lang-tr-inline { display: inline-block; }
-        .kyrosil-final-page-v2.show-en .lang-en-text.lang-en-inline { display: inline-block; }
-
-        /* Dil Seçici Butonlar */
-        .promo-lang-switcher { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
-        .promo-lang-btn {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--text-muted);
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
+        .starbucks-slogan {
+            font-size: 1.1em;
+            color: var(--starbucks-neon);
+            margin-bottom: 25px;
             font-weight: 500;
         }
-        .promo-lang-btn.active {
-            background: var(--bk-red);
-            color: #fff;
-            border-color: var(--bk-red);
+        .starbucks-aciklama { font-size: 1em; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+        
+        /* Ödül Kutusu */
+        .starbucks-odul-kutusu {
+            padding: 20px;
+            background-color: rgba(255, 127, 0, 0.15); /* Hafif turuncu tonlu arkaplan */
+            border: 1px solid rgba(255, 127, 0, 0.4);
+            border-radius: 8px;
+            margin-bottom: 25px;
         }
-        .promo-lang-btn:not(.active):hover {
-            background: rgba(214, 45, 32, 0.2);
-            color: #fff;
+        .starbucks-odul-title {
+            color: var(--starbucks-neon);
+            border-bottom: 1px solid rgba(255, 127, 0, 0.5);
+            padding-bottom: 8px;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            text-align:center;
+            font-weight: 600;
         }
+        .starbucks-odul-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1em;
+            color: var(--text-main); /* Ödül listesi metni beyaz */
+            line-height: 1.7;
+            text-align: left;
+        }
+        .starbucks-odul-list span { color: #fff; font-weight: 700; text-shadow: 0 0 5px var(--starbucks-neon); }
+        .starbucks-go-notu { font-size: 0.9em; color: var(--text-muted); margin-top: 10px; font-weight: 500;}
 
-        /* Ana Buton */
-        .promo-main-button {
+        /* Buton */
+        .starbucks-oyna-butonu {
             display: inline-block;
-            background-color: var(--bk-red); 
-            color: var(--bk-yellow);
-            padding: 15px 40px;
+            background-color: var(--starbucks-green);  /* BK Turuncu */
+            color: #fff;
+            padding: 14px 30px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 900;
-            font-size: 1.25em;
-            letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(214, 45, 32, 0.5);
+            font-weight: bold;
+            font-size: 1.15em;
+            box-shadow: 0 0 15px rgba(255, 127, 0, 0.4);
             transition: all 0.3s;
         }
-        .promo-main-button:hover {
-            background-color: var(--bk-neon);
-            color: #fff;
-            box-shadow: 0 0 25px var(--bk-neon);
-            transform: translateY(-3px);
+        .starbucks-oyna-butonu:hover {
+            background-color: var(--starbucks-neon);
+            color: #000;
+            box-shadow: 0 0 25px var(--starbucks-neon);
+            transform: translateY(-2px);
         }
+        .starbucks-alt-bilgi a { color: var(--neon-blue); text-decoration: none; }
+        
+        /* DİL SEKMELERİ */
+        .starbucks-tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); }
+        .starbucks-tab-btn { padding: 12px 25px; font-weight: 600; color: var(--text-muted); background-color: transparent; border: none; border-radius: 8px 8px 0 0; border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.3s; }
+        .starbucks-tab-btn.active { background-color: var(--glass-bg); color: var(--starbucks-neon); border-bottom-color: var(--starbucks-neon); }
+        .starbucks-tab-btn:not(.active):hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .starbucks-tab-content { display: none; padding-top: 20px; }
+        .starbucks-tab-content.active { display: block; }
 
-        /* --- MOBİL UYUMLULUK AYARLARI --- */
+
+        /* --- MOBİL UYUMLULUK AYARLARI (Final ve Kritik Fix) --- */
         @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem !important; line-height: 1.1; }
+            h1 { font-size: 2.5rem !important; }
             .navbar-top { padding: 0.8rem 1rem; }
             .logo-text { font-size: 1.1rem; }
-            .kyrosil-final-page-v2 { margin: 20px 10px; padding: 20px; }
-            .kyrosil-final-page-v2 h1 { font-size: 1.8em; }
-            .kyrosil-final-page-v2 h2 { text-align: center; }
-            .content-area p, .content-area ul { text-align: center; }
+            .logo-link img { height: 30px; }
+            .mega-menu-overlay { padding: 1rem; }
+            .menu-content-grid { grid-template-columns: 1fr; gap: 1.5rem; } 
+            .games-grid { grid-template-columns: 1fr; padding: 0 20px; } 
+            .games-grid a { white-space: normal; text-align: left; }
             .footer-container { grid-template-columns: 1fr; text-align: center; }
+            .starbucks-promo-container { margin: 20px 10px; padding: 20px 15px; }
+            .starbucks-title { font-size: 1.8em; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-            </header>
+    <header></header>
 
     <main>
-        <div class="kyrosil-final-page-v2 show-en">
-            <div class="promo-header">
-                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/adsiz-tasarim.png" alt="Kyrosil Logo" class="promo-logo">
-                <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-1.png" alt="Burger King Logo" class="promo-logo">
-            </div>
-
-            <div class="promo-lang-switcher">
-                <button class="promo-lang-btn" data-lang="tr">Türkçe</button>
-                <button class="promo-lang-btn active" data-lang="en">English</button>
-            </div>
-
-            <h1>
-                <span class="lang-tr-text">Kyrosil ile Bil Kazan!</span>
-                <span class="lang-en-text">Know and Win with Kyrosil!</span>
-            </h1>
-
-            <div class="content-area">
-                <div class="lang-tr-text">
-                    <h2>Oyun Kuralları</h2>
-                    <p>20 soruluk tarih maratonuna hoş geldiniz! Zorluğu giderek artan soruları ve zaman sınırını aşarak kilometre taşlarına ulaşın, muhteşem ödüller kazanın. 4 farklı joker hakkınız stratejinize güç katacak!</p>
-                    <h2>Ödüller</h2>
-                    <ul>
-                        <li><b>5. Soru:</b> Burger King'den Whopper Menü!</li>
-                        <li><b>10. Soru:</b> BK'da geçerli 1000 TL / 20€ Bakiye!</li>
-                        <li><b>15. Soru:</b> BK'da geçerli 5000 TL / 120€ Bakiye!</li>
-                        <li><b>20. Soru:</b> 20.000 TL / 500€ Nakit Ödül!</li>
-                    </ul>
-                </div>
-                <div class="lang-en-text">
-                    <h2>Game Rules</h2>
-                    <p>Welcome to the 20-question history marathon! Answer progressively harder questions correctly, pass milestones, and win amazing prizes. Your 4 different jokers will empower your strategy!</p>
-                    <h2>Prizes</h2>
-                    <ul>
-                        <li><b>Question 5:</b> A Whopper Menu from Burger King!</li>
-                        <li><b>Question 10:</b> 1000 TL / 20€ Balance at BK!</li>
-                        <li><b>Question 15:</b> 5000 TL / 120€ Balance at BK!</li>
-                        <li><b>Question 20:</b> 20,000 TL / 500€ Cash Prize!</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="starbucks-promo-container">
             
-            <a href="https://kyrosil.github.io/kyrosil-millionare/" target="_blank" class="promo-main-button">
-                <span class="lang-tr-text lang-tr-inline">HEMEN OYNA!</span>
-                <span class="lang-en-text lang-en-inline">PLAY NOW!</span>
-            </a>
+            <div class="starbucks-tab-buttons">
+                <button class="starbucks-tab-btn active" data-tab="turkish">🇹🇷 Türkçe</button>
+                <button class="starbucks-tab-btn" data-tab="english">🇬🇧 English</button>
+            </div>
+
+            <div id="turkish" class="starbucks-tab-content active">
+                <div class="starbucks-icerik-wp">
+                    <div class="starbucks-logo-container">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Burger_King_logo.svg/1024px-Burger_King_logo.svg.png" alt="Burger King Logo" class="starbucks-logo" style="max-width: 100px; filter: none;">
+                        <img src="https://kyrosil.wordpress.com/wp-content/uploads/2025/04/adsiz-tasarim.png?w=300" alt="Kyrosil Logo" class="starbucks-logo" style="filter: none;">
+                    </div>
+                    <h2 class="starbucks-title" style="color: var(--starbucks-neon);">Kyrosil ile Bil ve Kazan!</h2>
+                    <p class="starbucks-slogan" style="color: var(--starbucks-neon);">TARİH MARATONUNA KATIL, ZOR SORULARI BİL,<br>BÜYÜK ÖDÜLLERİ KAZAN!</p>
+                    <p class="starbucks-aciklama">20 soruluk tarih maratonuna hoş geldiniz! Aşamalı olarak zorlaşan soruları doğru cevaplayın, kilometre taşlarını geçin ve muhteşem ödüller kazanın. Stratejinizi güçlendirecek 4 farklı jokeriniz var!</p>
+                    <div class="starbucks-odul-kutusu" style="background-color: rgba(255, 127, 0, 0.15); border: 1px solid rgba(255, 127, 0, 0.4);">
+                        <h4 class="starbucks-odul-title" style="color: var(--starbucks-neon); border-bottom: 1px solid rgba(255, 127, 0, 0.5);">Ödül Seviyeleri:</h4>
+                        <ul class="starbucks-odul-list">
+                            <li><strong>Soru 5:</strong> <span>Burger King’den Bir Whopper Menü!</span></li>
+                            <li><strong>Soru 10:</strong> <span>1000 TL Değerinde</span> (BK Mobil Bakiyesi)</li>
+                            <li><strong>Soru 15:</strong> <span>5000 TL Değerinde</span> (BK Mobil Bakiyesi)</li>
+                            <li><strong>Soru 20:</strong> <span>20,000 TL Değerinde</span> (BÜYÜK NAKİT ÖDÜL!)</li>
+                        </ul>
+                        <p class="starbucks-go-notu">Not: Kazanılan BK mobil bakiyeleri Türkiye'deki Burger King mobil uygulamasında ve şubelerinde geçerlidir.</p>
+                    </div>
+                    <div class="starbucks-buton-container">
+                        <a href="https://kyrosil.github.io/kyrosil-tarih-maratonu/" target="_blank" rel="noopener noreferrer" class="starbucks-oyna-butonu" style="background-color: var(--starbucks-green);">HEMEN OYNA!</a>
+                    </div>
+                    <p class="starbucks-alt-bilgi" style="color: var(--text-muted);">(Oyun yeni sekmede açılır)<br>Ödülü almak için oyunda belirtilen adımları takip etmeniz ve/veya belirtilen adrese e-posta göndermeniz gerekmektedir. Bol şans!</p>
+                </div>
+            </div>
+
+            <div id="english" class="starbucks-tab-content">
+                <div class="starbucks-icerik-wp">
+                    <div class="starbucks-logo-container">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Burger_King_logo.svg/1024px-Burger_King_logo.svg.png" alt="Burger King Logo" class="starbucks-logo" style="max-width: 100px; filter: none;">
+                        <img src="https://kyrosil.wordpress.com/wp-content/uploads/2025/04/adsiz-tasarim.png?w=300" alt="Kyrosil Logo" class="starbucks-logo" style="filter: none;">
+                    </div>
+                    <h2 class="starbucks-title" style="color: var(--starbucks-neon);">Know and Win with Kyrosil!</h2>
+                    <p class="starbucks-slogan" style="color: var(--starbucks-neon);">JOIN THE HISTORY MARATHON, ANSWER TOUGH QUESTIONS,<br>AND GRAB REWARDS!</p>
+                    <p class="starbucks-aciklama">Welcome to the 20-question history marathon! Answer progressively harder questions correctly, pass milestones, and win amazing prizes. Your 4 different jokers will empower your strategy!</p>
+                    <div class="starbucks-odul-kutusu" style="background-color: rgba(255, 127, 0, 0.15); border: 1px solid rgba(255, 127, 0, 0.4);">
+                        <h4 class="starbucks-odul-title" style="color: var(--starbucks-neon); border-bottom: 1px solid rgba(255, 127, 0, 0.5);">Level Rewards:</h4>
+                        <ul class="starbucks-odul-list">
+                            <li><strong>Question 5:</strong> <span>A Whopper Menu from Burger King!</span></li>
+                            <li><strong>Question 10:</strong> <span>20€ / 20 USD</span> (BK Mobile Balance)</li>
+                            <li><strong>Question 15:</strong> <span>120€ / 120 USD</span> (BK Mobile Balance)</li>
+                            <li><strong>Question 20:</strong> <span>500€ / 500 USD</span> (GRAND CASH PRIZE!)</li>
+                        </ul>
+                        <p class="starbucks-go-notu">IMPORTANT: BK Mobile Balance rewards are valid for Burger King mobile app and locations in Europe/USA only.</p>
+                    </div>
+                    <div class="starbucks-buton-container">
+                        <a href="https://kyrosil.github.io/kyrosil-tarih-maratonu/" target="_blank" rel="noopener noreferrer" class="starbucks-oyna-butonu" style="background-color: var(--starbucks-green);">PLAY NOW!</a>
+                    </div>
+                    <p class="starbucks-alt-bilgi" style="color: var(--text-muted);">(Game opens in a new tab)<br>To claim your reward, you need to follow the steps specified in the game and/or send an e-mail to the address specified. Good luck!</p>
+                </div>
+            </div>
         </div>
     </main>
 
-    <footer>
-            </footer>
+    <footer></footer>
 
     <script>
-        // Header ve Footer'ı çekme fonksiyonu (eski koddaki gibi korunur)
+        // Header ve Footer'ı çekme fonksiyonu
         document.addEventListener("DOMContentLoaded", function() {
             // Header'ı Çek
             fetch('header.html')
@@ -283,33 +280,34 @@
                 .then(data => {
                     document.querySelector('footer').innerHTML = data;
                 });
-            
-            // Dil Seçici Fonksiyonu (Yeni koddan alındı)
-            const finalPageContainer = document.querySelector('.kyrosil-final-page-v2');
-            
-            if (finalPageContainer) {
-                const trBtn = finalPageContainer.querySelector('.promo-lang-btn[data-lang="tr"]');
-                const enBtn = finalPageContainer.querySelector('.promo-lang-btn[data-lang="en"]');
 
-                if (trBtn && enBtn) {
-                    trBtn.addEventListener('click', function() {
-                        finalPageContainer.classList.remove('show-en');
-                        finalPageContainer.classList.add('show-tr');
-                        trBtn.classList.add('active');
-                        enBtn.classList.remove('active');
-                    });
+            // Starbucks Sekme (Tab) fonksiyonu
+            const tabButtons = document.querySelectorAll('.starbucks-tab-btn');
+            const tabContents = document.querySelectorAll('.starbucks-tab-content');
 
-                    enBtn.addEventListener('click', function() {
-                        finalPageContainer.classList.remove('show-tr');
-                        finalPageContainer.classList.add('show-en');
-                        enBtn.classList.add('active');
-                        trBtn.classList.remove('active');
-                    });
-                }
+            // Başlangıçta aktif sekme
+            let initialTab = document.querySelector('.starbucks-tab-btn.active');
+            if (initialTab) {
+                document.getElementById(initialTab.getAttribute('data-tab')).classList.add('active');
             }
-        });
 
-        // Mega Menü aç/kapa fonksiyonu (eski koddaki gibi korunur)
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+        
+        // Mega Menü aç/kapa fonksiyonu
         function toggleMenu() {
             const overlay = document.getElementById('megaMenu');
             if (!overlay) return; 
