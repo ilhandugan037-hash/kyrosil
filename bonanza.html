@@ -9,7 +9,7 @@
     <meta name="keywords" content="Kyrosil Games, Bonanza, Sweet Bonanza, THY, Adidas, Starbucks, Rewards, Slot">
     
     <style>
-        /* style.css - KESİN FINAL SÜRÜM (Starbucks Şablonundan alınan tüm Global CSS dahil) */
+        /* style.css - KESİN FINAL SÜRÜM (Cargo Craze Şablonu + Bonanza İçerik) */
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
 
         :root {
@@ -22,7 +22,7 @@
             --text-muted: #94a3b8;
             /* Bonanza Özel Renkler */
             --bonanza-pink: #ff007a;
-            --bonanza-neon: #ff6e9f; /* Neonlaştırılmış pembe ton */
+            --bonanza-neon: #ff6e9f; 
             --bonanza-yellow: #ffc300;
         }
 
@@ -37,7 +37,7 @@
             display: flex; flex-direction: column;
         }
 
-        /* --- GLOBAL & HEADER/FOOTER STYLES (Çalışan Şablondan kopyalandı) --- */
+        /* --- HEADER STYLES (Çalışan Cargo Craze'den kopyalanmıştır.) --- */
         header { position: sticky; top: 0; z-index: 1000; }
         .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
@@ -72,7 +72,7 @@
         }
         .mega-menu-overlay.active { transform: translateY(0); }
         .menu-close { align-self: flex-end; cursor: pointer; color: #fff; font-weight: bold; font-size: 1.2rem; margin-bottom: 2rem; transition: 0.3s; }
-        .menu-content-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 4rem; max-width: 1200px; width: 100%; }
+        .menu-content-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; width: 100%; }
         .menu-title { color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         .overlay-links { list-style: none; }
         .overlay-links li { margin-bottom: 15px; }
@@ -92,7 +92,7 @@
         /* --- BONANZA ÖZEL STİLLERİ --- */
         main { 
             flex: 1; 
-            padding: 120px 20px 20px 20px; /* KRİTİK DÜZELTME: Header altına inmesi için padding eklendi. */
+            padding: 20px; /* NİHAİ DÜZELTME: Sadece 20px padding korundu. Header altına inme görevi sisteme bırakıldı. */
             max-width: 100%; 
             margin: 0 auto; 
             width: 100%; 
@@ -115,7 +115,7 @@
         }
         .bonanza-logo { 
             max-width: 120px; height: auto; 
-            filter: drop-shadow(0 0 5px rgba(255, 100, 200, 0.5)); /* Hafif Pembe Gölge */
+            filter: drop-shadow(0 0 5px rgba(255, 100, 200, 0.5)); 
         }
         .bonanza-title {
             color: var(--bonanza-neon);
@@ -136,7 +136,7 @@
         /* Ödül Kutusu */
         .bonanza-odul-kutusu {
             padding: 20px;
-            background-color: rgba(255, 0, 122, 0.1); /* Hafif pembe tonlu arkaplan */
+            background-color: rgba(255, 0, 122, 0.1); 
             border: 1px solid rgba(255, 0, 122, 0.3);
             border-radius: 8px;
             margin-bottom: 25px;
@@ -164,7 +164,7 @@
             padding-left: 20px;
         }
         .bonanza-odul-list li::before {
-            content: '🍬'; /* Şeker ikonları */
+            content: '🍬';
             position: absolute;
             left: 0;
             color: var(--bonanza-yellow);
@@ -205,7 +205,7 @@
 
         /* --- MOBİL UYUMLULUK AYARLARI --- */
         @media (max-width: 768px) {
-            main { padding: 100px 10px 10px 10px; }
+            main { padding: 20px 10px 10px 10px; } 
             .bonanza-promo-container { margin: 20px 10px; padding: 20px 15px; }
             .bonanza-title { font-size: 1.8em; }
         }
@@ -244,7 +244,7 @@
                     <div class="bonanza-buton-container">
                         <a href="https://kyrosil.github.io/kyrosil-bonanza/" target="_blank" rel="noopener noreferrer" class="bonanza-oyna-butonu">HEMEN OYNA!</a>
                     </div>
-                    <p class="starbucks-alt-bilgi" style="color: var(--text-muted);">(Oyun yeni sekmede açılır)<br>T&C'ler geçerlidir. Ödüller, oyun içi kazanımına göre sistem tarafından otomatik tanımlanacaktır.</p>
+                    <p class="bonanza-alt-bilgi" style="color: var(--text-muted);">(Oyun yeni sekmede açılır)<br>T&C'ler geçerlidir. Ödüller, oyun içi kazanımına göre sistem tarafından otomatik tanımlanacaktır.</p>
                 </div>
             </div>
 
@@ -269,7 +269,7 @@
                     <div class="bonanza-buton-container">
                         <a href="https://kyrosil.github.io/kyrosil-bonanza/" target="_blank" rel="noopener noreferrer" class="bonanza-oyna-butonu">PLAY NOW!</a>
                     </div>
-                    <p class="starbucks-alt-bilgi" style="color: var(--text-muted);">(Game opens in a new tab)<br>T&Cs apply. Rewards will be automatically assigned by the system based on your in-game winnings.</p>
+                    <p class="bonanza-alt-bilgi" style="color: var(--text-muted);">(Game opens in a new tab)<br>T&Cs apply. Rewards will be automatically assigned by the system based on your in-game winnings.</p>
                 </div>
             </div>
         </div>
