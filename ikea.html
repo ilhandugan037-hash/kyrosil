@@ -37,7 +37,7 @@
             display: flex; flex-direction: column;
         }
 
-        /* --- HEADER STYLES (Modüler yapıyı desteklemek için gerekli) --- */
+        /* --- HEADER STYLES (Çalışan sayfadan kopyalandı) --- */
         header { position: sticky; top: 0; z-index: 1000; }
         .utility-bar { background: #05080f; padding: 5px 0; width: 100%; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .utility-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: flex-start; align-items: center; }
@@ -80,7 +80,7 @@
         .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         .games-grid a { color: #cbd5e1; text-decoration: none; font-size: 1rem; padding: 5px 0; transition: 0.3s; display: block; }
 
-        /* --- FOOTER STYLES --- */
+        /* --- FOOTER STYLES (Çalışan sayfadan kopyalandı) --- */
         footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
         .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; }
         .footer-col h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
@@ -90,7 +90,13 @@
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
 
         /* --- IKEA ALLEN STİLLERİ (Neon Tema Uygulanmış) --- */
-        main { flex: 1; padding: 20px; max-width: 100%; margin: 0 auto; width: 100%; }
+        main { 
+            flex: 1; 
+            padding: 120px 20px 20px 20px; /* Header Bozulma Fix: İçeriğin Header'ın altına inmesi için padding eklendi. */
+            max-width: 100%; 
+            margin: 0 auto; 
+            width: 100%; 
+        }
         .kyrosil-landing-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -99,18 +105,22 @@
         .hero-section {
             text-align: center;
             padding: 40px 20px;
-            background: var(--glass-bg); /* Koyu Arkaplan */
+            background: var(--glass-bg); 
             border-radius: 24px;
             margin-bottom: 40px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             border: 1px solid var(--glass-border);
         }
+        
+        /* DİL GEÇİŞİ DÜZELTME BAŞLANGICI */
         .lang-switcher {
             display: flex !important;
             justify-content: center !important;
             gap: 15px !important;
             margin-bottom: 30px !important;
             flex-wrap: wrap !important;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
         }
         .lang-switcher button {
             background: rgba(255, 255, 255, 0.1) !important;
@@ -126,12 +136,21 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
         }
         .lang-switcher button:hover, .lang-switcher button.active {
-            background: var(--ikea-blue) !important; /* IKEA Mavi Aktif */
-            color: var(--ikea-neon-yellow) !important; /* Neon Sarı Metin */
+            background: var(--ikea-blue) !important; 
+            color: var(--ikea-neon-yellow) !important; 
             border-color: var(--ikea-neon-yellow) !important;
             transform: translateY(-2px) !important;
             box-shadow: 0 0 15px rgba(0, 88, 163, 0.7) !important;
         }
+        
+        .content-section {
+            display: none; /* KRİTİK DÜZELTME: Tüm içerik varsayılan olarak gizlenmeli */
+        }
+        .content-section.active {
+            display: block;
+        }
+        /* DİL GEÇİŞİ DÜZELTME SONU */
+        
         .logos { margin-bottom: 30px; }
         .logos img { max-height: 70px; filter: brightness(0.9); }
         .hero-section h1 {
@@ -151,8 +170,8 @@
             margin: 0 auto 30px auto;
         }
         .hero-section .play-button {
-            background: var(--ikea-neon-yellow); /* Neon Sarı Buton */
-            color: var(--bg-dark); /* Koyu Metin */
+            background: var(--ikea-neon-yellow); 
+            color: var(--bg-dark); 
             padding: 18px 55px;
             border-radius: 12px;
             font-size: 1.5em;
@@ -176,20 +195,21 @@
             display: inline-block;
             padding-bottom: 5px;
         }
-        .cards-container { gap: 30px; }
+        .cards-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
         .card {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 16px;
             padding: 30px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-basis: 300px;
         }
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
             border-color: var(--neon-blue);
         }
-        .card .icon { height: 64px; width: 64px; margin-bottom: 20px; fill: var(--ikea-neon-yellow); } /* SVG İçi Sarı */
+        .card .icon { height: 64px; width: 64px; margin-bottom: 20px; fill: var(--ikea-neon-yellow); } 
         .card h3 { font-size: 1.5em; margin-bottom: 10px; color: var(--text-main); }
         .card p { color: var(--text-muted); }
         .prize-card h3 { color: var(--ikea-blue); }
@@ -203,7 +223,21 @@
         
         /* MOBİL UYUMLULUK AYARLARI */
         @media (max-width: 768px) {
-            .kyrosil-landing-container { padding: 10px; }
+            /* Global Header/Footer Mobil Fixes (Tiktak'tan kopyalandı) */
+            .hero-title { font-size: 2.5rem !important; line-height: 1.1; }
+            h1 { font-size: 2.5rem !important; }
+            .navbar-top { padding: 0.8rem 1rem; }
+            .logo-text { font-size: 1.1rem; }
+            .logo-link img { height: 30px; }
+            .mega-menu-overlay { padding: 1rem; }
+            .menu-content-grid { grid-template-columns: 1fr; gap: 1.5rem; } 
+            .games-grid { grid-template-columns: 1fr; padding: 0 20px; } 
+            .games-grid a { white-space: normal; text-align: left; }
+            .footer-container { grid-template-columns: 1fr; text-align: center; }
+            
+            /* IKEA Özel Mobil Fixes */
+            main { padding: 100px 10px 10px 10px; }
+            .kyrosil-landing-container { margin: 20px 10px; padding: 20px 15px; }
             .hero-section h1 { font-size: 2em; }
             .hero-section p.subtitle { font-size: 1em; }
             .hero-section .play-button { padding: 12px 30px; font-size: 1.2em; }
@@ -405,9 +439,12 @@
                 .then(data => {
                     document.querySelector('footer').innerHTML = data;
                 });
+
+            // Sayfa yüklendiğinde varsayılan dil olarak 'en' i ayarla
+            switchLanguage('en');
         });
         
-        // Mega Menü aç/kapa fonksiyonu
+        // Mega Menü aç/kapa fonksiyonu (Header'dan bağımsız çalışması için burada tutuldu)
         function toggleMenu() {
             const overlay = document.getElementById('megaMenu');
             if (!overlay) return; 
@@ -421,7 +458,7 @@
             }
         }
         
-        // DİL GEÇİŞİ FONKSİYONU (Senin gönderdiğin koddan uyarlandı)
+        // DİL GEÇİŞİ FONKSİYONU
         function switchLanguage(lang) {
             // Tüm content-section'ları gizle
             document.querySelectorAll('.content-section').forEach(section => {
@@ -440,11 +477,6 @@
                 }
             });
         }
-
-        // Sayfa yüklendiğinde varsayılan dil olarak 'en' i ayarla
-        document.addEventListener('DOMContentLoaded', () => {
-            switchLanguage('en');
-        });
     </script>
 </body>
 </html>
