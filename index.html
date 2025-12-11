@@ -938,57 +938,61 @@
             this.reset();
         });
 
-        // Live Stats - Daily Reset & Synchronized Growth
-        function getDailyStats() {
-            const now = new Date();
-            const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-            const currentTime = now.getTime();
-            const elapsed = currentTime - startOfDay;
-            const totalDayMs = 24 * 60 * 60 * 1000;
-            const progress = elapsed / totalDayMs;
-            
-            const targets = {
-                players: 12847,
-                prizes: 4230,
-                games: 156394,
-                winners: 1847
-            };
-            
-            return {
-                players: Math.floor(targets.players * progress),
-                prizes: Math.floor(targets.prizes * progress),
-                games: Math.floor(targets.games * progress),
-                winners: Math.floor(targets.winners * progress)
-            };
-        }
+       // Live Stats - Daily Reset & Synchronized Growth
+document.addEventListener('DOMContentLoaded', function() {
+    function getDailyStats() {
+        const now = new Date();
+        const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+        const currentTime = now.getTime();
+        const elapsed = currentTime - startOfDay;
+        const totalDayMs = 24 * 60 * 60 * 1000;
+        const progress = elapsed / totalDayMs;
         
-        function animateValue(element, start, end, duration) {
-            const range = end - start;
-            const increment = range / (duration / 16);
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= end) {
-                    element.textContent = end.toLocaleString();
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current).toLocaleString();
-                }
-            }, 16);
-        }
+        const targets = {
+            players: 12847,
+            prizes: 4230,
+            games: 156394,
+            winners: 1847
+        };
         
-        function updateStats() {
-            const stats = getDailyStats();
-            
-            animateValue(document.getElementById('activePlayers'), 0, stats.players, 2000);
-            animateValue(document.getElementById('prizesWon'), 0, stats.prizes, 2000);
-            animateValue(document.getElementById('gamesPlayed'), 0, stats.games, 2000);
-            animateValue(document.getElementById('winnersToday'), 0, stats.winners, 2000);
-        }
+        return {
+            players: Math.floor(targets.players * progress),
+            prizes: Math.floor(targets.prizes * progress),
+            games: Math.floor(targets.games * progress),
+            winners: Math.floor(targets.winners * progress)
+        };
+    }
+    
+    function animateValue(element, start, end, duration) {
+        if (!element) return; // Element yoksa çık
         
-        updateStats();
-        setInterval(updateStats, 60000);
+        const range = end - start;
+        const increment = range / (duration / 16);
+        let current = start;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= end) {
+                element.textContent = end.toLocaleString();
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current).toLocaleString();
+            }
+        }, 16);
+    }
+    
+    function updateStats() {
+        const stats = getDailyStats();
+        
+        animateValue(document.getElementById('activePlayers'), 0, stats.players, 2000);
+        animateValue(document.getElementById('prizesWon'), 0, stats.prizes, 2000);
+        animateValue(document.getElementById('gamesPlayed'), 0, stats.games, 2000);
+        animateValue(document.getElementById('winnersToday'), 0, stats.winners, 2000);
+    }
+    
+    updateStats();
+    setInterval(updateStats, 60000);
+});
     </script>
 </body>
 </html>
