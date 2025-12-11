@@ -1,4 +1,4 @@
-/* style.css - KYROSIL EU & NATO THEME FINAL V2.4 */
+/* style.css - KYROSIL EU & NATO THEME FINAL V2.5 */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
 
 :root {
@@ -75,45 +75,28 @@ header { position: sticky; top: 0; z-index: 1000; }
 .overlay-links { list-style: none; }
 .overlay-links li { margin-bottom: 15px; }
 .overlay-links a { font-size: 1.5rem; color: #fff; text-decoration: none; font-weight: 700; transition: 0.3s; }
-.overlay-links a:hover { color: var(--neon-blue); padding-left: 10px; }
 .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
 .games-grid a { color: #cbd5e1; text-decoration: none; font-size: 1rem; padding: 5px 0; transition: 0.3s; display: block; }
-.games-grid a:hover { color: var(--neon-blue); transform: translateX(5px); }
 
 /* --- FOOTER STYLES --- */
 footer { background: #05080f; border-top: 2px solid var(--neon-blue); padding: 3rem 2rem 1rem 2rem; margin-top: auto; font-size: 0.9rem; color: var(--text-muted); }
 .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 2rem; }
 .footer-col h3 { color: #fff; margin-bottom: 1.2rem; font-size: 1.1rem; border-left: 3px solid var(--neon-purple); padding-left: 10px; }
-.footer-col p { line-height: 1.6; margin-bottom: 1rem; color: var(--text-muted); }
 .footer-col ul { list-style: none; }
 .footer-col a { color: var(--text-muted); text-decoration: none; transition: 0.3s; display: block; }
-.footer-col a:hover { color: var(--neon-blue); padding-left: 5px; }
 .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.social-icon:hover { background: var(--neon-purple); transform: translateY(-3px); }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; font-size: 0.75rem; }
 
 /* --- MAIN CONTENT & LAYOUT STYLES --- */
 main { flex: 1; padding: 0; max-width: 100%; margin: 0 auto; width: 100%; }
-.hero-section { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 70vh; background-image: url('https://images.unsplash.com/photo-1620202931269-e0d5a37f5b3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzOTcwOTJ8MHwxfHNlYXJjaHw0fHxjdWJlciUyMGJsdWV8ZW58MHx8fHwxNzAzMzc3NzgzfDA&ixlib=rb-4.0.3&q=80&w=1080'); background-size: cover; background-position: center; position: relative; }
-.hero-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(3px); z-index: 1; }
-.hero-content { z-index: 2; max-width: 800px; padding: 0 20px; }
-.hero-title { font-size: 3.5rem; font-weight: 900; background: linear-gradient(to right, var(--neon-blue), #fff, var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
-.hero-subtitle { font-size: 1.2rem; color: #fff; margin-bottom: 2rem; }
-.action-buttons { display: flex; gap: 20px; justify-content: center; }
-.action-btn { padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; border: 2px solid; }
-.marquee-strip { background: rgba(0, 0, 0, 0.5); padding: 15px 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); overflow: hidden; white-space: nowrap; }
-.marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
-.marquee-content span { font-size: 1.5rem; font-weight: 500; color: var(--text-muted); margin-right: 50px; text-transform: uppercase; }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-.section-header { text-align: center; margin: 4rem 0 2rem 0; }
-.section-header h2 { font-size: 2rem; color: #fff; border-bottom: 3px solid var(--neon-blue); display: inline-block; padding-bottom: 10px; }
+.hero-title { font-size: 3.5rem; }
+.marquee-content span { font-size: 1.5rem; }
 .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 .research-card { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 20px; border-radius: 12px; transition: 0.3s; }
-.research-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15); }
 .games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 .game-item { display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px 10px; border-radius: 8px; text-decoration: none; transition: all 0.3s ease-in-out; text-align: center; }
 
-/* --- MOBİL UYUMLULUK AYARLARI (Final Fix) --- */
+/* --- MOBİL UYUMLULUK AYARLARI (KRİTİK VE FINAL FIX) --- */
 @media (max-width: 768px) {
     /* Yazı Küçültme (Sıkışmayı Önler) */
     .hero-title { font-size: 2.5rem !important; line-height: 1.1; }
@@ -126,13 +109,20 @@ main { flex: 1; padding: 0; max-width: 100%; margin: 0 auto; width: 100%; }
     .logo-text { font-size: 1.1rem; }
     .logo-link img { height: 30px; }
     
-    /* Mega Menü Fix (Yatay Kaydırmayı Engeller) */
+    /* MEGA MENÜ KRİTİK FIX (Yatay Kaydırmayı Engeller) */
     .mega-menu-overlay { padding: 1rem; }
     .menu-content-grid { 
-        grid-template-columns: 1fr; /* Tüm menü sütunları alt alta inecek */
+        grid-template-columns: 1fr; /* Ana menü 1 sütuna düştü */
         gap: 1.5rem; 
     }
-    .games-grid { grid-template-columns: 1fr; } /* Oyunlar Gridi Tek Sütuna Düşecek */
+    .games-grid { 
+        grid-template-columns: 1fr; /* Oyunlar Gridi KESİN tek sütuna düştü */
+        padding: 0 20px;
+    } 
+    .games-grid a {
+        white-space: normal; /* Uzun metinler alt satıra insin (taşmayı engeller) */
+        text-align: left;
+    }
 
     /* Footer Temizliği */
     .footer-container { grid-template-columns: 1fr; text-align: center; }
