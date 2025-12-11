@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | Sayfa Bulunamadı - Kyrosil</title>
+
+    <style>
+        /* style.css - KESİN FINAL SÜRÜM */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+
+        :root {
+            --bg-dark: #0a0e17;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00f2ff;
+            --neon-purple: #bd00ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            background-image: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        /* --- 404 KAPSAYICISI --- */
+        .error-container {
+            max-width: 600px;
+            padding: 40px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+        }
+
+        /* --- HATA KODU --- */
+        .error-code {
+            font-size: 8em;
+            font-weight: 900;
+            margin-bottom: 5px;
+            
+            /* Neon efekti için gradient ve gölge */
+            color: var(--neon-purple);
+            text-shadow: 0 0 15px rgba(189, 0, 255, 0.7), 0 0 30px rgba(189, 0, 255, 0.3);
+            line-height: 1.1;
+        }
+
+        /* --- BAŞLIK --- */
+        .error-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--neon-blue);
+            margin-bottom: 20px;
+        }
+
+        /* --- AÇIKLAMA --- */
+        .error-message {
+            font-size: 1.1em;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* --- BUTONLAR --- */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .error-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1em;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: var(--neon-blue);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+        }
+        .btn-primary:hover {
+            background: var(--neon-purple);
+            color: var(--text-main);
+            box-shadow: 0 0 20px var(--neon-purple);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--neon-purple);
+            color: var(--neon-purple);
+        }
+
+        /* --- MOBİL UYUMLULUK --- */
+        @media (max-width: 600px) {
+            .error-container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            .error-code {
+                font-size: 6em;
+            }
+            .error-title {
+                font-size: 1.8em;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+            .error-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Sayfa Bulunamadı / Page Not Found</h1>
+        
+        <p class="error-message">
+            Aradığınız sayfa ya taşınmış, ya silinmiş ya da hiç var olmamış olabilir. Lütfen aşağıdaki seçeneklerden birini kullanarak sitemizde gezinmeye devam edin.
+            <br><br>
+            The page you are looking for might have been moved, deleted, or never existed. Please use one of the options below to continue browsing our site.
+        </p>
+
+        <div class="button-group">
+            <a href="index.html" class="error-btn btn-primary">
+                🇹🇷 Anasayfaya Dön / 🇬🇧 Go to Homepage
+            </a>
+            <a href="games-hub.html" class="error-btn btn-secondary">
+                Kyrosil Games & Apps
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
