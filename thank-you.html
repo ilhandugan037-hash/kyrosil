@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! | Kyrosil</title>
+    
+    <style>
+        /* Teşekkür Sayfası İçin Basit ve Şık Stil */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+        
+        :root {
+            --bg-dark: #0a0e17;
+            --neon-blue: #00f2ff;
+            --neon-purple: #bd00ff;
+            --text-main: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .thank-you-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .thank-you-box h1 {
+            font-size: 3em;
+            color: var(--neon-blue);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
+        }
+
+        .thank-you-box p {
+            font-size: 1.2em;
+            color: var(--text-main);
+            margin-bottom: 30px;
+        }
+
+        .home-button {
+            display: inline-block;
+            background-color: var(--neon-purple);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .home-button:hover {
+            background-color: var(--neon-blue);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-box">
+        <h1>Thank You!</h1>
+        <p>Your report has been successfully submitted. Your contribution is highly appreciated!</p>
+        <a href="index.html" class="home-button">Return to Homepage</a>
+    </div>
+</body>
+</html>
