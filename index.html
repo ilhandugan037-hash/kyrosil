@@ -669,6 +669,19 @@
             letter-spacing: 1px;
             border: 2px solid;
             display: inline-block;
+            cursor: pointer;
+        }
+
+        .action-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .action-btn.ended {
+            background: #666 !important;
+            border-color: #666 !important;
+            color: #fff !important;
         }
 
         .btn-play {
@@ -774,7 +787,7 @@
                 <span class="lang-text">İlk dolduran 400 kişi</span>
             </div>
             <div class="event-timer" id="countdown-iga">Loading...</div>
-            <a href="#" class="action-btn btn-iga">Join Now!</a>
+            <a href="#" class="action-btn btn-iga disabled" id="btn-iga">Join Now!</a>
         </div>
 
         <!-- 2. IKEA Event -->
@@ -787,7 +800,7 @@
                 <span class="lang-text">500 TL Hediye Çeki (İlk dolduran 500 kişi)</span>
             </div>
             <div class="event-timer" id="countdown-ikea">Loading...</div>
-            <a href="#" class="action-btn btn-ikea">Join Now!</a>
+            <a href="#" class="action-btn btn-ikea disabled" id="btn-ikea">Join Now!</a>
         </div>
 
         <!-- 3. Pegasus Airlines Event -->
@@ -800,74 +813,105 @@
                 <span class="lang-text">İlk dolduran 1,000 kişi</span>
             </div>
             <div class="event-timer" id="countdown-pegasus">Loading...</div>
-            <a href="pegasus-giveaway.html" class="action-btn btn-play">Join Now!</a>
+            <a href="pegasus-giveaway.html" class="action-btn btn-play disabled" id="btn-pegasus">Join Now!</a>
         </div>
     </section>
 
     <script>
-        // IGA PASS Countdown - Today at 22:00 CET
-        const igaDate = new Date();
-        igaDate.setHours(22, 0, 0, 0);
-        if (new Date() > igaDate) {
-            igaDate.setDate(igaDate.getDate() + 1);
-        }
+        // IGA PASS Countdown - December 11, 2025 22:00:00 CET
+        const igaDate = new Date('December 11, 2025 22:00:00 GMT+0100').getTime();
+        const igaEndDate = igaDate + (3 * 60 * 1000); // 3 dakika sonra
 
         function updateIGACountdown() {
             const now = new Date().getTime();
-            const distance = igaDate.getTime() - now;
+            const distance = igaDate - now;
+            const btn = document.getElementById('btn-iga');
 
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Süre dolmadan önce
+            if (distance > 0) {
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById('countdown-iga').innerHTML = 
-                `${hours}h ${minutes}m ${seconds}s`;
-
-            if (distance < 0) {
+                document.getElementById('countdown-iga').innerHTML = 
+                    `${hours}h ${minutes}m ${seconds}s`;
+                btn.classList.add('disabled');
+            }
+            // Event başladı (0-3 dakika arası)
+            else if (distance <= 0 && now < igaEndDate) {
                 document.getElementById('countdown-iga').innerHTML = "EVENT LIVE!";
+                btn.classList.remove('disabled');
+            }
+            // Katılım sona erdi (3 dakika sonra)
+            else {
+                document.getElementById('countdown-iga').innerHTML = "KATILIM SONA ERDİ";
+                btn.classList.add('disabled', 'ended');
+                btn.textContent = "Ended";
             }
         }
 
-        // IKEA Countdown - Today at 23:00 CET
-        const ikeaDate = new Date();
-        ikeaDate.setHours(23, 0, 0, 0);
-        if (new Date() > ikeaDate) {
-            ikeaDate.setDate(ikeaDate.getDate() + 1);
-        }
+        // IKEA Countdown - December 11, 2025 23:00:00 CET
+        const ikeaDate = new Date('December 11, 2025 23:00:00 GMT+0100').getTime();
+        const ikeaEndDate = ikeaDate + (3 * 60 * 1000); // 3 dakika sonra
 
         function updateIKEACountdown() {
             const now = new Date().getTime();
-            const distance = ikeaDate.getTime() - now;
+            const distance = ikeaDate - now;
+            const btn = document.getElementById('btn-ikea');
 
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Süre dolmadan önce
+            if (distance > 0) {
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById('countdown-ikea').innerHTML = 
-                `${hours}h ${minutes}m ${seconds}s`;
-
-            if (distance < 0) {
+                document.getElementById('countdown-ikea').innerHTML = 
+                    `${hours}h ${minutes}m ${seconds}s`;
+                btn.classList.add('disabled');
+            }
+            // Event başladı (0-3 dakika arası)
+            else if (distance <= 0 && now < ikeaEndDate) {
                 document.getElementById('countdown-ikea').innerHTML = "EVENT LIVE!";
+                btn.classList.remove('disabled');
+            }
+            // Katılım sona erdi (3 dakika sonra)
+            else {
+                document.getElementById('countdown-ikea').innerHTML = "KATILIM SONA ERDİ";
+                btn.classList.add('disabled', 'ended');
+                btn.textContent = "Ended";
             }
         }
 
         // Pegasus Countdown - December 12, 2025 18:30:00 CET
         const pegasusDate = new Date('December 12, 2025 18:30:00 GMT+0100').getTime();
+        const pegasusEndDate = pegasusDate + (3 * 60 * 1000); // 3 dakika sonra
 
         function updatePegasusCountdown() {
             const now = new Date().getTime();
             const distance = pegasusDate - now;
+            const btn = document.getElementById('btn-pegasus');
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Süre dolmadan önce
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById('countdown-pegasus').innerHTML = 
-                `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-            if (distance < 0) {
+                document.getElementById('countdown-pegasus').innerHTML = 
+                    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                btn.classList.add('disabled');
+            }
+            // Event başladı (0-3 dakika arası)
+            else if (distance <= 0 && now < pegasusEndDate) {
                 document.getElementById('countdown-pegasus').innerHTML = "EVENT LIVE!";
+                btn.classList.remove('disabled');
+            }
+            // Katılım sona erdi (3 dakika sonra)
+            else {
+                document.getElementById('countdown-pegasus').innerHTML = "KATILIM SONA ERDİ";
+                btn.classList.add('disabled', 'ended');
+                btn.textContent = "Ended";
             }
         }
 
