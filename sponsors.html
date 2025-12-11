@@ -74,7 +74,7 @@
             max-width: 100%;
             max-height: 70px;
             object-fit: contain;
-            filter: grayscale(100%) opacity(0.6); /* Başlangıçta gri ve soluk */
+            filter: grayscale(0%) opacity(1); /* Daima renkli ve net */
             transition: 0.4s;
         }
 
@@ -95,8 +95,7 @@
         }
 
         .sponsor-card:hover img {
-            filter: grayscale(0%) opacity(1); /* Renkli ve net */
-            transform: scale(1.1);
+            transform: scale(1.1); /* Sadece büyüt, renk değişimi yok */
         }
 
         .sponsor-card:hover .sponsor-name {
@@ -150,16 +149,6 @@
         <div class="section-title">STRATEGIC PARTNERS</div>
         <div class="sponsor-grid">
             
-            <a href="https://www.flypgs.com" target="_blank" class="sponsor-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Pegasus_Airlines_logo.svg" alt="Pegasus">
-                <div class="sponsor-name">PEGASUS AIRLINES</div>
-            </a>
-
-            <a href="https://www.etietieti.com" target="_blank" class="sponsor-card">
-                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Eti_logo.svg" alt="ETİ">
-                <div class="sponsor-name">ETİ</div>
-            </a>
-
             <a href="https://www.audi.com" target="_blank" class="sponsor-card">
                 <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-2.png?w=300" alt="Audi">
                 <div class="sponsor-name">Audi</div>
@@ -170,6 +159,11 @@
                 <div class="sponsor-name">Starbucks</div>
             </a>
 
+            <a href="https://www.flypgs.com" target="_blank" class="sponsor-card">
+                <img src="https://ttyd.org.tr/wp-content/uploads/2022/01/pegasus-airlines-eps-vector-logo.png" alt="Pegasus">
+                <div class="sponsor-name">PEGASUS AIRLINES</div>
+            </a>
+
             <a href="https://www.burgerking.com" target="_blank" class="sponsor-card">
                 <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-1.png?w=138" alt="Burger King">
                 <div class="sponsor-name">Burger King</div>
@@ -178,6 +172,11 @@
             <a href="https://www.nestle.com" target="_blank" class="sponsor-card">
                 <img src="https://kyrosil.wpcomstaging.com/wp-content/uploads/2025/04/image-3.png?w=300" alt="Nestle">
                 <div class="sponsor-name">Nestle</div>
+            </a>
+
+            <a href="https://www.etietieti.com" target="_blank" class="sponsor-card">
+                 <img src="https://yildizik.org/wp-content/uploads/2021/03/Eti-Logo-1-7.png" alt="ETİ">
+                <div class="sponsor-name">ETİ</div>
             </a>
 
             <a href="https://www.swiss.com" target="_blank" class="sponsor-card">
@@ -221,7 +220,8 @@
             </a>
         </div>
         
-        <div style="height: 50px;"></div> </main>
+        <div style="height: 50px;"></div>
+    </main>
 
     <footer></footer>
 
