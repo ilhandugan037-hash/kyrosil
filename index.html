@@ -1142,7 +1142,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateStats();
     setInterval(updateStats, 60000);
 });
-    </script>
+    
     <!-- Chatbot Butonu -->
 <button class="chatbot-button" id="chatbotButton" aria-label="Canlı Destek">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -1153,22 +1153,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </svg>
 </button>
 
-<!-- Chatbot Penceresi -->
-<div class="chatbot-window" id="chatbotWindow">
-    <div class="chatbot-header">
-        <h3>Kyrosil Rewards Bot AI</h3>
-        <button class="chatbot-close" id="chatbotClose" aria-label="Kapat">×</button>
-    </div>
-    <div class="chatbot-iframe-container">
-        <iframe 
-            src="https://kyrosil.github.io/kyrosilrewards/" 
-            title="Kyrosil Rewards Bot AI"
-            allow="microphone; camera"
-            sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
-        ></iframe>
-    </div>
-</div>
-    <script>
+<script>
 (function() {
     const button = document.getElementById('chatbotButton');
     const chatWindow = document.getElementById('chatbotWindow');
@@ -1176,11 +1161,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Pencereyi aç/kapat
     button.addEventListener('click', function() {
-        chatWindow.classList.toggle('open');
-        
-        if (chatWindow.classList.contains('open')) {
-            button.style.display = 'none';
-        }
+        chatWindow.classList.add('open');
+        button.style.display = 'none';
     });
     
     // Kapat butonu
