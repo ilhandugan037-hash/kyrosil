@@ -621,6 +621,7 @@
     z-index: 9999;
     overflow: hidden;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .chatbot-window.open {
@@ -642,10 +643,13 @@
 .chatbot-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 16px 20px;
+    padding: 16px 70px 16px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    flex-shrink: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .chatbot-header h3 {
@@ -655,23 +659,32 @@
 }
 
 .chatbot-close {
-    background: none;
-    border: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 2px solid white;
     color: white;
     font-size: 24px;
     cursor: pointer;
     padding: 0;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
-    transition: background 0.2s;
+    border-radius: 50%;
+    transition: all 0.3s;
+    flex-shrink: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .chatbot-close:hover {
-    background: rgba(255,255,255,0.2);
+    background: white;
+    color: #667eea;
+    transform: scale(1.15) rotate(90deg);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
 .chatbot-iframe-container {
@@ -723,10 +736,13 @@
     }
     
     .chatbot-close {
-        width: 40px;
-        height: 40px;
-        font-size: 28px;
+        width: 56px;
+        height: 56px;
+        font-size: 32px;
         font-weight: bold;
+        border-width: 3px;
+        top: 12px;
+        right: 12px;
     }
     
     .chatbot-header {
