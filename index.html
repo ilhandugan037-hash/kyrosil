@@ -577,7 +577,7 @@
 .lang-text:first-child {
     color: #fff;
 }
-/* Chatbot Widget Stilleri */
+        /* Chatbot Widget Stilleri */
 .chatbot-button {
     position: fixed;
     bottom: 20px;
@@ -621,7 +621,6 @@
     z-index: 9999;
     overflow: hidden;
     transition: all 0.3s ease;
-    position: relative;
 }
 
 .chatbot-window.open {
@@ -643,13 +642,10 @@
 .chatbot-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 16px 70px 16px 20px;
+    padding: 16px 20px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    flex-shrink: 0;
-    z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .chatbot-header h3 {
@@ -659,32 +655,23 @@
 }
 
 .chatbot-close {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: 2px solid white;
+    background: none;
+    border: none;
     color: white;
     font-size: 24px;
     cursor: pointer;
     padding: 0;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s;
-    flex-shrink: 0;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 10000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-radius: 4px;
+    transition: background 0.2s;
 }
 
 .chatbot-close:hover {
-    background: white;
-    color: #667eea;
-    transform: scale(1.15) rotate(90deg);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    background: rgba(255,255,255,0.2);
 }
 
 .chatbot-iframe-container {
@@ -734,22 +721,8 @@
         bottom: 10px;
         right: 10px;
     }
-    
-    .chatbot-close {
-        width: 56px;
-        height: 56px;
-        font-size: 32px;
-        font-weight: bold;
-        border-width: 3px;
-        top: 12px;
-        right: 12px;
-    }
-    
-    .chatbot-header {
-        padding: 18px 20px;
-    }
 }
-</style>
+    </style>
 </head>
 <body>
 
@@ -1142,7 +1115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateStats();
     setInterval(updateStats, 60000);
 });
-    
+    </script>
     <!-- Chatbot Butonu -->
 <button class="chatbot-button" id="chatbotButton" aria-label="Canlı Destek">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -1153,7 +1126,22 @@ document.addEventListener('DOMContentLoaded', function() {
     </svg>
 </button>
 
-<script>
+<!-- Chatbot Penceresi -->
+<div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header">
+        <h3>Kyrosil Rewards Bot AI</h3>
+        <button class="chatbot-close" id="chatbotClose" aria-label="Kapat">×</button>
+    </div>
+    <div class="chatbot-iframe-container">
+        <iframe 
+            src="https://kyrosil.github.io/kyrosilrewards/" 
+            title="Kyrosil Rewards Bot AI"
+            allow="microphone; camera"
+            sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+        ></iframe>
+    </div>
+</div>
+    <script>
 (function() {
     const button = document.getElementById('chatbotButton');
     const chatWindow = document.getElementById('chatbotWindow');
@@ -1161,8 +1149,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Pencereyi aç/kapat
     button.addEventListener('click', function() {
-        chatWindow.classList.add('open');
-        button.style.display = 'none';
+        chatWindow.classList.toggle('open');
+        
+        if (chatWindow.classList.contains('open')) {
+            button.style.display = 'none';
+        }
     });
     
     // Kapat butonu
